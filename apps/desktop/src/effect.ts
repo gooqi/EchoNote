@@ -1,6 +1,6 @@
 import { Effect } from "effect";
 
-import { type Result } from "@hypr/plugin-listener";
+import { type Result } from "@echonote/plugin-listener";
 
 export const fromResult = <A, E>(
   promise: Promise<Result<A, E>>,

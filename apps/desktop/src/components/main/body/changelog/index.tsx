@@ -1,22 +1,22 @@
 import { CalendarIcon, ExternalLinkIcon, SparklesIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import NoteEditor from "@hypr/tiptap/editor";
-import { md2json } from "@hypr/tiptap/shared";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import NoteEditor from "@echonote/tiptap/editor";
+import { md2json } from "@echonote/tiptap/shared";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@hypr/ui/components/ui/breadcrumb";
-import { Button } from "@hypr/ui/components/ui/button";
+} from "@echonote/ui/components/ui/breadcrumb";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { safeFormat } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { safeFormat } from "@echonote/utils";
 
 import { type Tab } from "../../../../store/zustand/tabs";
 import { StandardTabWrapper } from "../index";
@@ -65,7 +65,7 @@ function parseFrontmatter(content: string): {
 function fixImageUrls(content: string): string {
   return content.replace(
     /!\[([^\]]*)\]\(\/api\/images\/([^)]+)\)/g,
-    "![$1](https://auth.hyprnote.com/storage/v1/object/public/public_images/$2)",
+    "![$1](https://auth.echonote.com/storage/v1/object/public/public_images/$2)",
   );
 }
 
@@ -197,7 +197,7 @@ function ChangelogHeader({
             variant="ghost"
             className="gap-1.5 text-neutral-600 hover:text-black"
             onClick={() =>
-              openerCommands.openUrl("https://hyprnote.com/changelog", null)
+              openerCommands.openUrl("https://echonote.com/changelog", null)
             }
           >
             <ExternalLinkIcon size={14} className="-mt-0.5" />
@@ -212,7 +212,7 @@ function ChangelogHeader({
 async function fetchChangelogFromGitHub(
   version: string,
 ): Promise<string | null> {
-  const url = `https://raw.githubusercontent.com/fastrepl/hyprnote/main/apps/web/content/changelog/${version}.mdx`;
+  const url = `https://raw.githubusercontent.com/fastrepl/echonote/main/apps/web/content/changelog/${version}.mdx`;
   try {
     const response = await fetch(url);
     if (!response.ok) {

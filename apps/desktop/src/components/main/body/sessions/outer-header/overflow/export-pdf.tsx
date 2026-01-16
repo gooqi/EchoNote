@@ -3,11 +3,11 @@ import { save } from "@tauri-apps/plugin-dialog";
 import { FileTextIcon, Loader2Icon } from "lucide-react";
 import { useMemo } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { commands as pdfCommands, type TranscriptItem } from "@hypr/plugin-pdf";
-import { json2md } from "@hypr/tiptap/shared";
-import { DropdownMenuItem } from "@hypr/ui/components/ui/dropdown-menu";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { commands as pdfCommands, type TranscriptItem } from "@echonote/plugin-pdf";
+import { json2md } from "@echonote/tiptap/shared";
+import { DropdownMenuItem } from "@echonote/ui/components/ui/dropdown-menu";
 
 import * as main from "../../../../../../store/tinybase/store/main";
 import { parseTranscriptWords } from "../../../../../../store/transcript/utils";

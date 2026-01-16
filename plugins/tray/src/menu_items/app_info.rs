@@ -11,7 +11,7 @@ use super::MenuItemHandler;
 pub struct AppInfo;
 
 impl MenuItemHandler for AppInfo {
-    const ID: &'static str = "hypr_app_info";
+    const ID: &'static str = "echonote_app_info";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let item = MenuItem::with_id(app, Self::ID, "About Hyprnote", true, None::<&str>)?;

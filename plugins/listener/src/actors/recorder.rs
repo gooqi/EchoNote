@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::sync::Arc;
 use std::time::Instant;
 
-use hypr_audio_utils::{
+use echonote_audio_utils::{
     VorbisEncodeSettings, decode_vorbis_to_mono_wav_file, encode_wav_to_vorbis_file_mono_as_stereo,
     mix_audio_f32,
 };
@@ -184,7 +184,7 @@ impl Actor for RecorderActor {
     }
 }
 
-fn into_actor_err(err: hypr_audio_utils::Error) -> ActorProcessingErr {
+fn into_actor_err(err: echonote_audio_utils::Error) -> ActorProcessingErr {
     Box::new(err)
 }
 

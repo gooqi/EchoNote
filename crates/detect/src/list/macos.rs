@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
 use cidre::core_audio as ca;
-use hypr_bundle::{is_app_bundle, read_bundle_info};
+use echonote_bundle::{is_app_bundle, read_bundle_info};
 use sysinfo::{Pid, System};
 
 use super::InstalledApp;

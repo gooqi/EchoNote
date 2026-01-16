@@ -2,7 +2,7 @@ import {
   commands,
   type ExtensionInfo,
   type PanelInfo,
-} from "@hypr/plugin-extensions";
+} from "@echonote/plugin-extensions";
 
 const loadedPanels: Map<string, PanelInfo> = new Map();
 const extensionPanels: Map<string, PanelInfo[]> = new Map();

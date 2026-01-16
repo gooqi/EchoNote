@@ -1,5 +1,5 @@
-import type { JsonValue } from "@hypr/plugin-fs-sync";
-import type { PromptStorage } from "@hypr/store";
+import type { JsonValue } from "@echonote/plugin-fs-sync";
+import type { PromptStorage } from "@echonote/store";
 
 export function frontmatterToPrompt(
   frontmatter: Record<string, unknown>,

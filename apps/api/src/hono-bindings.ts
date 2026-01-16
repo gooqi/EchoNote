@@ -1,7 +1,7 @@
 import type * as Sentry from "@sentry/bun";
 import type Stripe from "stripe";
 
-import type { SupabaseAuthBindings } from "@hypr/supabase/middleware";
+import type { SupabaseAuthBindings } from "@echonote/supabase/middleware";
 
 import type { Emitter } from "./observability";
 

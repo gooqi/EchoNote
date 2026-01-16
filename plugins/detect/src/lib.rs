@@ -20,7 +20,7 @@ pub type SharedState = Mutex<State>;
 #[derive(Default)]
 pub struct State {
     #[allow(dead_code)]
-    pub(crate) detector: hypr_detect::Detector,
+    pub(crate) detector: echonote_detect::Detector,
     pub(crate) ignored_bundle_ids: Vec<String>,
     pub(crate) respect_do_not_disturb: bool,
 }

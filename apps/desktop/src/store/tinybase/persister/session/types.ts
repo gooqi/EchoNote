@@ -4,7 +4,7 @@ import type {
   SpeakerHintStorage,
   TranscriptStorage,
   WordStorage,
-} from "@hypr/store";
+} from "@echonote/store";
 
 export type ParticipantData = MappingSessionParticipantStorage & { id: string };
 

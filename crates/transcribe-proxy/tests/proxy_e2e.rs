@@ -135,8 +135,8 @@ async fn run_proxy_batch_test<A: BatchSttAdapter>(
         .unwrap_or_else(|_| panic!("{} must be set", provider.env_key_name()));
     let addr = start_server_with_provider(provider, api_key).await;
 
-    let audio_bytes =
-        std::fs::read(hypr_data::english_1::AUDIO_PATH).expect("failed to read test audio file");
+    let audio_bytes = std::fs::read(echonote_data::english_1::AUDIO_PATH)
+        .expect("failed to read test audio file");
 
     let client = reqwest::Client::new();
     let url = format!(
@@ -200,7 +200,7 @@ macro_rules! proxy_live_test {
                         $provider,
                         owhisper_interface::ListenParams {
                             model: Some($provider.default_live_model().to_string()),
-                            languages: vec![hypr_language::ISO639::En.into()],
+                            languages: vec![echonote_language::ISO639::En.into()],
                             sample_rate,
                             ..Default::default()
                         },
@@ -228,7 +228,7 @@ macro_rules! proxy_batch_test {
                         $provider,
                         owhisper_interface::ListenParams {
                             model: Some($provider.default_batch_model().to_string()),
-                            languages: vec![hypr_language::ISO639::En.into()],
+                            languages: vec![echonote_language::ISO639::En.into()],
                             ..Default::default()
                         },
                     )

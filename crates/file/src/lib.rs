@@ -7,8 +7,8 @@ pub use remote::*;
 pub use types::*;
 
 use {
+    echonote_download_interface::DownloadProgress,
     futures_util::{StreamExt, TryStreamExt, stream::FuturesUnordered},
-    hypr_download_interface::DownloadProgress,
     reqwest::StatusCode,
     std::{
         cmp::min,

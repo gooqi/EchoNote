@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { MoreHorizontalIcon } from "lucide-react";
 import { useState } from "react";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
+} from "@echonote/ui/components/ui/dropdown-menu";
 
 import type { EditorView } from "../../../../../../store/zustand/tabs/schema";
 import { useHasTranscript } from "../../shared";

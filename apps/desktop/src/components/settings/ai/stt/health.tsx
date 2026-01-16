@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetch as tauriFetch } from "@tauri-apps/plugin-http";
 
-import { Spinner } from "@hypr/ui/components/ui/spinner";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
 
 import { useConfigValues } from "../../../../config/use-config";
 import { useSTTConnection } from "../../../../hooks/useSTTConnection";
@@ -53,8 +53,8 @@ export function useConnectionHealth(): HealthStatus {
   ] as const);
 
   const isCloud =
-    (current_stt_provider === "hyprnote" && current_stt_model === "cloud") ||
-    current_stt_provider !== "hyprnote";
+    (current_stt_provider === "echonote" && current_stt_model === "cloud") ||
+    current_stt_provider !== "echonote";
   const isDeepgram = current_stt_provider === "deepgram";
 
   const deepgramHealth = useDeepgramHealth(isDeepgram && !!conn, conn?.apiKey);

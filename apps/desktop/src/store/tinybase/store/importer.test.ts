@@ -1,9 +1,9 @@
 import { createMergeableStore } from "tinybase/with-schemas";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
-import { commands as fs2Commands } from "@hypr/plugin-fs2";
-import { commands as settingsCommands } from "@hypr/plugin-settings";
-import { SCHEMA } from "@hypr/store";
+import { commands as fs2Commands } from "@echonote/plugin-fs2";
+import { commands as settingsCommands } from "@echonote/plugin-settings";
+import { SCHEMA } from "@echonote/store";
 
 import { importFromJson } from "./importer";
 import type { Store } from "./main";
@@ -12,7 +12,7 @@ vi.mock("@tauri-apps/api/path", () => ({
   sep: vi.fn(() => "/"),
 }));
 
-vi.mock("@hypr/plugin-settings", () => ({
+vi.mock("@echonote/plugin-settings", () => ({
   commands: {
     settingsBase: vi
       .fn()
@@ -20,7 +20,7 @@ vi.mock("@hypr/plugin-settings", () => ({
   },
 }));
 
-vi.mock("@hypr/plugin-fs2", () => ({
+vi.mock("@echonote/plugin-fs2", () => ({
   commands: {
     readTextFile: vi.fn(),
     remove: vi.fn(),

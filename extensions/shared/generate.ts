@@ -84,11 +84,11 @@ function printGlobalsChecklist(uiModules: UiModuleDefinition[]) {
   for (const [name, config] of Object.entries(CORE_MODULES)) {
     console.log(`  window.${config.global}  // ${name}`);
   }
-  console.log(`  window.${HYPR_MODULES["@hypr/store"].global}  // @hypr/store`);
-  console.log(`  window.${HYPR_MODULES["@hypr/tabs"].global}  // @hypr/tabs`);
-  console.log(`  window.${HYPR_MODULES["@hypr/ui"].global}  // @hypr/ui/*`);
+  console.log(`  window.${HYPR_MODULES["@echonote/store"].global}  // @echonote/store`);
+  console.log(`  window.${HYPR_MODULES["@echonote/tabs"].global}  // @echonote/tabs`);
+  console.log(`  window.${HYPR_MODULES["@echonote/ui"].global}  // @echonote/ui/*`);
   console.log(
-    `\nRequired UI subpaths in window.${HYPR_MODULES["@hypr/ui"].global}:\n`,
+    `\nRequired UI subpaths in window.${HYPR_MODULES["@echonote/ui"].global}:\n`,
   );
   for (const module of uiModules) {
     console.log(`  "${module.subpath}"`);
@@ -105,8 +105,8 @@ async function main() {
   });
 
   const output = env.render("hypr-extension.d.ts.njk", {
-    store: HYPR_MODULES["@hypr/store"],
-    tabs: HYPR_MODULES["@hypr/tabs"],
+    store: HYPR_MODULES["@echonote/store"],
+    tabs: HYPR_MODULES["@echonote/tabs"],
     uiModules,
   });
 

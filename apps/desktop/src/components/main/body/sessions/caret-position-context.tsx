@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 
-import type { TiptapEditor } from "@hypr/tiptap/editor";
+import type { TiptapEditor } from "@echonote/tiptap/editor";
 
 interface CaretPositionContextValue {
   isCaretNearBottom: boolean;

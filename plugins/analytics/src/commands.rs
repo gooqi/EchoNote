@@ -4,7 +4,7 @@ use crate::AnalyticsPluginExt;
 #[specta::specta]
 pub(crate) async fn event<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
-    payload: hypr_analytics::AnalyticsPayload,
+    payload: echonote_analytics::AnalyticsPayload,
 ) -> Result<(), String> {
     app.analytics()
         .event(payload)
@@ -16,7 +16,7 @@ pub(crate) async fn event<R: tauri::Runtime>(
 #[specta::specta]
 pub(crate) async fn set_properties<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
-    payload: hypr_analytics::PropertiesPayload,
+    payload: echonote_analytics::PropertiesPayload,
 ) -> Result<(), String> {
     app.analytics()
         .set_properties(payload)

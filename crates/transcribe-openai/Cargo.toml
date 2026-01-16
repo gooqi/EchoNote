@@ -21,4 +21,4 @@ tracing = { workspace = true }
 async-openai = { workspace = true, features = ["realtime"] }
 
 [dev-dependencies]
-hypr-data = { workspace = true }
+echonote-data = { workspace = true }

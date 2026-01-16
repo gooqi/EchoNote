@@ -2,7 +2,7 @@ import {
   type EventDetails,
   commands as notificationCommands,
   type Participant,
-} from "@hypr/plugin-notification";
+} from "@echonote/plugin-notification";
 
 import type * as main from "../../store/tinybase/store/main";
 import type * as settings from "../../store/tinybase/store/settings";

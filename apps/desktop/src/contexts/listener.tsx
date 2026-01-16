@@ -3,8 +3,8 @@ import React, { createContext, useContext, useEffect, useRef } from "react";
 import { useStore } from "zustand";
 import { useShallow } from "zustand/shallow";
 
-import { events as detectEvents } from "@hypr/plugin-detect";
-import { commands as notificationCommands } from "@hypr/plugin-notification";
+import { events as detectEvents } from "@echonote/plugin-detect";
+import { commands as notificationCommands } from "@echonote/plugin-notification";
 
 import {
   createListenerStore,

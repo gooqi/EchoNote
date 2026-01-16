@@ -7,8 +7,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@hypr/ui/components/ui/select";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/select";
+import { cn } from "@echonote/utils";
 
 import { useAuth } from "../../../../auth";
 import { useBillingAccess } from "../../../../billing";
@@ -23,6 +23,7 @@ import {
   type InputModality,
   type ListModelsResult,
 } from "../shared/list-common";
+import { listDeepSeekModels } from "../shared/list-deepseek";
 import { listGoogleModels } from "../shared/list-google";
 import { listLMStudioModels } from "../shared/list-lmstudio";
 import { listMistralModels } from "../shared/list-mistral";
@@ -96,7 +97,7 @@ export function SelectProviderAndModel() {
             name="provider"
             listeners={{
               onChange: ({ value }) => {
-                if (value === "hyprnote") {
+                if (value === "echonote") {
                   form.setFieldValue("model", "Auto");
                 } else {
                   form.setFieldValue("model", "");
@@ -168,7 +169,7 @@ export function SelectProviderAndModel() {
           <div className="flex items-center gap-2 pt-2 border-t border-red-200">
             <span className="text-sm text-red-600">
               <strong className="font-medium">Language model</strong> is needed
-              to make Hyprnote summarize and chat about your conversations.
+              to make EchoNote summarize and chat about your conversations.
             </span>
           </div>
         )}
@@ -219,7 +220,7 @@ function useConfiguredMapping(): Record<string, ProviderStatus> {
           return [provider.id, { listModels: undefined, proLocked }];
         }
 
-        if (provider.id === "hyprnote") {
+        if (provider.id === "echonote") {
           const result: ListModelsResult = {
             models: ["Auto"],
             ignored: [],
@@ -249,6 +250,9 @@ function useConfiguredMapping(): Record<string, ProviderStatus> {
             break;
           case "mistral":
             listModelsFunc = () => listMistralModels(baseUrl, apiKey);
+            break;
+          case "deepseek":
+            listModelsFunc = () => listDeepSeekModels(baseUrl, apiKey);
             break;
           case "ollama":
             listModelsFunc = () => listOllamaModels(baseUrl, apiKey);

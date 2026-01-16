@@ -14,7 +14,7 @@ use super::{
 impl BatchSttAdapter for DeepgramAdapter {
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         DeepgramAdapter::is_supported_languages_batch(languages, model)
@@ -102,7 +102,7 @@ mod tests {
             ..Default::default()
         };
 
-        let audio_path = std::path::PathBuf::from(hypr_data::english_1::AUDIO_PATH);
+        let audio_path = std::path::PathBuf::from(echonote_data::english_1::AUDIO_PATH);
 
         let result = adapter
             .transcribe_file(

@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "@tanstack/react-router";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { useEffect } from "react";
 
-import { events as windowsEvents } from "@hypr/plugin-windows";
+import { events as windowsEvents } from "@echonote/plugin-windows";
 
 import { AuthProvider } from "../auth";
 import { BillingProvider } from "../billing";

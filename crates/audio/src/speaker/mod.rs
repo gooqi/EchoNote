@@ -138,7 +138,7 @@ impl Stream for SpeakerStream {
     }
 }
 
-impl hypr_audio_interface::AsyncSource for SpeakerStream {
+impl echonote_audio_interface::AsyncSource for SpeakerStream {
     fn as_stream(&mut self) -> impl Stream<Item = f32> + '_ {
         self
     }
@@ -151,7 +151,7 @@ impl hypr_audio_interface::AsyncSource for SpeakerStream {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use hypr_audio_interface::AsyncSource;
+    use echonote_audio_interface::AsyncSource;
     use serial_test::serial;
     use std::sync::atomic::Ordering;
 

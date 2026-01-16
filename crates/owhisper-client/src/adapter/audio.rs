@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use hypr_audio_utils::{Source, f32_to_i16_bytes, resample_audio, source_from_path};
+use echonote_audio_utils::{Source, f32_to_i16_bytes, resample_audio, source_from_path};
 
 use crate::error::Error;
 
@@ -59,7 +59,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_decode_audio_to_linear16() {
-        let path = PathBuf::from(hypr_data::english_1::AUDIO_PATH);
+        let path = PathBuf::from(echonote_data::english_1::AUDIO_PATH);
         let result = decode_audio_to_linear16(path).await;
         assert!(result.is_ok());
         let (bytes, sample_rate) = result.unwrap();
@@ -69,7 +69,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_decode_audio_to_bytes() {
-        let path = PathBuf::from(hypr_data::english_1::AUDIO_PATH);
+        let path = PathBuf::from(echonote_data::english_1::AUDIO_PATH);
         let result = decode_audio_to_bytes(path).await;
         assert!(result.is_ok());
         let bytes = result.unwrap();

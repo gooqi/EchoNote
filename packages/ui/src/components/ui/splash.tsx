@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 const DURATION = 1500;
 const MAX_WORM_LENGTH = 0.6;

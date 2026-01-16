@@ -1,8 +1,8 @@
 import { forwardRef, useMemo } from "react";
 
-import { type JSONContent, TiptapEditor } from "@hypr/tiptap/editor";
-import NoteEditor from "@hypr/tiptap/editor";
-import { EMPTY_TIPTAP_DOC, isValidTiptapContent } from "@hypr/tiptap/shared";
+import { type JSONContent, TiptapEditor } from "@echonote/tiptap/editor";
+import NoteEditor from "@echonote/tiptap/editor";
+import { EMPTY_TIPTAP_DOC, isValidTiptapContent } from "@echonote/tiptap/shared";
 
 import * as main from "../../../../../../store/tinybase/store/main";
 

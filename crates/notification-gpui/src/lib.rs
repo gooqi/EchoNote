@@ -6,8 +6,8 @@ use std::sync::Mutex;
 
 use gpui::{App, AppContext, Entity, WindowHandle, WindowId};
 
+pub use echonote_notification_interface::*;
 pub use gpui::PlatformDisplay;
-pub use hypr_notification_interface::*;
 
 pub use theme::NotificationTheme;
 pub use toast::StatusToast;

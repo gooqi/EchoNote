@@ -1,1 +1,1 @@
-export type { ExtensionViewProps } from "@hypr/plugin-extensions";
+export type { ExtensionViewProps } from "@echonote/plugin-extensions";

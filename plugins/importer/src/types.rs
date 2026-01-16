@@ -61,7 +61,7 @@ impl ImportSource {
     }
 
     pub fn granola() -> Option<Self> {
-        let path = hypr_granola::default_supabase_path();
+        let path = echonote_granola::default_supabase_path();
         Some(Self {
             kind: Some(ImportSourceKind::Granola),
             transform: TransformKind::Granola,

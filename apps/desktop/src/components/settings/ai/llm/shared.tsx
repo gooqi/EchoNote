@@ -1,6 +1,7 @@
 import { Icon } from "@iconify-icon/react";
 import {
   Anthropic,
+  DeepSeek,
   LmStudio,
   Mistral,
   Ollama,
@@ -28,10 +29,10 @@ type Provider = {
 
 const _PROVIDERS = [
   {
-    id: "hyprnote",
-    displayName: "Hyprnote",
+    id: "echonote",
+    displayName: "EchoNote",
     badge: "Recommended",
-    icon: <img src="/assets/icon.png" alt="Hyprnote" className="size-5" />,
+    icon: <img src="/assets/icon.png" alt="EchoNote" className="size-5" />,
     baseUrl: new URL("/llm", env.VITE_AI_URL).toString(),
     requirements: [
       { kind: "requires_auth" },
@@ -84,6 +85,14 @@ const _PROVIDERS = [
     badge: null,
     icon: <Mistral size={16} />,
     baseUrl: "https://api.mistral.ai/v1",
+    requirements: [{ kind: "requires_config", fields: ["api_key"] }],
+  },
+  {
+    id: "deepseek",
+    displayName: "DeepSeek",
+    badge: null,
+    icon: <DeepSeek size={16} />,
+    baseUrl: "https://api.deepseek.com/v1",
     requirements: [{ kind: "requires_config", fields: ["api_key"] }],
   },
   {

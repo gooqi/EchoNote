@@ -10,7 +10,7 @@ import {
 import {
   commands as localSttCommands,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
+} from "@echonote/plugin-local-stt";
 
 import { useBillingAccess } from "../../../../billing";
 import { useConfigValues } from "../../../../config/use-config";
@@ -40,7 +40,7 @@ export function SttSettingsProvider({
   const hasSttConfigured = !!(current_stt_provider && current_stt_model);
 
   const [accordionValue, setAccordionValue] = useState<string>(
-    hasSttConfigured ? "" : "hyprnote",
+    hasSttConfigured ? "" : "echonote",
   );
   const [shouldHighlight, setShouldHighlight] = useState(false);
   const { upgradeToPro } = useBillingAccess();
@@ -51,7 +51,7 @@ export function SttSettingsProvider({
 
   useEffect(() => {
     if (toastActionTarget === "stt") {
-      setAccordionValue("hyprnote");
+      setAccordionValue("echonote");
       setShouldHighlight(true);
 
       const timer = setTimeout(() => {
@@ -73,7 +73,7 @@ export function SttSettingsProvider({
   }, [hasSttConfigured, shouldHighlight]);
 
   const openHyprAccordion = useCallback(() => {
-    setAccordionValue("hyprnote");
+    setAccordionValue("echonote");
   }, []);
 
   const startDownload = useCallback(

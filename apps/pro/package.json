@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/pro",
+  "name": "@echonote/pro",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",

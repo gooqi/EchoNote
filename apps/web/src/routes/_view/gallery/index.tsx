@@ -9,8 +9,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import { DownloadButton } from "@/components/download-button";
 import { SlashSeparator } from "@/components/slash-separator";

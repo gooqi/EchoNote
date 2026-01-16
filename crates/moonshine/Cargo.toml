@@ -5,12 +5,12 @@ edition = "2024"
 
 [features]
 default = []
-cuda = ["hypr-onnx/cuda"]
-coreml = ["hypr-onnx/coreml"]
-directml = ["hypr-onnx/directml"]
+cuda = ["echonote-onnx/cuda"]
+coreml = ["echonote-onnx/coreml"]
+directml = ["echonote-onnx/directml"]
 
 [dependencies]
-hypr-onnx = { workspace = true }
+echonote-onnx = { workspace = true }
 owhisper-config = { workspace = true }
 
 thiserror = { workspace = true }
@@ -18,5 +18,5 @@ tokenizers = { workspace = true }
 
 [dev-dependencies]
 dirs = { workspace = true }
-hypr-data = { workspace = true }
+echonote-data = { workspace = true }
 rodio = { workspace = true }

@@ -9,8 +9,8 @@ const command = args[0];
 function createHyprExternalsPlugin(): esbuild.Plugin {
   const allModules = {
     ...CORE_MODULES,
-    "@hypr/store": HYPR_MODULES["@hypr/store"],
-    "@hypr/tabs": HYPR_MODULES["@hypr/tabs"],
+    "@echonote/store": HYPR_MODULES["@echonote/store"],
+    "@echonote/tabs": HYPR_MODULES["@echonote/tabs"],
     hyprnote: { global: "__hyprnote" },
   };
 
@@ -40,16 +40,16 @@ function createHyprExternalsPlugin(): esbuild.Plugin {
           };
         }
 
-        if (args.path.startsWith("@hypr/ui")) {
-          const subpath = args.path.replace("@hypr/ui", "").replace(/^\//, "");
+        if (args.path.startsWith("@echonote/ui")) {
+          const subpath = args.path.replace("@echonote/ui", "").replace(/^\//, "");
           if (subpath) {
             return {
-              contents: `module.exports = window.${HYPR_MODULES["@hypr/ui"].global}["${subpath}"]`,
+              contents: `module.exports = window.${HYPR_MODULES["@echonote/ui"].global}["${subpath}"]`,
               loader: "js",
             };
           }
           return {
-            contents: `module.exports = window.${HYPR_MODULES["@hypr/ui"].global}`,
+            contents: `module.exports = window.${HYPR_MODULES["@echonote/ui"].global}`,
             loader: "js",
           };
         }

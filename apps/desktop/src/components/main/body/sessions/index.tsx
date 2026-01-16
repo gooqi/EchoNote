@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { cn } from "@hypr/utils";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { cn } from "@echonote/utils";
 
 import AudioPlayer from "../../../../contexts/audio-player";
 import { useListener } from "../../../../contexts/listener";
@@ -161,7 +161,7 @@ function TabContentNoteInner({
   const showSearchBar = search?.isVisible ?? false;
   const titleInputRef = React.useRef<HTMLInputElement>(null);
   const noteInputRef = React.useRef<{
-    editor: import("@hypr/tiptap/editor").TiptapEditor | null;
+    editor: import("@echonote/tiptap/editor").TiptapEditor | null;
   }>(null);
 
   const currentView = useCurrentNoteTab(tab);
@@ -300,7 +300,7 @@ function StatusBanner({
             skipReason ? "text-red-400" : "text-stone-300",
           ])}
         >
-          {skipReason || "Ask for consent when using Hyprnote"}
+          {skipReason || "Ask for consent when using EchoNote"}
         </motion.div>
       )}
     </AnimatePresence>,

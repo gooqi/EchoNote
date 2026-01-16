@@ -1,9 +1,9 @@
-import { commands as openerCommands } from "@hypr/plugin-opener2";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@hypr/ui/components/ui/accordion";
+} from "@echonote/ui/components/ui/accordion";
 
 import { usePermission } from "../../../../../hooks/usePermissions";
 import { StyledStreamdown } from "../../../ai/shared";

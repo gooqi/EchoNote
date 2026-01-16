@@ -1,8 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-import { getRpcCanStartTrial } from "@hypr/api-client";
-import { createClient } from "@hypr/api-client/client";
+import { getRpcCanStartTrial } from "@echonote/api-client";
+import { createClient } from "@echonote/api-client/client";
 
 import { env } from "@/env";
 import { getStripeClient } from "@/functions/stripe";

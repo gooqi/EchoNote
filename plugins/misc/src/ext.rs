@@ -10,11 +10,11 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Misc<'a, R, M> {
     }
 
     pub fn get_fingerprint(&self) -> String {
-        hypr_host::fingerprint()
+        echonote_host::fingerprint()
     }
 
     pub fn opinionated_md_to_html(&self, text: impl AsRef<str>) -> Result<String, String> {
-        hypr_buffer::opinionated_md_to_html(text.as_ref()).map_err(|e| e.to_string())
+        echonote_buffer::opinionated_md_to_html(text.as_ref()).map_err(|e| e.to_string())
     }
 
     pub fn parse_meeting_link(&self, text: impl AsRef<str>) -> Option<String> {

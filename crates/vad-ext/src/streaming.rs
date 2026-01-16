@@ -1,5 +1,5 @@
-use hypr_audio_utils::f32_to_i16_samples;
-use hypr_vvad::VoiceActivityDetector;
+use echonote_audio_utils::f32_to_i16_samples;
+use echonote_vvad::VoiceActivityDetector;
 
 #[derive(Clone, Debug)]
 pub struct VadConfig {
@@ -33,7 +33,7 @@ impl StreamingVad {
     }
 
     pub fn with_config(frame_hint: usize, cfg: VadConfig) -> Self {
-        let frame_size = hypr_vad3::choose_optimal_frame_size(frame_hint);
+        let frame_size = echonote_vad3::choose_optimal_frame_size(frame_hint);
         debug_assert!(frame_size > 0, "VAD frame size must be > 0");
 
         Self {

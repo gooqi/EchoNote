@@ -1,4 +1,4 @@
-import { Switch } from "@hypr/ui/components/ui/switch";
+import { Switch } from "@echonote/ui/components/ui/switch";
 
 interface SettingItem {
   title: string;

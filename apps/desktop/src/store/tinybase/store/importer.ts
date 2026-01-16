@@ -1,10 +1,10 @@
 import { sep } from "@tauri-apps/api/path";
 import { createMergeableStore } from "tinybase/with-schemas";
 
-import { commands as fs2Commands } from "@hypr/plugin-fs2";
-import { commands as settingsCommands } from "@hypr/plugin-settings";
-import { SCHEMA } from "@hypr/store";
-import { isValidTiptapContent, md2json } from "@hypr/tiptap/shared";
+import { commands as fs2Commands } from "@echonote/plugin-fs2";
+import { commands as settingsCommands } from "@echonote/plugin-settings";
+import { SCHEMA } from "@echonote/store";
+import { isValidTiptapContent, md2json } from "@echonote/tiptap/shared";
 
 import type { Store } from "./main";
 

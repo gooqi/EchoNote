@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { Fragment, useRef, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { DownloadButton } from "@/components/download-button";
 import { Image } from "@/components/image";

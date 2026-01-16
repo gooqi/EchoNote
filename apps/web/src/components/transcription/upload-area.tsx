@@ -1,7 +1,7 @@
 import { Upload } from "lucide-react";
 import { useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export function UploadArea({
   onFileSelect,

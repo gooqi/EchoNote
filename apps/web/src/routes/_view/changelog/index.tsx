@@ -4,7 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Download } from "lucide-react";
 import semver from "semver";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { type ChangelogWithMeta, getChangelogList } from "@/changelog";
 import { defaultMDXComponents } from "@/components/mdx";

@@ -35,7 +35,7 @@ impl CommandBuilder {
 pub struct ExternalSTTArgs {
     pub cmd_builder: CommandBuilder,
     pub api_key: String,
-    pub model: hypr_am::AmModel,
+    pub model: echonote_am::AmModel,
     pub models_dir: PathBuf,
     pub port: u16,
 }
@@ -44,7 +44,7 @@ impl ExternalSTTArgs {
     pub fn new(
         cmd_builder: CommandBuilder,
         api_key: String,
-        model: hypr_am::AmModel,
+        model: echonote_am::AmModel,
         models_dir: PathBuf,
         port: u16,
     ) -> Self {
@@ -61,9 +61,9 @@ impl ExternalSTTArgs {
 pub struct ExternalSTTState {
     base_url: String,
     api_key: Option<String>,
-    model: hypr_am::AmModel,
+    model: echonote_am::AmModel,
     models_dir: PathBuf,
-    client: hypr_am::Client,
+    client: echonote_am::Client,
     process_handle: Option<CommandChild>,
     task_handle: Option<tokio::task::JoinHandle<()>>,
 }
@@ -97,7 +97,7 @@ fn cleanup_state(state: &mut ExternalSTTState) {
     }
 
     if kill_failed {
-        hypr_host::kill_processes_by_matcher(hypr_host::ProcessMatcher::Sidecar);
+        echonote_host::kill_processes_by_matcher(echonote_host::ProcessMatcher::Sidecar);
     }
 
     if let Some(task) = state.task_handle.take() {
@@ -127,7 +127,7 @@ impl Actor for ExternalSTTActor {
         let cmd = cmd_builder.build()?;
         let (mut rx, child) = cmd.args(["--port", &port.to_string()]).spawn()?;
         let base_url = format!("http://localhost:{}/v1", port);
-        let client = hypr_am::Client::new(&base_url);
+        let client = echonote_am::Client::new(&base_url);
 
         let task_handle = tokio::spawn(async move {
             loop {
@@ -190,7 +190,7 @@ impl Actor for ExternalSTTActor {
             state
                 .client
                 .init(
-                    hypr_am::InitRequest::new(api_key.clone())
+                    echonote_am::InitRequest::new(api_key.clone())
                         .with_model(model.clone(), &models_dir),
                 )
                 .await
@@ -234,8 +234,8 @@ impl Actor for ExternalSTTActor {
             ExternalSTTMessage::GetHealth(reply_port) => {
                 let status = match state.client.status().await {
                     Ok(r) => match r.status {
-                        hypr_am::ServerStatusType::Ready => ServerStatus::Ready,
-                        hypr_am::ServerStatusType::Initializing => ServerStatus::Loading,
+                        echonote_am::ServerStatusType::Ready => ServerStatus::Ready,
+                        echonote_am::ServerStatusType::Initializing => ServerStatus::Loading,
                         _ => ServerStatus::Unreachable,
                     },
                     Err(e) => {

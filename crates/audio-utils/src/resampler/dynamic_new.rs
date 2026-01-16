@@ -2,8 +2,8 @@ use std::pin::Pin;
 use std::task::{Context, Poll};
 
 use super::driver::RubatoChunkResampler;
+use echonote_audio_interface::AsyncSource;
 use futures_util::{Stream, pin_mut};
-use hypr_audio_interface::AsyncSource;
 use rubato::{FastFixedIn, PolynomialDegree};
 
 pub trait ResampleExtDynamicNew: AsyncSource + Sized + Unpin {

@@ -14,11 +14,11 @@ tauri-plugin = { workspace = true, features = ["build"] }
 specta-typescript = { workspace = true }
 
 [dependencies]
-hypr-db-user = { workspace = true }
-hypr-detect = { workspace = true }
-hypr-host = { workspace = true }
-hypr-intercept = { workspace = true }
-hypr-notification = { workspace = true, features = ["legacy"] }
+echonote-db-user = { workspace = true }
+echonote-detect = { workspace = true }
+echonote-host = { workspace = true }
+echonote-intercept = { workspace = true }
+echonote-notification = { workspace = true, features = ["legacy"] }
 
 tauri-plugin-analytics = { workspace = true }
 tauri-plugin-dialog = { workspace = true }

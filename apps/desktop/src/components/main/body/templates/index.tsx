@@ -16,26 +16,26 @@ import {
 } from "react";
 import { createQueries } from "tinybase/with-schemas";
 
-import type { Template, TemplateSection, TemplateStorage } from "@hypr/store";
-import { Button } from "@hypr/ui/components/ui/button";
+import type { Template, TemplateSection, TemplateStorage } from "@echonote/store";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
+} from "@echonote/ui/components/ui/dropdown-menu";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
-import { Switch } from "@hypr/ui/components/ui/switch";
+} from "@echonote/ui/components/ui/resizable";
+import { Switch } from "@echonote/ui/components/ui/switch";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import * as main from "../../../../store/tinybase/store/main";
 import { type Tab, useTabs } from "../../../../store/zustand/tabs";

@@ -7,7 +7,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Database2<'a, R, M> {
     pub async fn init_local(&self) -> Result<(), crate::Error> {
         let db = {
             if cfg!(debug_assertions) {
-                hypr_db_core::DatabaseBuilder::default()
+                echonote_db_core::DatabaseBuilder::default()
                     .memory()
                     .build()
                     .await
@@ -17,7 +17,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Database2<'a, R, M> {
                 let dir_path = self.manager.settings().settings_base()?;
                 let file_path = dir_path.join("db.sqlite");
 
-                hypr_db_core::DatabaseBuilder::default()
+                echonote_db_core::DatabaseBuilder::default()
                     .local(file_path)
                     .build()
                     .await
@@ -72,19 +72,19 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Database2<'a, R, M> {
                             for idx in 0..row.column_count() {
                                 if let Some(column_name) = row.column_name(idx) {
                                     let value = match row.get_value(idx) {
-                                        Ok(hypr_db_core::libsql::Value::Null) => {
+                                        Ok(echonote_db_core::libsql::Value::Null) => {
                                             serde_json::Value::Null
                                         }
-                                        Ok(hypr_db_core::libsql::Value::Integer(i)) => {
+                                        Ok(echonote_db_core::libsql::Value::Integer(i)) => {
                                             serde_json::json!(i)
                                         }
-                                        Ok(hypr_db_core::libsql::Value::Real(f)) => {
+                                        Ok(echonote_db_core::libsql::Value::Real(f)) => {
                                             serde_json::json!(f)
                                         }
-                                        Ok(hypr_db_core::libsql::Value::Text(s)) => {
+                                        Ok(echonote_db_core::libsql::Value::Text(s)) => {
                                             serde_json::json!(s)
                                         }
-                                        Ok(hypr_db_core::libsql::Value::Blob(b)) => {
+                                        Ok(echonote_db_core::libsql::Value::Blob(b)) => {
                                             serde_json::json!(b)
                                         }
                                         Err(_) => serde_json::Value::Null,

@@ -10,7 +10,7 @@ import type {
   SessionsState,
   TabInput,
   TemplatesState,
-} from "@hypr/plugin-windows";
+} from "@echonote/plugin-windows";
 
 export type {
   AiState,

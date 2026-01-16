@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/extension-calendar",
+  "name": "@echonote/extension-calendar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

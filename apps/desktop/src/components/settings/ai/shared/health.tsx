@@ -4,8 +4,8 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 type Props =
   | { status?: "success" | null }

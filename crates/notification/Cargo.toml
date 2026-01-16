@@ -5,18 +5,18 @@ edition = "2024"
 
 [features]
 default = ["legacy"]
-legacy = ["dep:hypr-notification-macos", "dep:hypr-notification-linux"]
-new = ["dep:hypr-notification-gpui"]
+legacy = ["dep:echonote-notification-macos", "dep:echonote-notification-linux"]
+new = ["dep:echonote-notification-gpui"]
 
 [dependencies]
 serde = { workspace = true, features = ["derive"] }
 tracing = { workspace = true }
 
-hypr-notification-gpui = { path = "../notification-gpui", package = "notification-gpui", optional = true }
-hypr-notification-interface = { workspace = true }
+echonote-notification-gpui = { path = "../notification-gpui", package = "notification-gpui", optional = true }
+echonote-notification-interface = { workspace = true }
 
 [target.'cfg(target_os = "macos")'.dependencies]
-hypr-notification-macos = { path = "../notification-macos", package = "notification-macos", optional = true }
+echonote-notification-macos = { path = "../notification-macos", package = "notification-macos", optional = true }
 
 [target.'cfg(target_os = "linux")'.dependencies]
-hypr-notification-linux = { path = "../notification-linux", package = "notification-linux", optional = true }
+echonote-notification-linux = { path = "../notification-linux", package = "notification-linux", optional = true }

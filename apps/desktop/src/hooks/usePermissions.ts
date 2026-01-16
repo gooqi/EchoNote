@@ -5,7 +5,7 @@ import {
   type Permission,
   commands as permissionsCommands,
   type PermissionStatus,
-} from "@hypr/plugin-permissions";
+} from "@echonote/plugin-permissions";
 
 import { relaunch } from "../store/tinybase/store/save";
 

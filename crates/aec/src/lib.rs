@@ -1,7 +1,7 @@
 use realfft::{ComplexToReal, RealFftPlanner, RealToComplex, num_complex::Complex};
 use std::sync::Arc;
 
-use hypr_onnx::{
+use echonote_onnx::{
     ndarray::{Array3, Array4},
     ort::{session::Session, value::TensorRef},
 };
@@ -117,8 +117,8 @@ impl AEC {
         let fft = fft_planner.plan_fft_forward(block_len);
         let ifft = fft_planner.plan_fft_inverse(block_len);
 
-        let session_1 = hypr_onnx::load_model_from_bytes(model::BYTES_1)?;
-        let session_2 = hypr_onnx::load_model_from_bytes(model::BYTES_2)?;
+        let session_1 = echonote_onnx::load_model_from_bytes(model::BYTES_1)?;
+        let session_2 = echonote_onnx::load_model_from_bytes(model::BYTES_2)?;
 
         let state_size = model::STATE_SIZE;
 
@@ -171,8 +171,8 @@ impl AEC {
         &mut self,
         in_mag: &Array3<f32>,
         lpb_mag: &Array3<f32>,
-    ) -> Result<hypr_onnx::ndarray::Array1<f32>, crate::Error> {
-        let mut outputs = self.session_1.run(hypr_onnx::ort::inputs![
+    ) -> Result<echonote_onnx::ndarray::Array1<f32>, crate::Error> {
+        let mut outputs = self.session_1.run(echonote_onnx::ort::inputs![
             TensorRef::from_array_view(in_mag.view())?,
             TensorRef::from_array_view(self.states_1.view())?,
             TensorRef::from_array_view(lpb_mag.view())?
@@ -201,8 +201,8 @@ impl AEC {
         &mut self,
         estimated_block: &Array3<f32>,
         in_lpb: &Array3<f32>,
-    ) -> Result<hypr_onnx::ndarray::Array1<f32>, crate::Error> {
-        let mut outputs = self.session_2.run(hypr_onnx::ort::inputs![
+    ) -> Result<echonote_onnx::ndarray::Array1<f32>, crate::Error> {
+        let mut outputs = self.session_2.run(echonote_onnx::ort::inputs![
             TensorRef::from_array_view(estimated_block.view())?,
             TensorRef::from_array_view(self.states_2.view())?,
             TensorRef::from_array_view(in_lpb.view())?
@@ -356,8 +356,8 @@ impl AEC {
 
             // Shift output buffer and accumulate
             let out_slice = out_block_1d.as_slice().ok_or_else(|| {
-                Error::ShapeError(hypr_onnx::ndarray::ShapeError::from_kind(
-                    hypr_onnx::ndarray::ErrorKind::IncompatibleLayout,
+                Error::ShapeError(echonote_onnx::ndarray::ShapeError::from_kind(
+                    echonote_onnx::ndarray::ErrorKind::IncompatibleLayout,
                 ))
             })?;
             self.out_buffer.shift_and_accumulate(out_slice);

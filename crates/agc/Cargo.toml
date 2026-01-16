@@ -4,12 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [dev-dependencies]
+echonote-data = { workspace = true }
 hound = { workspace = true }
-hypr-data = { workspace = true }
 rodio = { workspace = true }
 
 [dependencies]
-hypr-audio-utils = { workspace = true }
-hypr-vad-ext = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-vad-ext = { workspace = true }
 
 dagc = "0.1.1"

@@ -15,8 +15,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useResizeObserver } from "usehooks-ts";
 
-import { Kbd } from "@hypr/ui/components/ui/kbd";
-import { cn } from "@hypr/utils";
+import { Kbd } from "@echonote/ui/components/ui/kbd";
+import { cn } from "@echonote/utils";
 
 import { useAuth } from "../../../../auth";
 import { useFeedbackModal } from "../../../../components/feedback/feedback-modal";

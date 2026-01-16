@@ -7,12 +7,12 @@ import {
   commands as detectCommands,
   type InstalledApp,
   type Result,
-} from "@hypr/plugin-detect";
-import { commands as notificationCommands } from "@hypr/plugin-notification";
-import { Badge } from "@hypr/ui/components/ui/badge";
-import { Button } from "@hypr/ui/components/ui/button";
-import { Switch } from "@hypr/ui/components/ui/switch";
-import { cn } from "@hypr/utils";
+} from "@echonote/plugin-detect";
+import { commands as notificationCommands } from "@echonote/plugin-notification";
+import { Badge } from "@echonote/ui/components/ui/badge";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Switch } from "@echonote/ui/components/ui/switch";
+import { cn } from "@echonote/utils";
 
 import { useConfigValues } from "../../../config/use-config";
 import * as settings from "../../../store/tinybase/store/settings";
@@ -387,7 +387,7 @@ export function NotificationSettingsView() {
                   Quit intercept (Read-only)
                 </h3>
                 <p className="text-xs text-neutral-600">
-                  Prevents Hyprnote from quitting, which is required for
+                  Prevents EchoNote from quitting, which is required for
                   notifications to work.
                 </p>
               </div>

@@ -4,4 +4,4 @@ pub use error::*;
 mod task;
 pub use task::*;
 
-pub use hypr_llm_interface::ModelManager;
+pub use echonote_llm_interface::ModelManager;

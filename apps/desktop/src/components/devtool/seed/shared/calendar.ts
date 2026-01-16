@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { AppleCalendar } from "@hypr/plugin-apple-calendar";
-import type { Calendar } from "@hypr/store";
+import type { AppleCalendar } from "@echonote/plugin-apple-calendar";
+import type { Calendar } from "@echonote/store";
 
 import { DEFAULT_USER_ID, id } from "../../../../utils";
 

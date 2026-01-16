@@ -7,9 +7,9 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
-import { useIsMobile } from "@hypr/ui/hooks/use-mobile";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/resizable";
+import { useIsMobile } from "@echonote/ui/hooks/use-mobile";
+import { cn } from "@echonote/utils";
 
 import { Image } from "@/components/image";
 import { MockWindow } from "@/components/mock-window";

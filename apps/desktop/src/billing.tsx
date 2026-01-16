@@ -7,7 +7,7 @@ import {
   useMemo,
 } from "react";
 
-import { commands as openerCommands } from "@hypr/plugin-opener2";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
 
 import { useAuth } from "./auth";
 import { env } from "./env";
@@ -43,7 +43,7 @@ export function BillingProvider({ children }: { children: ReactNode }) {
   }, [auth?.session?.access_token]);
 
   const isPro = useMemo(
-    () => entitlements.includes("hyprnote_pro"),
+    () => entitlements.includes("echonote_pro"),
     [entitlements],
   );
 

@@ -1,5 +1,5 @@
-import type { HumanStorage } from "@hypr/store";
-import type { Schemas } from "@hypr/store";
+import type { HumanStorage } from "@echonote/store";
+import type { Schemas } from "@echonote/store";
 
 import type { Store } from "../../store/main";
 import { createMarkdownDirPersister } from "../factories";

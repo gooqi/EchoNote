@@ -1,20 +1,20 @@
 import { AlertCircleIcon, PlusIcon, RefreshCwIcon, XIcon } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { md2json } from "@hypr/tiptap/shared";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { md2json } from "@echonote/tiptap/shared";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
+} from "@echonote/ui/components/ui/popover";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
+import { cn } from "@echonote/utils";
 
 import { useAudioPlayer } from "../../../../../contexts/audio-player/provider";
 import { useListener } from "../../../../../contexts/listener";

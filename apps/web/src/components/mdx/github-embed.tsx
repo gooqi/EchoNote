@@ -6,7 +6,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
+} from "@echonote/ui/components/ui/tooltip";
 
 export function GithubEmbed({
   code,

@@ -13,7 +13,7 @@ import {
   events as localSttEvents,
   type ServerStatus,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
+} from "@echonote/plugin-local-stt";
 
 import type { DownloadProgress } from "../components/main/sidebar/toast/types";
 import { useConfigValues } from "../config/use-config";
@@ -63,7 +63,7 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
 
   const sttModel = current_stt_model as string | undefined;
   const isLocalSttModel =
-    current_stt_provider === "hyprnote" &&
+    current_stt_provider === "echonote" &&
     !!sttModel &&
     (sttModel.startsWith("am-") || sttModel.startsWith("Quantized"));
 

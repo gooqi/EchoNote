@@ -1,7 +1,7 @@
 import { LogIn } from "lucide-react";
 import { useCallback } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 
 import { useTabs } from "../../../../store/zustand/tabs";
 

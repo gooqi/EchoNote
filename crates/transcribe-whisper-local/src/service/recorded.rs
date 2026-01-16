@@ -7,31 +7,31 @@ pub fn process_recorded(
     let samples = {
         use rodio::Source;
 
-        let source = hypr_audio_utils::source_from_path(audio_path.as_ref()).unwrap();
+        let source = echonote_audio_utils::source_from_path(audio_path.as_ref()).unwrap();
         let original_sample_rate = source.sample_rate();
 
         let resampled_samples = if original_sample_rate != 16000 {
-            hypr_audio_utils::resample_audio(source, 16000).unwrap()
+            echonote_audio_utils::resample_audio(source, 16000).unwrap()
         } else {
             source.collect()
         };
 
-        hypr_audio_utils::f32_to_i16_samples(&resampled_samples)
+        echonote_audio_utils::f32_to_i16_samples(&resampled_samples)
     };
 
-    let mut model = hypr_whisper_local::Whisper::builder()
+    let mut model = echonote_whisper_local::Whisper::builder()
         .model_path(model_path.as_ref().to_str().unwrap())
         .languages(vec![])
         .build()
         .unwrap();
 
-    let mut segmenter = hypr_pyannote_local::segmentation::Segmenter::new(16000).unwrap();
+    let mut segmenter = echonote_pyannote_local::segmentation::Segmenter::new(16000).unwrap();
     let segments = segmenter.process(&samples, 16000).unwrap();
 
     let mut words = Vec::new();
 
     for segment in segments {
-        let audio_f32 = hypr_audio_utils::i16_to_f32_samples(&segment.samples);
+        let audio_f32 = echonote_audio_utils::i16_to_f32_samples(&segment.samples);
 
         let whisper_segments = model.transcribe(&audio_f32).unwrap();
 

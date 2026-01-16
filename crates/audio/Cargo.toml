@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-hypr-audio-interface = { workspace = true }
-hypr-audio-utils = { workspace = true }
+echonote-audio-interface = { workspace = true }
+echonote-audio-utils = { workspace = true }
 
 anyhow = { workspace = true }
 thiserror = { workspace = true }
@@ -36,8 +36,8 @@ wasapi = "0.19.0"
 libpulse-binding = "2.30.1"
 
 [dev-dependencies]
+echonote-audio-utils = { workspace = true }
+echonote-data = { workspace = true }
 hound = { workspace = true }
-hypr-audio-utils = { workspace = true }
-hypr-data = { workspace = true }
 rodio = { workspace = true }
 serial_test = { workspace = true }

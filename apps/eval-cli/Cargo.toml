@@ -15,5 +15,5 @@ comfy-table = "7"
 indicatif = "0.17"
 serde_json = { workspace = true }
 
-hypr-eval = { workspace = true }
-hypr-template-eval = { workspace = true }
+echonote-eval = { workspace = true }
+echonote-template-eval = { workspace = true }

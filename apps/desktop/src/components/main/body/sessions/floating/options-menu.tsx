@@ -9,21 +9,21 @@ import {
 } from "lucide-react";
 import { useCallback, useState } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { commands as listener2Commands } from "@hypr/plugin-listener2";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { commands as listener2Commands } from "@echonote/plugin-listener2";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
+} from "@echonote/ui/components/ui/popover";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import { fromResult } from "../../../../../effect";
 import { useRunBatch } from "../../../../../hooks/useRunBatch";

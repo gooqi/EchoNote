@@ -17,8 +17,8 @@ use axum::{
 use futures_util::{SinkExt, StreamExt};
 use tower::Service;
 
-use hypr_moonshine::MoonshineOnnxModel;
-use hypr_vad_ext::VadExt;
+use echonote_moonshine::MoonshineOnnxModel;
+use echonote_vad_ext::VadExt;
 
 use owhisper_config::MoonshineModelSize;
 use owhisper_interface::ListenParams;
@@ -175,7 +175,7 @@ async fn handle_single_channel(
     model: Arc<Mutex<MoonshineOnnxModel>>,
     redemption_time: Duration,
 ) {
-    let audio_source = hypr_ws_utils::WebSocketAudioSource::new(ws_receiver, 16 * 1000);
+    let audio_source = echonote_ws_utils::WebSocketAudioSource::new(ws_receiver, 16 * 1000);
     let vad_chunks = audio_source.speech_chunks(redemption_time);
 
     let stream = process_vad_stream(vad_chunks, model, "mixed");
@@ -190,7 +190,7 @@ async fn handle_dual_channel(
     redemption_time: Duration,
 ) {
     let (mic_source, speaker_source) =
-        hypr_ws_utils::split_dual_audio_sources(ws_receiver, 16 * 1000);
+        echonote_ws_utils::split_dual_audio_sources(ws_receiver, 16 * 1000);
 
     let mic_stream = {
         let mic_vad_chunks = mic_source.speech_chunks(redemption_time);
@@ -228,7 +228,7 @@ fn process_vad_stream<S, E>(
     source_name: &str,
 ) -> impl futures_util::Stream<Item = StreamResponse>
 where
-    S: futures_util::Stream<Item = Result<hypr_vad_ext::AudioChunk, E>>,
+    S: futures_util::Stream<Item = Result<echonote_vad_ext::AudioChunk, E>>,
     E: std::fmt::Display,
 {
     let source_name = source_name.to_string();

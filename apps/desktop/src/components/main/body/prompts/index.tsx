@@ -5,7 +5,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
+} from "@echonote/ui/components/ui/resizable";
 
 import type { TaskType } from "../../../../store/tinybase/store/prompts";
 import { type Tab, useTabs } from "../../../../store/zustand/tabs";

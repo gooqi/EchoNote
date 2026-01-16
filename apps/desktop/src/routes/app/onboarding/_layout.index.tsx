@@ -4,7 +4,7 @@ import { Volume2Icon, VolumeXIcon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { z } from "zod";
 
-import { commands as sfxCommands } from "@hypr/plugin-sfx";
+import { commands as sfxCommands } from "@echonote/plugin-sfx";
 
 import {
   type NavigateTarget,

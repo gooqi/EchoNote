@@ -32,7 +32,7 @@ export const CORE_MODULES = {
 } as const satisfies Record<string, ModuleConfig>;
 
 export const HYPR_MODULES = {
-  "@hypr/tabs": {
+  "@echonote/tabs": {
     global: "__hypr_tabs",
     description: "Tab navigation (open sessions, events, etc.)",
     exports: {
@@ -55,7 +55,7 @@ export const HYPR_MODULES = {
       },
     },
   },
-  "@hypr/store": {
+  "@echonote/store": {
     global: "__hypr_store",
     description:
       "TinyBase store with app data (sessions, events, humans, etc.)",
@@ -118,7 +118,7 @@ export const HYPR_MODULES = {
       },
     },
   },
-  "@hypr/ui": {
+  "@echonote/ui": {
     global: "__hypr_ui",
     description: "UI components (shadcn-style)",
   },

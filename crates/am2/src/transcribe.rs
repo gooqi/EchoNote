@@ -90,7 +90,7 @@ mod tests {
         crate::init();
         init(&model_path);
 
-        let audio_path = hypr_data::english_1::AUDIO_PATH;
+        let audio_path = echonote_data::english_1::AUDIO_PATH;
         let result = transcribe_file(audio_path);
         println!("{:?}", result);
         assert!(result.text.is_empty() || !result.text.is_empty());

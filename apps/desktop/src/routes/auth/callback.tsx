@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 
-import type { AuthCallbackSearch } from "@hypr/plugin-deeplink2";
+import type { AuthCallbackSearch } from "@echonote/plugin-deeplink2";
 
 import { useAuth } from "../../auth";
 

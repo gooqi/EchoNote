@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/supabase",
+  "name": "@echonote/supabase",
   "exports": {
     ".": "./src/index.ts",
     "./middleware": "./src/middleware.ts"

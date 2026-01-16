@@ -2,13 +2,13 @@ import { useMutation } from "@tanstack/react-query";
 import { FileTextIcon, Loader2Icon } from "lucide-react";
 import { useMemo } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 import {
   commands as listener2Commands,
   type VttWord,
-} from "@hypr/plugin-listener2";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { DropdownMenuItem } from "@hypr/ui/components/ui/dropdown-menu";
+} from "@echonote/plugin-listener2";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { DropdownMenuItem } from "@echonote/ui/components/ui/dropdown-menu";
 
 import * as main from "../../../../../../store/tinybase/store/main";
 import { parseTranscriptWords } from "../../../../../../store/transcript/utils";

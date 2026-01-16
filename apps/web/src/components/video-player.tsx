@@ -1,7 +1,7 @@
 import MuxPlayer, { type MuxPlayerRefAttributes } from "@mux/mux-player-react";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 interface VideoPlayerProps {
   playbackId: string;

@@ -4,12 +4,12 @@ pub struct Detect<'a, R: tauri::Runtime, M: tauri::Manager<R>> {
 }
 
 impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Detect<'a, R, M> {
-    pub fn list_installed_applications(&self) -> Vec<hypr_detect::InstalledApp> {
-        hypr_detect::list_installed_apps()
+    pub fn list_installed_applications(&self) -> Vec<echonote_detect::InstalledApp> {
+        echonote_detect::list_installed_apps()
     }
 
-    pub fn list_mic_using_applications(&self) -> Vec<hypr_detect::InstalledApp> {
-        hypr_detect::list_mic_using_apps()
+    pub fn list_mic_using_applications(&self) -> Vec<echonote_detect::InstalledApp> {
+        echonote_detect::list_mic_using_apps()
     }
 
     pub fn list_default_ignored_bundle_ids(&self) -> Vec<String> {

@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { SlashSeparator } from "@/components/slash-separator";
 

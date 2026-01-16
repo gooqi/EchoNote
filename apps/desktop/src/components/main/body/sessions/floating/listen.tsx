@@ -2,7 +2,7 @@ import { Icon } from "@iconify-icon/react";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useCallback } from "react";
 
-import { Spinner } from "@hypr/ui/components/ui/spinner";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
 
 import { useListener } from "../../../../../contexts/listener";
 import { useStartListening } from "../../../../../hooks/useStartListening";

@@ -6,7 +6,7 @@ import type {
   OrganizationStorage,
   SessionStorage,
   TemplateStorage,
-} from "@hypr/store";
+} from "@echonote/store";
 
 import * as main from "../store/tinybase/store/main";
 

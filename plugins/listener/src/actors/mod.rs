@@ -60,13 +60,13 @@ fn determine_from_state(onboarding: bool, state: DeviceState) -> ChannelMode {
 impl ChannelMode {
     #[cfg(target_os = "macos")]
     pub fn determine(onboarding: bool) -> Self {
-        use hypr_audio_device::macos::{
+        use echonote_audio_device::macos::{
             is_default_input_external, is_default_output_external,
             is_headphone_from_default_output_device,
         };
 
         fn is_builtin_display_foldable() -> bool {
-            hypr_mac::ModelIdentifier::current()
+            echonote_mac::ModelIdentifier::current()
                 .ok()
                 .flatten()
                 .map(|model| model.has_foldable_display())
@@ -74,7 +74,7 @@ impl ChannelMode {
         }
 
         fn has_builtin_mic() -> bool {
-            hypr_mac::ModelIdentifier::current()
+            echonote_mac::ModelIdentifier::current()
                 .ok()
                 .flatten()
                 .map(|model| model.has_builtin_mic())
@@ -86,7 +86,7 @@ impl ChannelMode {
             DeviceState {
                 is_headphone: is_headphone_from_default_output_device(),
                 is_foldable: is_builtin_display_foldable(),
-                is_display_inactive: hypr_mac::is_builtin_display_inactive(),
+                is_display_inactive: echonote_mac::is_builtin_display_inactive(),
                 has_builtin_mic: has_builtin_mic(),
                 is_input_external: is_default_input_external(),
                 is_output_external: is_default_output_external(),
@@ -100,7 +100,7 @@ impl ChannelMode {
             return ChannelMode::SpeakerOnly;
         }
 
-        if hypr_audio_device::linux::is_headphone_from_default_output_device() == Some(true) {
+        if echonote_audio_device::linux::is_headphone_from_default_output_device() == Some(true) {
             return ChannelMode::MicAndSpeaker;
         }
 

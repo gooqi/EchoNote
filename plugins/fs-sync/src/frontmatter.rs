@@ -7,7 +7,7 @@ pub struct ParsedDocument {
 }
 
 pub fn deserialize(input: &str) -> std::result::Result<ParsedDocument, crate::Error> {
-    match hypr_frontmatter::Document::<HashMap<String, serde_yaml::Value>>::from_str(input) {
+    match echonote_frontmatter::Document::<HashMap<String, serde_yaml::Value>>::from_str(input) {
         Ok(doc) => {
             let frontmatter_json: HashMap<String, serde_json::Value> = doc
                 .frontmatter
@@ -23,7 +23,7 @@ pub fn deserialize(input: &str) -> std::result::Result<ParsedDocument, crate::Er
                 content: doc.content,
             })
         }
-        Err(hypr_frontmatter::Error::MissingOpeningDelimiter) => Ok(ParsedDocument {
+        Err(echonote_frontmatter::Error::MissingOpeningDelimiter) => Ok(ParsedDocument {
             frontmatter: HashMap::new(),
             content: input.to_string(),
         }),
@@ -46,7 +46,7 @@ pub fn serialize(doc: ParsedDocument) -> std::result::Result<String, crate::Erro
                     (k, yaml_value)
                 })
                 .collect();
-            let doc = hypr_frontmatter::Document::new(frontmatter_yaml, String::new());
+            let doc = echonote_frontmatter::Document::new(frontmatter_yaml, String::new());
             doc.render().map_err(crate::Error::from)
         }
         (true, true) => {
@@ -58,7 +58,7 @@ pub fn serialize(doc: ParsedDocument) -> std::result::Result<String, crate::Erro
                     (k, yaml_value)
                 })
                 .collect();
-            let doc = hypr_frontmatter::Document::new(frontmatter_yaml, doc.content);
+            let doc = echonote_frontmatter::Document::new(frontmatter_yaml, doc.content);
             doc.render().map_err(crate::Error::from)
         }
     }

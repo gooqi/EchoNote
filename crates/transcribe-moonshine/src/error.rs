@@ -4,7 +4,7 @@ pub enum Error {
     Io(#[from] std::io::Error),
 
     #[error(transparent)]
-    Moonshine(#[from] hypr_moonshine::Error),
+    Moonshine(#[from] echonote_moonshine::Error),
 
     #[error("invalid model name: {0}")]
     InvalidModelName(String),

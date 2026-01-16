@@ -11,7 +11,7 @@ import {
 } from "ai";
 import { useMemo } from "react";
 
-import type { AIProviderStorage } from "@hypr/store";
+import type { AIProviderStorage } from "@echonote/store";
 
 import { useAuth } from "../auth";
 import { useBillingAccess } from "../billing";
@@ -38,8 +38,8 @@ export type LLMConnectionStatus =
   | { status: "pending"; reason: "missing_provider" }
   | { status: "pending"; reason: "missing_model"; providerId: ProviderId }
   | { status: "error"; reason: "provider_not_found"; providerId: string }
-  | { status: "error"; reason: "unauthenticated"; providerId: "hyprnote" }
-  | { status: "error"; reason: "not_pro"; providerId: "hyprnote" }
+  | { status: "error"; reason: "unauthenticated"; providerId: "echonote" }
+  | { status: "error"; reason: "not_pro"; providerId: "echonote" }
   | {
       status: "error";
       reason: "missing_config";
@@ -158,13 +158,13 @@ const resolveLLMConnection = (params: {
 
   if (blockers.length > 0) {
     const blocker = blockers[0];
-    if (blocker.code === "requires_auth" && providerId === "hyprnote") {
+    if (blocker.code === "requires_auth" && providerId === "echonote") {
       return {
         conn: null,
         status: { status: "error", reason: "unauthenticated", providerId },
       };
     }
-    if (blocker.code === "requires_entitlement" && providerId === "hyprnote") {
+    if (blocker.code === "requires_entitlement" && providerId === "echonote") {
       return {
         conn: null,
         status: { status: "error", reason: "not_pro", providerId },
@@ -183,7 +183,7 @@ const resolveLLMConnection = (params: {
     }
   }
 
-  if (providerId === "hyprnote" && session) {
+  if (providerId === "echonote" && session) {
     return {
       conn: {
         providerId,
@@ -215,10 +215,10 @@ const createLanguageModel = (
   conn: LLMConnectionInfo,
 ): Exclude<LanguageModel, string> => {
   switch (conn.providerId) {
-    case "hyprnote": {
+    case "echonote": {
       const provider = createOpenAICompatible({
         fetch: tracedFetch,
-        name: "hyprnote",
+        name: "echonote",
         baseURL: conn.baseUrl,
         apiKey: conn.apiKey,
         headers: {

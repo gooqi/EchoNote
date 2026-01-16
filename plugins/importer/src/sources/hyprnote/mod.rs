@@ -4,12 +4,12 @@ use crate::types::{
     ImportResult, ImportedHuman, ImportedOrganization, ImportedSessionParticipant,
     ImportedTemplate, ImportedTemplateSection,
 };
-use hypr_db_user::UserDatabase;
+use echonote_db_user::UserDatabase;
 use std::path::Path;
 use transforms::{session_to_imported_note, session_to_imported_transcript};
 
 pub async fn import_all_from_path(path: &Path) -> Result<ImportResult, crate::Error> {
-    let db = hypr_db_core::DatabaseBuilder::default()
+    let db = echonote_db_core::DatabaseBuilder::default()
         .local(path)
         .build()
         .await?;
@@ -23,7 +23,7 @@ pub async fn import_all_from_path(path: &Path) -> Result<ImportResult, crate::Er
         (),
     )
     .await
-    .map_err(hypr_db_user::Error::from)?;
+    .map_err(echonote_db_user::Error::from)?;
 
     let sessions = db.list_sessions(None).await?;
 

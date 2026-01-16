@@ -1,4 +1,4 @@
-import { SCHEMA } from "@hypr/store";
+import { SCHEMA } from "@echonote/store";
 
 import type { TablesContent } from "../../shared";
 

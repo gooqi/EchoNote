@@ -2,7 +2,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use hypr_granola::{
+use echonote_granola::{
     NotesConfig, TranscriptsConfig, cache::default_cache_path, default_supabase_path, export_notes,
     export_transcripts,
 };
@@ -62,7 +62,7 @@ fn notes(
     supabase: Option<PathBuf>,
     output: PathBuf,
     timeout: u64,
-) -> Result<(), hypr_granola::error::Error> {
+) -> Result<(), echonote_granola::error::Error> {
     let supabase_path = supabase.unwrap_or_else(default_supabase_path);
 
     let config = NotesConfig {
@@ -78,7 +78,10 @@ fn notes(
     Ok(())
 }
 
-fn transcripts(cache: Option<PathBuf>, output: PathBuf) -> Result<(), hypr_granola::error::Error> {
+fn transcripts(
+    cache: Option<PathBuf>,
+    output: PathBuf,
+) -> Result<(), echonote_granola::error::Error> {
     let cache_path = cache.unwrap_or_else(default_cache_path);
 
     let config = TranscriptsConfig {

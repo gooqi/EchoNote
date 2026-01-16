@@ -1,7 +1,7 @@
 import { Icon } from "@iconify-icon/react";
 import type { ReactNode } from "react";
 
-import { OutlookIcon } from "@hypr/ui/components/icons/outlook";
+import { OutlookIcon } from "@echonote/ui/components/icons/outlook";
 
 type CalendarProvider = {
   disabled: boolean;
@@ -23,7 +23,7 @@ const _PROVIDERS = [
     badge: "Beta",
     icon: <Icon icon="logos:apple" width={20} height={20} />,
     platform: "macos",
-    docsPath: "https://hyprnote.com/docs/calendar/apple",
+    docsPath: "https://echonote.com/docs/calendar/apple",
   },
   {
     disabled: true,
@@ -32,7 +32,7 @@ const _PROVIDERS = [
     badge: "Coming soon",
     icon: <Icon icon="logos:google-calendar" width={20} height={20} />,
     platform: "all",
-    docsPath: "https://hyprnote.com/docs/calendar/gcal",
+    docsPath: "https://echonote.com/docs/calendar/gcal",
   },
   {
     disabled: true,
@@ -41,7 +41,7 @@ const _PROVIDERS = [
     badge: "Coming soon",
     icon: <OutlookIcon size={20} />,
     platform: "all",
-    docsPath: "https://hyprnote.com/docs/calendar/outlook",
+    docsPath: "https://echonote.com/docs/calendar/outlook",
   },
 ] as const satisfies readonly CalendarProvider[];
 

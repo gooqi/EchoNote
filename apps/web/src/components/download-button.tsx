@@ -1,6 +1,6 @@
 import { Icon } from "@iconify-icon/react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { usePlatform } from "@/hooks/use-platform";
 import { useAnalytics } from "@/hooks/use-posthog";

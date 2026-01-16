@@ -2,13 +2,13 @@ import { useHover } from "@uidotdev/usehooks";
 import { MicOff } from "lucide-react";
 import { useCallback, useEffect, useRef } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import { useListener } from "../../../../../contexts/listener";
 import { useStartListening } from "../../../../../hooks/useStartListening";

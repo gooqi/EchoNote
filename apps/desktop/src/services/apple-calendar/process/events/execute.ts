@@ -1,4 +1,4 @@
-import type { EventStorage } from "@hypr/store";
+import type { EventStorage } from "@echonote/store";
 
 import { id } from "../../../../utils";
 import type { Ctx } from "../../ctx";

@@ -10,8 +10,8 @@ import {
   type MergeableStore,
 } from "tinybase/with-schemas";
 
-import { SCHEMA, type Schemas } from "@hypr/store";
-import { format } from "@hypr/utils";
+import { SCHEMA, type Schemas } from "@echonote/store";
+import { format } from "@echonote/utils";
 
 import { useMainPersisters } from "./persisters";
 

@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-pdf",
+  "name": "@echonote/plugin-pdf",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

@@ -20,20 +20,20 @@ specta-typescript = { workspace = true }
 uuid = { workspace = true }
 
 [dependencies]
-hypr-aec = { workspace = true }
-hypr-agc = { workspace = true }
-hypr-audio = { workspace = true }
-hypr-audio-device = { workspace = true }
-hypr-audio-utils = { workspace = true }
-hypr-data = { workspace = true }
-hypr-device-monitor = { workspace = true }
-hypr-host = { workspace = true }
-hypr-intercept = { workspace = true }
-hypr-language = { workspace = true }
-hypr-llm = { workspace = true }
-hypr-mac = { workspace = true }
-hypr-vad-ext = { workspace = true }
-hypr-vad2 = { workspace = true }
+echonote-aec = { workspace = true }
+echonote-agc = { workspace = true }
+echonote-audio = { workspace = true }
+echonote-audio-device = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-data = { workspace = true }
+echonote-device-monitor = { workspace = true }
+echonote-host = { workspace = true }
+echonote-intercept = { workspace = true }
+echonote-language = { workspace = true }
+echonote-llm = { workspace = true }
+echonote-mac = { workspace = true }
+echonote-vad-ext = { workspace = true }
+echonote-vad2 = { workspace = true }
 tauri-plugin-fs-sync = { workspace = true }
 
 owhisper-client = { workspace = true }

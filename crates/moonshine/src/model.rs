@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use hypr_onnx::{
+use echonote_onnx::{
     ndarray::{self, Array1, Array2, ArrayD, IxDyn},
     ort::{
         session::{Session, SessionInputValue, SessionInputs},
@@ -31,8 +31,8 @@ impl MoonshineOnnxModel {
         tokenizer_path: impl AsRef<std::path::Path>,
         model_size: MoonshineModelSize,
     ) -> Result<Self, Error> {
-        let encoder = hypr_onnx::load_model_from_path(encoder_path)?;
-        let decoder = hypr_onnx::load_model_from_path(decoder_path)?;
+        let encoder = echonote_onnx::load_model_from_path(encoder_path)?;
+        let decoder = echonote_onnx::load_model_from_path(decoder_path)?;
 
         let tokenizer = tokenizers::Tokenizer::from_file(tokenizer_path)
             .map_err(|e| Error::TokenizerLoad(e.to_string()))?;
@@ -271,7 +271,7 @@ mod tests {
         .unwrap();
 
         let decoder = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap();
 

@@ -10,8 +10,8 @@ import {
   useCreateManager,
 } from "tinytick/ui-react";
 
-import { init as initWindowsPlugin } from "@hypr/plugin-windows";
-import "@hypr/ui/globals.css";
+import { init as initWindowsPlugin } from "@echonote/plugin-windows";
+import "@echonote/ui/globals.css";
 
 import { ErrorComponent, NotFoundComponent } from "./components/control";
 import { EventListeners } from "./components/event-listeners";
@@ -88,7 +88,7 @@ if (!isIframeContext && env.VITE_SENTRY_DSN) {
   Sentry.init({
     dsn: env.VITE_SENTRY_DSN,
     release: env.VITE_APP_VERSION
-      ? `hyprnote-desktop@${env.VITE_APP_VERSION}`
+      ? `echonote-desktop@${env.VITE_APP_VERSION}`
       : undefined,
     environment: import.meta.env.MODE,
     tracePropagationTargets: [env.VITE_API_URL],

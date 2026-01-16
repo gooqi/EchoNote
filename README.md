@@ -1,93 +1,107 @@
-![poster-image](https://github.com/user-attachments/assets/d4502cab-9fbd-404b-8fc9-6469695492e7)
+# EchoNote
 
 <p align="center">
-  <p align="center">Hyprnote - The AI notepad for <strong>private</strong> meetings</p>
-  <p align="center">
-   <a href="https://deepwiki.com/fastrepl/hyprnote"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
-   <a href="https://hyprnote.com/discord" target="_blank"><img src="https://img.shields.io/static/v1?label=Join%20our&message=Discord&color=blue&logo=Discord" alt="Discord"></a>
-   <a href="https://x.com/tryhyprnote" target="_blank"><img src="https://img.shields.io/static/v1?label=Follow%20us%20on&message=X&color=black&logo=x" alt="X"></a>
-  </p>
+  <strong>AI 驱动的会议笔记应用，支持实时转录和离线使用</strong>
 </p>
-   
-## What is Hyprnote?
 
-Hyprnote is an AI notetaking app specifically designed to take meeting notes. With Hyprnote, you can transcribe all kinds of meetings whether it be online or offline.
+<p align="center">
+  <a href="https://github.com/gooqi/EchoNote/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-GPL--3.0-blue.svg" alt="License">
+  </a>
+</p>
 
-- **Listens** to your meetings so you can only jot down important stuff
-- **No bots** joining your meetings - Hyprnote listens directly to sounds coming in & out of your computer
-- Crafts perfect **summaries** based on your memos, right after the meeting is over
-- You can run Hyprnote completely **offline** by using LM Studio or Ollama
+## 简介
 
-You can also use it for taking notes for lectures or organizing your thoughts
+EchoNote 是一款 AI 驱动的智能会议笔记应用，基于 [Hyprnote](https://github.com/fastrepl/hyprnote) 开源项目开发。它能够实时转录会议内容，结合 AI 智能生成会议摘要，让你专注于会议本身，而不是埋头记笔记。
 
-## Installation
+### 核心特性
+
+- **实时转录** - 自动捕获并转录会议音频，支持多种语音识别引擎
+- **无侵入式** - 直接监听电脑音频，无需机器人加入会议
+- **AI 摘要** - 会议结束后，AI 自动生成个性化会议摘要
+- **完全离线** - 支持本地模型（Ollama、LM Studio），可在离线环境运行
+- **多模型支持** - 支持 OpenAI、Anthropic、**DeepSeek**、Mistral、Google Gemini 等多种 LLM
+- **隐私优先** - 所有数据本地存储，你的会议内容完全由你掌控
+
+### 新增功能
+
+相比原版 Hyprnote，EchoNote 新增了以下功能：
+
+- ✅ **DeepSeek API 支持** - 使用 DeepSeek 的语言模型进行摘要和对话
+- 🚀 更多功能持续开发中...
+
+## 安装
+
+### macOS
 
 ```bash
-brew install --cask fastrepl/hyprnote/hyprnote@nightly
+# 从源码构建（见下方开发部分）
+git clone git@github.com:gooqi/EchoNote.git
+cd EchoNote
+pnpm install
+pnpm -F desktop tauri:dev
 ```
 
-- [macOS](https://hyprnote.com/download) (public beta)
-- [Windows](https://github.com/fastrepl/hyprnote/issues/66) (q1 2026)
-- [Linux](https://github.com/fastrepl/hyprnote/issues/67) (q1 2026)
+## 开发
 
-## Highlights
+### 环境要求
 
-### Notepad
+- Node.js >= 22
+- pnpm 10.28.0
+- Rust 1.92.0（通过 rust-toolchain.toml 自动管理）
+- macOS 14.2+（桌面应用）
 
-Hyprnote is designed to take notes easily during meetings. Just jot down stuff you think are important!
+### 快速开始
 
-<img width="732" height="612" alt="Screenshot 2025-11-23 at 2 38 20 PM" src="https://github.com/user-attachments/assets/268ab859-a194-484b-b895-bc640df18dd4" />
+```bash
+# 安装依赖
+pnpm install
 
-### Realtime Transcript
+# 构建 UI 组件
+pnpm -F @echonote/ui build
 
-While you stay engaged in the conversation, Hyprnote captures every detail so you don't have to type frantically.
+# 启动桌面应用（开发模式）
+pnpm -F desktop tauri:dev
+```
 
-<img width="688" height="568" alt="Screenshot 2025-11-23 at 2 35 47 PM" src="https://github.com/user-attachments/assets/e63ce73f-1a5f-49ce-a14d-dd8ba161e5bc" />
+### 常用命令
 
-### From Memos to Summaries
+```bash
+# 代码格式化
+dprint fmt
 
-Once the meeting is over, Hyprnote will craft a personalized summary based on your memos — which is not mandatory. Hyprnote will still create great summaries without your notes.
+# TypeScript 类型检查
+pnpm -r typecheck
 
-![offline enhancing-1](https://github.com/user-attachments/assets/13af787b-2f6e-4877-b90f-719edc45fb75)
+# Rust 编译检查
+cargo check
 
-### Truly Local
+# 代码检查
+pnpm lint
+```
 
-If you noticed the GIF above, you can see that Hyprnote works without any internet connection available. Just set up LM Studio or Ollama to operate Hyprnote in air-gapped environments!
+## 技术栈
 
-<img width="780" height="585" alt="no-wifi" src="https://github.com/user-attachments/assets/ecf08a9e-3b6c-4fb6-ab38-0bc572f54859" />
+- **前端**: React 19, TailwindCSS 4, TanStack Query/Router/Form
+- **桌面**: Tauri 2.9 (Rust)
+- **语音识别**: Whisper (本地), Deepgram, Azure, AWS, OpenAI
+- **AI**: Vercel AI SDK，支持多种 LLM 提供商
 
-### Bring Your Own LLM
+## 许可证
 
-Prefer something custom? You can swap in your own language model:
+本项目基于 **GNU General Public License v3.0** (GPL-3.0) 开源。
 
-- Run local models via Ollama
-- Use approved third-party APIs like Gemini, Claude, or Azure-hosted GPT
-- Stay compliant with whatever your org allows
+- EchoNote Copyright (C) 2025-present
+- 原始 Hyprnote Copyright (C) 2023-present Fastrepl, Inc.
 
-Hyprnote plays nice with whatever stack you're running.
+详见 [LICENSE](./LICENSE) 文件。
 
-<img width="912" height="712" alt="Screenshot 2025-11-23 at 2 41 03 PM" src="https://github.com/user-attachments/assets/a6552c99-acbc-4d47-9d21-7f1925989344" />
+## 致谢
 
-### Note Templates
+EchoNote 是 [Hyprnote](https://github.com/fastrepl/hyprnote) 的 fork 版本，感谢 Fastrepl, Inc. 团队的出色工作。
 
-Prefer a certain style? Choose from predefined templates like bullet points, agenda-based, or paragraph summary. Or create your own.
+---
 
-Check out our [template gallery](https://hyprnote.com/templates) and add your own [here](https://github.com/fastrepl/hyprnote/tree/main/apps/web/content/templates).
-
-### AI Chat
-
-Ask follow-ups right inside your notes:
-
-- "What were the action items?"
-- "Rewrite this in simpler language"
-- "Translate to Spanish"
-
-<img width="959" height="712" alt="image" src="https://github.com/user-attachments/assets/52b7dc14-906f-445f-91f9-b0089d40a495" />
-
-### Integrations
-
-- Apple Calendar, Contacts
-- Obsidian
-- Coming soon: Notion, Slack, Hubspot, Salesforce
-
-<img width="912" height="712" alt="image" src="https://github.com/user-attachments/assets/ab559e54-fda5-4c8c-97d7-ba1b9d134cc8" />
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/gooqi">gooqi</a>
+</p>

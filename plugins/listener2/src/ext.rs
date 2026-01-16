@@ -31,7 +31,7 @@ pub struct BatchParams {
     pub base_url: String,
     pub api_key: String,
     #[serde(default)]
-    pub languages: Vec<hypr_language::Language>,
+    pub languages: Vec<echonote_language::Language>,
     #[serde(default)]
     pub keywords: Vec<String>,
 }
@@ -46,7 +46,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Listener2<'a, R, M> {
     pub async fn run_batch(&self, params: BatchParams) -> Result<(), crate::Error> {
         let metadata = tokio::task::spawn_blocking({
             let path = params.file_path.clone();
-            move || hypr_audio_utils::audio_file_metadata(path)
+            move || echonote_audio_utils::audio_file_metadata(path)
         })
         .await
         .map_err(|err| {

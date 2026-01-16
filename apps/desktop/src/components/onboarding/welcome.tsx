@@ -1,7 +1,7 @@
 import { arch, version as osVersion, platform } from "@tauri-apps/plugin-os";
 import { memo, useCallback, useEffect, useMemo } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 
 import { usePermissions } from "../../hooks/usePermissions";
 import { Route } from "../../routes/app/onboarding/_layout.index";

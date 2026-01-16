@@ -1,6 +1,6 @@
-import type { AppleEvent, Participant } from "@hypr/plugin-apple-calendar";
-import { commands as appleCalendarCommands } from "@hypr/plugin-apple-calendar";
-import { commands as miscCommands } from "@hypr/plugin-misc";
+import type { AppleEvent, Participant } from "@echonote/plugin-apple-calendar";
+import { commands as appleCalendarCommands } from "@echonote/plugin-apple-calendar";
+import { commands as miscCommands } from "@echonote/plugin-misc";
 
 import type { Ctx } from "../ctx";
 import type {

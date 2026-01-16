@@ -7,9 +7,9 @@ pub enum Error {
     #[error(transparent)]
     IoError(#[from] std::io::Error),
     #[error(transparent)]
-    HyprLlamaError(#[from] hypr_llama::Error),
+    HyprLlamaError(#[from] echonote_llama::Error),
     #[error(transparent)]
-    HyprLlmInterfaceError(#[from] hypr_llm_interface::Error),
+    HyprLlmInterfaceError(#[from] echonote_llm_interface::Error),
     #[error("Model not downloaded")]
     ModelNotDownloaded,
 }

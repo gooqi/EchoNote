@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { useCallback, useEffect, useState } from "react";
 
-import { getRpcCanStartTrial, postBillingStartTrial } from "@hypr/api-client";
-import { createClient, createConfig } from "@hypr/api-client/client";
+import { getRpcCanStartTrial, postBillingStartTrial } from "@echonote/api-client";
+import { createClient, createConfig } from "@echonote/api-client/client";
 
 import { useAuth } from "../../auth";
 import { getEntitlementsFromToken } from "../../billing";
@@ -24,7 +24,7 @@ export function Login({ onNavigate }: StepProps) {
 
   const setLlmProvider = settings.UI.useSetValueCallback(
     "current_llm_provider",
-    () => "hyprnote",
+    () => "echonote",
     [],
     settings.STORE_ID,
   );
@@ -36,7 +36,7 @@ export function Login({ onNavigate }: StepProps) {
   );
   const setSttProvider = settings.UI.useSetValueCallback(
     "current_stt_provider",
-    () => "hyprnote",
+    () => "echonote",
     [],
     settings.STORE_ID,
   );
@@ -73,7 +73,7 @@ export function Login({ onNavigate }: StepProps) {
       const newSession = await auth!.refreshSession();
       return newSession
         ? getEntitlementsFromToken(newSession.access_token).includes(
-            "hyprnote_pro",
+            "echonote_pro",
           )
         : false;
     },
@@ -128,7 +128,7 @@ export function Login({ onNavigate }: StepProps) {
         <input
           type="text"
           className="flex-1 px-4 py-3 text-xs font-mono outline-none bg-white"
-          placeholder="hyprnote://...?access_token=..."
+          placeholder="echonote://...?access_token=..."
           value={callbackUrl}
           onChange={(e) => setCallbackUrl(e.target.value)}
         />

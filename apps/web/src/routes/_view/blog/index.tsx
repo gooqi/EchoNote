@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { allArticles, type Article } from "content-collections";
 import { useMemo, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { SlashSeparator } from "@/components/slash-separator";
 

@@ -7,14 +7,14 @@ import {
 } from "lucide-react";
 import React, { useCallback, useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
-import { Input } from "@hypr/ui/components/ui/input";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Input } from "@echonote/ui/components/ui/input";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
-import { Textarea } from "@hypr/ui/components/ui/textarea";
+} from "@echonote/ui/components/ui/popover";
+import { Textarea } from "@echonote/ui/components/ui/textarea";
 
 import * as main from "../../../../store/tinybase/store/main";
 import { getInitials } from "./shared";

@@ -1,4 +1,4 @@
-import type { TemplateSection } from "@hypr/store";
+import type { TemplateSection } from "@echonote/store";
 
 import { ResourceDetailEmpty, ResourcePreviewHeader } from "../resource-list";
 import { SectionsList } from "./sections-editor";

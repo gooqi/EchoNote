@@ -1,5 +1,5 @@
-import type { JsonValue } from "@hypr/plugin-fs-sync";
-import type { HumanStorage } from "@hypr/store";
+import type { JsonValue } from "@echonote/plugin-fs-sync";
+import type { HumanStorage } from "@echonote/store";
 
 type HumanFrontmatter = Omit<HumanStorage, "memo">;
 

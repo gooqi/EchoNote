@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-db2",
+  "name": "@echonote/plugin-db2",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

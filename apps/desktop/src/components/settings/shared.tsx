@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronUp, RefreshCcw } from "lucide-react";
 import { type ReactNode, useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,9 +9,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@hypr/ui/components/ui/dialog";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/dialog";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
+import { cn } from "@echonote/utils";
 
 interface ConnectedServiceCardProps {
   icon: ReactNode;

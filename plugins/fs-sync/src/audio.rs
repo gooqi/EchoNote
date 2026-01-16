@@ -3,7 +3,7 @@ use std::io::ErrorKind;
 use std::num::{NonZeroU8, NonZeroU32};
 use std::path::{Path, PathBuf};
 
-use hypr_audio_utils::{
+use echonote_audio_utils::{
     Source, VorbisEncodeSettings, encode_vorbis_mono, mix_down_to_mono, resample_audio,
 };
 
@@ -165,14 +165,14 @@ mod tests {
     }
 
     test_import_audio! {
-        test_import_wav: hypr_data::english_1::AUDIO_PATH,
-        test_import_mp3: hypr_data::english_1::AUDIO_MP3_PATH,
-        test_import_mp4: hypr_data::english_1::AUDIO_MP4_PATH,
-        test_import_m4a: hypr_data::english_1::AUDIO_M4A_PATH,
-        test_import_ogg: hypr_data::english_1::AUDIO_OGG_PATH,
-        test_import_flac: hypr_data::english_1::AUDIO_FLAC_PATH,
-        test_import_aac: hypr_data::english_1::AUDIO_AAC_PATH,
-        test_import_aiff: hypr_data::english_1::AUDIO_AIFF_PATH,
-        test_import_caf: hypr_data::english_1::AUDIO_CAF_PATH,
+        test_import_wav: echonote_data::english_1::AUDIO_PATH,
+        test_import_mp3: echonote_data::english_1::AUDIO_MP3_PATH,
+        test_import_mp4: echonote_data::english_1::AUDIO_MP4_PATH,
+        test_import_m4a: echonote_data::english_1::AUDIO_M4A_PATH,
+        test_import_ogg: echonote_data::english_1::AUDIO_OGG_PATH,
+        test_import_flac: echonote_data::english_1::AUDIO_FLAC_PATH,
+        test_import_aac: echonote_data::english_1::AUDIO_AAC_PATH,
+        test_import_aiff: echonote_data::english_1::AUDIO_AIFF_PATH,
+        test_import_caf: echonote_data::english_1::AUDIO_CAF_PATH,
     }
 }

@@ -3,8 +3,8 @@ use tauri::Wry;
 mod commands;
 mod ext;
 
+pub use echonote_template_app_legacy::Template;
 pub use ext::TemplatePluginExt;
-pub use hypr_template_app_legacy::Template;
 
 const PLUGIN_NAME: &str = "template";
 
@@ -15,7 +15,7 @@ fn make_specta_builder<R: tauri::Runtime>() -> tauri_specta::Builder<R> {
             commands::render::<Wry>,
             commands::render_custom::<Wry>,
         ])
-        .typ::<hypr_gbnf::Grammar>()
+        .typ::<echonote_gbnf::Grammar>()
         .error_handling(tauri_specta::ErrorHandlingMode::Result)
 }
 
@@ -25,7 +25,7 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri::plugin::Builder::new(PLUGIN_NAME)
         .invoke_handler(specta_builder.invoke_handler())
         .setup(|_app, _api| {
-            let _ = hypr_template_app_legacy::get_environment();
+            let _ = echonote_template_app_legacy::get_environment();
             Ok(())
         })
         .build()

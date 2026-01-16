@@ -4,7 +4,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { allShortcuts } from "content-collections";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { DownloadButton } from "@/components/download-button";
 import { MDXLink } from "@/components/mdx";

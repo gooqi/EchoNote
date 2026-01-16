@@ -11,8 +11,8 @@ const tiptapMocks = vi.hoisted(() => ({
   md2json: vi.fn().mockReturnValue({ type: "doc", content: [] }),
 }));
 
-vi.mock("@hypr/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
-vi.mock("@hypr/tiptap/shared", () => tiptapMocks);
+vi.mock("@echonote/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
+vi.mock("@echonote/tiptap/shared", () => tiptapMocks);
 
 describe("processMdFile", () => {
   let result: LoadedSessionData;

@@ -1,6 +1,6 @@
 import type { StoreApi } from "zustand";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 
 import { id } from "../../../utils";
 import { listenerStore } from "../listener/instance";

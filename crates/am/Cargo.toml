@@ -8,8 +8,8 @@ hf-hub = "0.4.3"
 tokio = { workspace = true, features = ["rt", "macros"] }
 
 [dependencies]
-hypr-download-interface = { workspace = true }
-hypr-file = { workspace = true }
+echonote-download-interface = { workspace = true }
+echonote-file = { workspace = true }
 
 reqwest = { workspace = true, features = ["json"] }
 tracing = { workspace = true }

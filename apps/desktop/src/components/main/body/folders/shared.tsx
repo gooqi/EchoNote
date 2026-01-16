@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export function Section({
   icon,

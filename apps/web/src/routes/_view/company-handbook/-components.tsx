@@ -2,7 +2,7 @@ import { MDXContent } from "@content-collections/mdx/react";
 import { Link } from "@tanstack/react-router";
 import { allHandbooks } from "content-collections";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { defaultMDXComponents } from "@/components/mdx";
 

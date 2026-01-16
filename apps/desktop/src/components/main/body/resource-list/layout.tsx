@@ -4,7 +4,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
+} from "@echonote/ui/components/ui/resizable";
 
 export function ResourceListLayout({
   listColumn,

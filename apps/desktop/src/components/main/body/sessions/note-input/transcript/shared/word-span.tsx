@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useMemo } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useNativeContextMenu } from "../../../../../../../hooks/useNativeContextMenu";
 import { SegmentWord } from "../../../../../../../utils/segment";

@@ -1,7 +1,7 @@
 import { createCustomPersister } from "tinybase/persisters/with-schemas";
 import type { Content } from "tinybase/with-schemas";
 
-import type { Schemas } from "@hypr/store";
+import type { Schemas } from "@echonote/store";
 
 import { commands } from "../../../../types/tauri.gen";
 import type { Store } from "../../store/main";

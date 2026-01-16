@@ -2,10 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Loader2Icon, TrashIcon } from "lucide-react";
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { DropdownMenuItem } from "@hypr/ui/components/ui/dropdown-menu";
-import { cn } from "@hypr/utils";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { DropdownMenuItem } from "@echonote/ui/components/ui/dropdown-menu";
+import { cn } from "@echonote/utils";
 
 import { deleteSessionCascade } from "../../../../../../store/tinybase/store/deleteSession";
 import * as main from "../../../../../../store/tinybase/store/main";

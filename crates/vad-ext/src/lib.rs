@@ -18,13 +18,13 @@ pub mod tests {
     #[tokio::test]
     async fn test_no_audio_drops_for_continuous_vad() {
         let all_audio = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap()
         .collect::<Vec<_>>();
 
         let vad = rodio::Decoder::new(std::io::BufReader::new(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         ))
         .unwrap()
         .with_vad(silero_rs::VadConfig::default());
@@ -48,7 +48,7 @@ pub mod tests {
     #[tokio::test]
     async fn test_no_speech_drops_for_vad_chunks() {
         let vad = rodio::Decoder::new(std::io::BufReader::new(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         ))
         .unwrap()
         .speech_chunks(std::time::Duration::from_millis(50));

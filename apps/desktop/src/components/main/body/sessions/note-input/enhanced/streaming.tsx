@@ -1,6 +1,6 @@
 import { Streamdown } from "streamdown";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useAITaskTask } from "../../../../../../hooks/useAITaskTask";
 import { createTaskId } from "../../../../../../store/zustand/ai-task/task-configs";

@@ -14,21 +14,23 @@ pub enum Error {
     RuntimeUnavailable,
 }
 
-impl From<hypr_extensions_runtime::Error> for Error {
-    fn from(err: hypr_extensions_runtime::Error) -> Self {
+impl From<echonote_extensions_runtime::Error> for Error {
+    fn from(err: echonote_extensions_runtime::Error) -> Self {
         match err {
-            hypr_extensions_runtime::Error::ExtensionNotFound(id) => Error::ExtensionNotFound(id),
-            hypr_extensions_runtime::Error::RuntimeError(msg) => Error::RuntimeError(msg),
-            hypr_extensions_runtime::Error::InvalidManifest(msg) => Error::InvalidManifest(msg),
-            hypr_extensions_runtime::Error::Io(e) => Error::Io(e.to_string()),
-            hypr_extensions_runtime::Error::Json(e) => Error::RuntimeError(e.to_string()),
-            hypr_extensions_runtime::Error::ChannelSend => {
+            echonote_extensions_runtime::Error::ExtensionNotFound(id) => {
+                Error::ExtensionNotFound(id)
+            }
+            echonote_extensions_runtime::Error::RuntimeError(msg) => Error::RuntimeError(msg),
+            echonote_extensions_runtime::Error::InvalidManifest(msg) => Error::InvalidManifest(msg),
+            echonote_extensions_runtime::Error::Io(e) => Error::Io(e.to_string()),
+            echonote_extensions_runtime::Error::Json(e) => Error::RuntimeError(e.to_string()),
+            echonote_extensions_runtime::Error::ChannelSend => {
                 Error::RuntimeError("Channel send error".to_string())
             }
-            hypr_extensions_runtime::Error::ChannelRecv => {
+            echonote_extensions_runtime::Error::ChannelRecv => {
                 Error::RuntimeError("Channel receive error".to_string())
             }
-            hypr_extensions_runtime::Error::RuntimeUnavailable => Error::RuntimeUnavailable,
+            echonote_extensions_runtime::Error::RuntimeUnavailable => Error::RuntimeUnavailable,
         }
     }
 }

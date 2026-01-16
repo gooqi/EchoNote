@@ -4,9 +4,9 @@ use std::sync::atomic::{AtomicU32, AtomicUsize, Ordering};
 use std::task::Poll;
 
 use anyhow::Result;
+use echonote_audio_utils::{pcm_f32_to_f32, pcm_f64_to_f32, pcm_i16_to_f32, pcm_i32_to_f32};
 use futures_util::Stream;
 use futures_util::task::AtomicWaker;
-use hypr_audio_utils::{pcm_f32_to_f32, pcm_f64_to_f32, pcm_i16_to_f32, pcm_i32_to_f32};
 
 use ringbuf::{
     HeapCons, HeapProd, HeapRb,

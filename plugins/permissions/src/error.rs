@@ -11,7 +11,7 @@ pub enum Error {
     PluginInvoke(#[from] tauri::plugin::mobile::PluginInvokeError),
     #[cfg(not(target_os = "macos"))]
     #[error(transparent)]
-    Audio(#[from] hypr_audio::Error),
+    Audio(#[from] echonote_audio::Error),
 }
 
 impl Serialize for Error {

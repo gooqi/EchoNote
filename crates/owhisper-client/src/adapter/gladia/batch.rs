@@ -18,7 +18,7 @@ use crate::polling::{PollingConfig, PollingResult, poll_until};
 impl BatchSttAdapter for GladiaAdapter {
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         GladiaAdapter::is_supported_languages_batch(languages)
@@ -357,7 +357,7 @@ mod tests {
         let adapter = GladiaAdapter::default();
         let params = ListenParams::default();
 
-        let audio_path = std::path::PathBuf::from(hypr_data::english_1::AUDIO_PATH);
+        let audio_path = std::path::PathBuf::from(echonote_data::english_1::AUDIO_PATH);
 
         let result = adapter
             .transcribe_file(&client, "", &api_key, &params, &audio_path)

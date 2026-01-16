@@ -1,4 +1,4 @@
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 
 import { DEFAULT_USER_ID } from "../../../utils";
 import { id } from "../../../utils";

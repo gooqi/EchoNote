@@ -6,7 +6,7 @@ import { createJsonFilePersister } from "./json-file";
 const settingsMocks = vi.hoisted(() => ({
   settingsBase: vi
     .fn()
-    .mockResolvedValue({ status: "ok", data: "/mock/data/dir/hyprnote" }),
+    .mockResolvedValue({ status: "ok", data: "/mock/data/dir/echonote" }),
 }));
 
 const fs2Mocks = vi.hoisted(() => ({
@@ -24,10 +24,10 @@ const notifyMocks = vi.hoisted(() => ({
   },
 }));
 
-vi.mock("@hypr/plugin-settings", () => ({ commands: settingsMocks }));
-vi.mock("@hypr/plugin-fs2", () => ({ commands: fs2Mocks }));
-vi.mock("@hypr/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
-vi.mock("@hypr/plugin-notify", () => ({ events: notifyMocks }));
+vi.mock("@echonote/plugin-settings", () => ({ commands: settingsMocks }));
+vi.mock("@echonote/plugin-fs2", () => ({ commands: fs2Mocks }));
+vi.mock("@echonote/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
+vi.mock("@echonote/plugin-notify", () => ({ events: notifyMocks }));
 
 describe("createJsonFilePersister", () => {
   let store: ReturnType<typeof createTestMainStore>;

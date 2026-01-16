@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { AppleCalendar } from "@hypr/plugin-apple-calendar";
+import type { AppleCalendar } from "@echonote/plugin-apple-calendar";
 
 import type { Store as MainStore } from "../../../../store/tinybase/store/main";
 import type { SeedDefinition } from "../shared";

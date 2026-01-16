@@ -1,4 +1,4 @@
-use hypr_ws_client::client::Message;
+use echonote_ws_client::client::Message;
 use owhisper_interface::ListenParams;
 use owhisper_interface::stream::{Alternatives, Channel, Metadata, StreamResponse};
 use serde::Deserialize;
@@ -16,7 +16,7 @@ impl RealtimeSttAdapter for FireworksAdapter {
 
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         FireworksAdapter::is_supported_languages_live(languages)
@@ -241,7 +241,7 @@ struct FireworksWord {
 
 #[cfg(test)]
 mod tests {
-    use hypr_language::ISO639;
+    use echonote_language::ISO639;
 
     use super::FireworksAdapter;
     use crate::ListenClient;
@@ -307,7 +307,7 @@ mod tests {
             .api_base("https://api.fireworks.ai")
             .api_key(std::env::var("FIREWORKS_API_KEY").expect("FIREWORKS_API_KEY not set"))
             .params(owhisper_interface::ListenParams {
-                languages: vec![hypr_language::ISO639::En.into()],
+                languages: vec![echonote_language::ISO639::En.into()],
                 ..Default::default()
             })
             .build_single()
@@ -324,7 +324,7 @@ mod tests {
             .api_base("https://api.fireworks.ai")
             .api_key(std::env::var("FIREWORKS_API_KEY").expect("FIREWORKS_API_KEY not set"))
             .params(owhisper_interface::ListenParams {
-                languages: vec![hypr_language::ISO639::En.into()],
+                languages: vec![echonote_language::ISO639::En.into()],
                 ..Default::default()
             })
             .build_dual()

@@ -5,8 +5,8 @@ import {
   useTaskRunRunning,
 } from "tinytick/ui-react";
 
-import { Button } from "@hypr/ui/components/ui/button";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
 
 import { CALENDAR_SYNC_TASK_ID } from "../../../services/apple-calendar";
 import * as main from "../../../store/tinybase/store/main";

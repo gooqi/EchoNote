@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-sfx",
+  "name": "@echonote/plugin-sfx",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

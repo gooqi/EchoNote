@@ -16,7 +16,7 @@ pub const SESSION_SUPERVISOR_PREFIX: &str = "session_supervisor_";
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize, specta::Type)]
 pub struct SessionParams {
     pub session_id: String,
-    pub languages: Vec<hypr_language::Language>,
+    pub languages: Vec<echonote_language::Language>,
     pub onboarding: bool,
     pub record_enabled: bool,
     pub model: String,

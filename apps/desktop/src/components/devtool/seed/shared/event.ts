@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { EventStorage } from "@hypr/store";
+import type { EventStorage } from "@echonote/store";
 
 import { DEFAULT_USER_ID, id } from "../../../../utils";
 
@@ -63,8 +63,8 @@ const PROVIDERS: MeetingProvider[] = [
         "+1 301 715 8592",
       ];
       const sipAddress = `${meetingId.replace(/\s/g, "")}@zoomcrc.com`;
-      const aiCompanionLink = `https://hyprnote.${PROVIDERS[0].domain}/launch/edl?muid=${faker.string.uuid()}`;
-      const joinInstructionsLink = `https://hyprnote.${PROVIDERS[0].domain}/meetings/${meetingId.replace(
+      const aiCompanionLink = `https://echonote.${PROVIDERS[0].domain}/launch/edl?muid=${faker.string.uuid()}`;
+      const joinInstructionsLink = `https://echonote.${PROVIDERS[0].domain}/meetings/${meetingId.replace(
         /\s/g,
         "",
       )}/invitations?signature=${faker.string.alphanumeric(40)}`;
@@ -151,7 +151,7 @@ export const createEvent = (calendar_id: string) => {
   let note: string | undefined;
 
   if (meetingType === "online" || meetingType === "hybrid") {
-    meeting_link = `https://hyprnote.${provider.domain}/${meetingPath}`;
+    meeting_link = `https://echonote.${provider.domain}/${meetingPath}`;
     note = provider.generateInvite({
       title,
       host,

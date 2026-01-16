@@ -9,8 +9,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/dropdown-menu";
+import { cn } from "@echonote/utils";
 
 import * as main from "../../../../../../../store/tinybase/store/main";
 import { type Segment, SegmentKey } from "../../../../../../../utils/segment";

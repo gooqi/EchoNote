@@ -11,8 +11,8 @@ use crate::{
     SessionProgressEvent,
     actors::{AudioChunk, ChannelMode},
 };
-use hypr_audio::AudioInput;
-use hypr_audio_utils::{ResampleExtDynamicNew, chunk_size_for_stt};
+use echonote_audio::AudioInput;
+use echonote_audio_utils::{ResampleExtDynamicNew, chunk_size_for_stt};
 use tauri_specta::Event;
 
 use super::{SourceMsg, SourceState};
@@ -145,7 +145,7 @@ async fn run_stream_loop(ctx: StreamContext, mode: ChannelMode) {
 
 fn setup_mic_stream(
     ctx: &StreamContext,
-) -> Result<impl futures_util::Stream<Item = Result<Vec<f32>, hypr_audio_utils::Error>>, ()> {
+) -> Result<impl futures_util::Stream<Item = Result<Vec<f32>, echonote_audio_utils::Error>>, ()> {
     let mut mic_input = match AudioInput::from_mic(ctx.mic_device.clone()) {
         Ok(input) => input,
         Err(err) => {
@@ -171,8 +171,8 @@ fn setup_mic_stream(
 
 fn setup_speaker_stream(
     ctx: &StreamContext,
-) -> Result<impl futures_util::Stream<Item = Result<Vec<f32>, hypr_audio_utils::Error>>, ()> {
-    let mut spk_input = hypr_audio::AudioInput::from_speaker();
+) -> Result<impl futures_util::Stream<Item = Result<Vec<f32>, echonote_audio_utils::Error>>, ()> {
+    let mut spk_input = echonote_audio::AudioInput::from_speaker();
     let chunk_size = chunk_size_for_stt(crate::actors::SAMPLE_RATE);
     match spk_input
         .stream()
@@ -189,7 +189,7 @@ fn setup_speaker_stream(
 
 fn handle_mic_item(
     ctx: &StreamContext,
-    item: Option<Result<Vec<f32>, hypr_audio_utils::Error>>,
+    item: Option<Result<Vec<f32>, echonote_audio_utils::Error>>,
 ) -> StreamResult {
     match item {
         Some(Ok(data)) => {
@@ -225,7 +225,7 @@ fn handle_mic_item(
 
 fn handle_speaker_item(
     ctx: &StreamContext,
-    item: Option<Result<Vec<f32>, hypr_audio_utils::Error>>,
+    item: Option<Result<Vec<f32>, echonote_audio_utils::Error>>,
 ) -> StreamResult {
     match item {
         Some(Ok(data)) => {

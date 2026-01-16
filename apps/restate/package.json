@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/restate",
+  "name": "@echonote/restate",
   "private": true,
   "type": "module",
   "scripts": {

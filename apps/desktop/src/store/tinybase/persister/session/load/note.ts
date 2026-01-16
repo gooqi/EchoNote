@@ -1,5 +1,5 @@
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { md2json } from "@hypr/tiptap/shared";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { md2json } from "@echonote/tiptap/shared";
 
 import { SESSION_MEMO_FILE } from "../../shared";
 import type { NoteFrontmatter } from "../types";

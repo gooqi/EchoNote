@@ -5,9 +5,9 @@ import { useCallback, useEffect, useMemo } from "react";
 import {
   commands as appleCalendarCommands,
   colorToCSS,
-} from "@hypr/plugin-apple-calendar";
-import { Button } from "@hypr/ui/components/ui/button";
-import { cn } from "@hypr/utils";
+} from "@echonote/plugin-apple-calendar";
+import { Button } from "@echonote/ui/components/ui/button";
+import { cn } from "@echonote/utils";
 
 import * as main from "../../../../../store/tinybase/store/main";
 import { findCalendarByTrackingId } from "../../../../../utils/calendar";

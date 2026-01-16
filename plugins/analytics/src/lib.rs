@@ -9,9 +9,9 @@ pub use error::{Error, Result};
 pub use ext::*;
 use store::*;
 
-pub use hypr_analytics::*;
+pub use echonote_analytics::*;
 
-pub type ManagedState = hypr_analytics::AnalyticsClient;
+pub type ManagedState = echonote_analytics::AnalyticsClient;
 
 const PLUGIN_NAME: &str = "analytics";
 
@@ -47,7 +47,7 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
                 }
             };
 
-            let client = hypr_analytics::AnalyticsClient::new(api_key);
+            let client = echonote_analytics::AnalyticsClient::new(api_key);
             assert!(app.manage(client));
             Ok(())
         })
@@ -88,7 +88,7 @@ mod test {
         let app = create_app(tauri::test::mock_builder());
         let result = app
             .analytics()
-            .event(hypr_analytics::AnalyticsPayload::builder("test_event").build())
+            .event(echonote_analytics::AnalyticsPayload::builder("test_event").build())
             .await;
         assert!(result.is_ok());
 

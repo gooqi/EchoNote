@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { ChatShortcutStorage } from "@hypr/store";
+import type { ChatShortcutStorage } from "@echonote/store";
 
 import { DEFAULT_USER_ID, id } from "../../../../utils";
 

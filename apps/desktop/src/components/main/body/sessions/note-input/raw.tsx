@@ -1,15 +1,15 @@
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 import NoteEditor, {
   type JSONContent,
   type TiptapEditor,
-} from "@hypr/tiptap/editor";
+} from "@echonote/tiptap/editor";
 import {
   EMPTY_TIPTAP_DOC,
   isValidTiptapContent,
   type PlaceholderFunction,
-} from "@hypr/tiptap/shared";
+} from "@echonote/tiptap/shared";
 
 import * as main from "../../../../../store/tinybase/store/main";
 

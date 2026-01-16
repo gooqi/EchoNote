@@ -1,6 +1,6 @@
 import { AlertCircleIcon, ArrowRightIcon, CheckIcon } from "lucide-react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { usePermissions } from "../../hooks/usePermissions";
 import { Route } from "../../routes/app/onboarding/_layout.index";

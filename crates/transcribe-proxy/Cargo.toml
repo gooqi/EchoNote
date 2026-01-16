@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-hypr-analytics = { workspace = true }
-hypr-language = { workspace = true }
+echonote-analytics = { workspace = true }
+echonote-language = { workspace = true }
 owhisper-client = { workspace = true }
 owhisper-interface = { workspace = true }
 owhisper-providers = { workspace = true }
@@ -30,9 +30,9 @@ thiserror = { workspace = true }
 url = { workspace = true }
 
 [dev-dependencies]
-hypr-audio-utils = { workspace = true }
-hypr-data = { workspace = true }
-hypr-language = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-data = { workspace = true }
+echonote-language = { workspace = true }
 owhisper-interface = { workspace = true }
 
 rodio = { workspace = true }

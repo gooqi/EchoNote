@@ -4,10 +4,10 @@ import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { create } from "zustand";
 
-import { commands as miscCommands } from "@hypr/plugin-misc";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Button } from "@hypr/ui/components/ui/button";
-import { cn } from "@hypr/utils";
+import { commands as miscCommands } from "@echonote/plugin-misc";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Button } from "@echonote/ui/components/ui/button";
+import { cn } from "@echonote/utils";
 
 import { env } from "../../env";
 
@@ -88,10 +88,10 @@ ${trimmedDescription}
 ${deviceInfo}
 
 ---
-*This issue was submitted from the Hyprnote desktop app.*
+*This issue was submitted from the EchoNote desktop app.*
 `;
 
-        const url = new URL("https://github.com/fastrepl/hyprnote/issues/new");
+        const url = new URL("https://github.com/fastrepl/echonote/issues/new");
         url.searchParams.set("title", title);
         url.searchParams.set("body", body);
         url.searchParams.set("labels", "bug,user-reported");
@@ -105,11 +105,11 @@ ${trimmedDescription}
 ${deviceInfo}
 
 ---
-*This feature request was submitted from the Hyprnote desktop app.*
+*This feature request was submitted from the EchoNote desktop app.*
 `;
 
         const url = new URL(
-          "https://github.com/fastrepl/hyprnote/discussions/new",
+          "https://github.com/fastrepl/echonote/discussions/new",
         );
         url.searchParams.set("category", "ideas");
         url.searchParams.set("title", title);

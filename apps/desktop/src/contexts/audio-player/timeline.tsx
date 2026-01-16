@@ -1,6 +1,6 @@
 import { Pause, Play } from "lucide-react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useAudioPlayer } from "./provider";
 

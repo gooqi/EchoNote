@@ -1,11 +1,11 @@
 import type { MergeableStore, OptionalSchemas } from "tinybase/with-schemas";
 
-import { commands as fs2Commands } from "@hypr/plugin-fs2";
+import { commands as fs2Commands } from "@echonote/plugin-fs2";
 import {
   commands as fsSyncCommands,
   type JsonValue,
   type ParsedDocument,
-} from "@hypr/plugin-fs-sync";
+} from "@echonote/plugin-fs-sync";
 
 import {
   createDeletionMarker,

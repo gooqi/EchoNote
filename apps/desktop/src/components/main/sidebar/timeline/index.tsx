@@ -1,8 +1,8 @@
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { type ReactNode, useMemo } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
-import { cn, safeParseDate, startOfDay } from "@hypr/utils";
+import { Button } from "@echonote/ui/components/ui/button";
+import { cn, safeParseDate, startOfDay } from "@echonote/utils";
 
 import * as main from "../../../../store/tinybase/store/main";
 import { useTabs } from "../../../../store/zustand/tabs";

@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/storybook",
+  "name": "@echonote/storybook",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,8 +8,8 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@hypr/tiptap": "workspace:^",
-    "@hypr/ui": "workspace:^",
+    "@echonote/tiptap": "workspace:^",
+    "@echonote/ui": "workspace:^",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },

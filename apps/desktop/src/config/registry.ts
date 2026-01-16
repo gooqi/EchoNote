@@ -1,10 +1,10 @@
 import { disable, enable } from "@tauri-apps/plugin-autostart";
 
-import { commands as detectCommands } from "@hypr/plugin-detect";
+import { commands as detectCommands } from "@echonote/plugin-detect";
 import {
   commands as localSttCommands,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
+} from "@echonote/plugin-local-stt";
 
 export type ConfigKey =
   | "autostart"
@@ -89,7 +89,7 @@ export const CONFIG_REGISTRY = {
       const model = getConfig("current_stt_model") as string | undefined;
 
       if (
-        provider === "hyprnote" &&
+        provider === "echonote" &&
         model &&
         model !== "cloud" &&
         (model.startsWith("am-") || model.startsWith("Quantized"))
@@ -107,7 +107,7 @@ export const CONFIG_REGISTRY = {
       const model = getConfig("current_stt_model") as string | undefined;
 
       if (
-        provider === "hyprnote" &&
+        provider === "echonote" &&
         model &&
         model !== "cloud" &&
         (model.startsWith("am-") || model.startsWith("Quantized"))

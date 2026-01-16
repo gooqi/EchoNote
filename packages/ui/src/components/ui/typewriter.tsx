@@ -1,7 +1,7 @@
 import { motion, Variants } from "motion/react";
 import { useEffect, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 interface TypewriterProps {
   text: string | string[];

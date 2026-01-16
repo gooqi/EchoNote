@@ -1,13 +1,13 @@
 import { ArrowDownUp, Plus, Search, X } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-} from "@hypr/ui/components/ui/select";
+} from "@echonote/ui/components/ui/select";
 
 export const getInitials = (name?: string | null) => {
   if (!name) {

@@ -1,4 +1,4 @@
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export type Logo = {
   src: string;

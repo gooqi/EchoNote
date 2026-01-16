@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-apple-calendar",
+  "name": "@echonote/plugin-apple-calendar",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

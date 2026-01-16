@@ -10,8 +10,8 @@ import { AlertTriangle, Bug, Home, RotateCw, Search } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Button } from "@echonote/ui/components/ui/button";
 
 import { env } from "../env";
 
@@ -52,7 +52,7 @@ ${errorInfo}
 ${deviceInfo}
 `;
 
-    const url = new URL("https://github.com/fastrepl/hyprnote/issues/new");
+    const url = new URL("https://github.com/fastrepl/echonote/issues/new");
     url.searchParams.set(
       "title",
       `[Bug] ${error.message || "Application Error"}`,

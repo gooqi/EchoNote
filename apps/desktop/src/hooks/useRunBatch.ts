@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 
-import type { BatchParams } from "@hypr/plugin-listener2";
+import type { BatchParams } from "@echonote/plugin-listener2";
 
 import { useConfigValue } from "../config/use-config";
 import { useListener } from "../contexts/listener";
@@ -37,7 +37,7 @@ function getBatchProvider(
   provider: string,
   model: string,
 ): BatchParams["provider"] | null {
-  if (provider === "hyprnote" && model.startsWith("am-")) {
+  if (provider === "echonote" && model.startsWith("am-")) {
     return "am";
   }
   return BATCH_PROVIDER_MAP[provider] ?? null;

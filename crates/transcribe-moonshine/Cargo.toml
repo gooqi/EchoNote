@@ -5,18 +5,18 @@ edition = "2024"
 
 [features]
 default = []
-cuda = ["hypr-moonshine/cuda"]
-coreml = ["hypr-moonshine/coreml"]
-directml = ["hypr-moonshine/directml"]
+cuda = ["echonote-moonshine/cuda"]
+coreml = ["echonote-moonshine/coreml"]
+directml = ["echonote-moonshine/directml"]
 
 [dependencies]
-hypr-moonshine = { workspace = true }
+echonote-moonshine = { workspace = true }
 owhisper-config = { workspace = true }
 owhisper-interface = { workspace = true }
 
-hypr-audio-utils = { workspace = true }
-hypr-vad-ext = { workspace = true }
-hypr-ws-utils = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-vad-ext = { workspace = true }
+echonote-ws-utils = { workspace = true }
 
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }

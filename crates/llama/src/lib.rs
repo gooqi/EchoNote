@@ -13,7 +13,7 @@ use llama_cpp_2::{
 use tokio_stream::wrappers::UnboundedReceiverStream;
 use tokio_util::sync::CancellationToken;
 
-use hypr_gguf::GgufExt;
+use echonote_gguf::GgufExt;
 
 mod error;
 mod parser;
@@ -451,7 +451,7 @@ mod tests {
 
     fn get_request() -> LlamaRequest {
         LlamaRequest {
-            grammar: Some(hypr_gbnf::Grammar::Enhance { sections: None }.build()),
+            grammar: Some(echonote_gbnf::Grammar::Enhance { sections: None }.build()),
             messages: vec![
                 LlamaMessage {
                     role: "system".into(),
@@ -459,7 +459,7 @@ mod tests {
                 },
                 LlamaMessage {
                     role: "user".into(),
-                    content: hypr_data::english_3::WORDS_JSON.repeat(1),
+                    content: echonote_data::english_3::WORDS_JSON.repeat(1),
                 },
             ],
             ..Default::default()

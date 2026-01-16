@@ -1,1 +1,1 @@
-export { default } from "@hypr/ui/postcss.config";
+export { default } from "@echonote/ui/postcss.config";

@@ -10,12 +10,12 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { cn } from "@echonote/utils";
 
 import { type Tab } from "../../../store/zustand/tabs";
 import { Data } from "../../settings/data";

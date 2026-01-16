@@ -1,7 +1,7 @@
 import { Icon } from "@iconify-icon/react";
 import MuxPlayer from "@mux/mux-player-react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 interface VideoThumbnailProps {
   playbackId: string;

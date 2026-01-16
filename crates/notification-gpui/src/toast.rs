@@ -1,8 +1,8 @@
 use std::rc::Rc;
 
+use echonote_notification_interface::NotificationEvent;
 use gpui::{prelude::*, *};
 use gpui_squircle::{SquircleStyled, squircle};
-use hypr_notification_interface::NotificationEvent;
 
 use crate::constants::{
     NOTIFICATION_CORNER_RADIUS, NOTIFICATION_HEIGHT, NOTIFICATION_MARGIN_RIGHT,

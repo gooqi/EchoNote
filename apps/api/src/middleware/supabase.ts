@@ -1,4 +1,4 @@
-import { createSupabaseAuthMiddleware } from "@hypr/supabase/middleware";
+import { createSupabaseAuthMiddleware } from "@echonote/supabase/middleware";
 
 import { env } from "../env";
 import type { AppBindings } from "../hono-bindings";

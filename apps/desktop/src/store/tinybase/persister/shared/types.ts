@@ -1,5 +1,5 @@
-import type { ParsedDocument } from "@hypr/plugin-fs-sync";
-import { SCHEMA } from "@hypr/store";
+import type { ParsedDocument } from "@echonote/plugin-fs-sync";
+import { SCHEMA } from "@echonote/store";
 
 import type { Store } from "../../store/main";
 

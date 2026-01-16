@@ -11,8 +11,8 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { useResizeObserver } from "usehooks-ts";
 import { useShallow } from "zustand/shallow";
 
-import { Button } from "@hypr/ui/components/ui/button";
-import { cn } from "@hypr/utils";
+import { Button } from "@echonote/ui/components/ui/button";
+import { cn } from "@echonote/utils";
 
 import { useListener } from "../../../contexts/listener";
 import { useNotifications } from "../../../contexts/notifications";

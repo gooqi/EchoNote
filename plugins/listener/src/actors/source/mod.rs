@@ -16,13 +16,13 @@ use crate::{
     actors::root::session_span,
     actors::{AudioChunk, ChannelMode},
 };
-use hypr_audio::AudioInput;
+use echonote_audio::AudioInput;
 use tauri_specta::Event;
 
 use pipeline::Pipeline;
 use stream::start_source_loop;
 
-use hypr_device_monitor::{DeviceMonitorHandle, DeviceSwitch, DeviceSwitchMonitor};
+use echonote_device_monitor::{DeviceMonitorHandle, DeviceSwitch, DeviceSwitchMonitor};
 
 pub enum SourceMsg {
     SetMicMute(bool),
@@ -118,7 +118,7 @@ impl Actor for SourceActor {
 
             let device_watcher = DeviceChangeWatcher::spawn(myself.clone());
 
-            let silence_stream_tx = Some(hypr_audio::AudioOutput::silence());
+            let silence_stream_tx = Some(echonote_audio::AudioOutput::silence());
             let mic_device = args
                 .mic_device
                 .or_else(|| Some(AudioInput::get_default_device_name()));

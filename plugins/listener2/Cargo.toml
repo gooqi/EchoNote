@@ -16,9 +16,9 @@ specta-typescript = { workspace = true }
 [dependencies]
 tauri-plugin-settings = { workspace = true }
 
-hypr-audio-utils = { workspace = true }
-hypr-host = { workspace = true }
-hypr-language = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-host = { workspace = true }
+echonote-language = { workspace = true }
 
 owhisper-client = { workspace = true, features = ["argmax"] }
 owhisper-interface = { workspace = true }

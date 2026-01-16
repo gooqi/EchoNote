@@ -180,7 +180,7 @@ impl LocalProvider {
     }
 
     fn build_stream(
-        model: &hypr_llama::Llama,
+        model: &echonote_llama::Llama,
         request: &CreateChatCompletionRequest,
     ) -> Result<
         (
@@ -192,21 +192,21 @@ impl LocalProvider {
         let messages = request
             .messages
             .iter()
-            .map(hypr_llama::FromOpenAI::from_openai)
+            .map(echonote_llama::FromOpenAI::from_openai)
             .collect();
 
         let maybe_grammar = request
             .metadata
             .as_ref()
             .and_then(|v| v.get("grammar"))
-            .and_then(|v| serde_json::from_value::<hypr_gbnf::Grammar>(v.clone()).ok());
+            .and_then(|v| serde_json::from_value::<echonote_gbnf::Grammar>(v.clone()).ok());
 
         let grammar = match maybe_grammar {
             None => None,
             Some(g) => {
-                if model.name == hypr_llama::ModelName::HyprLLM {
+                if model.name == echonote_llama::ModelName::HyprLLM {
                     match &g {
-                        hypr_gbnf::Grammar::Enhance { sections: None } => None,
+                        echonote_gbnf::Grammar::Enhance { sections: None } => None,
                         _ => Some(g.build()),
                     }
                 } else {
@@ -217,7 +217,7 @@ impl LocalProvider {
 
         let tools = request.tools.clone();
 
-        let request = hypr_llama::LlamaRequest {
+        let request = echonote_llama::LlamaRequest {
             messages,
             grammar,
             tools,
@@ -301,7 +301,7 @@ impl MockProvider {
 
         let stream = Box::pin(stream::iter(chunks).then(|chunk| async move {
             tokio::time::sleep(Duration::from_millis(50)).await;
-            StreamEvent::Response(hypr_llama::Response::TextDelta(chunk))
+            StreamEvent::Response(echonote_llama::Response::TextDelta(chunk))
         }));
 
         let cancellation_token = CancellationToken::new();
@@ -311,7 +311,7 @@ impl MockProvider {
 
 #[derive(Debug, Clone)]
 enum StreamEvent {
-    Response(hypr_llama::Response),
+    Response(echonote_llama::Response),
     Progress(f64),
 }
 
@@ -388,8 +388,8 @@ async fn build_chat_completion_response(
         while let Some(event) = futures_util::StreamExt::next(&mut stream).await {
             match event {
                 StreamEvent::Response(response) => match response {
-                    hypr_llama::Response::TextDelta(chunk) => completion.push_str(&chunk),
-                    hypr_llama::Response::ToolCall { name, arguments } => {
+                    echonote_llama::Response::TextDelta(chunk) => completion.push_str(&chunk),
+                    echonote_llama::Response::ToolCall { name, arguments } => {
                         tool_calls.push(async_openai::types::ChatCompletionMessageToolCall {
                             id: uuid::Uuid::new_v4().to_string(),
                             r#type: ChatCompletionToolType::Function,
@@ -399,7 +399,7 @@ async fn build_chat_completion_response(
                             },
                         });
                     }
-                    hypr_llama::Response::Reasoning(s) => {
+                    echonote_llama::Response::Reasoning(s) => {
                         tracing::debug!("reasoning: {}", s);
                     }
                 },
@@ -439,7 +439,7 @@ async fn build_chat_completion_response(
 
                     match event {
                         StreamEvent::Response(llama_response) => match llama_response {
-                            hypr_llama::Response::TextDelta(chunk) => {
+                            echonote_llama::Response::TextDelta(chunk) => {
                                 Some(Ok(CreateChatCompletionStreamResponse {
                                     choices: vec![ChatChoiceStream {
                                         index: 0,
@@ -453,8 +453,8 @@ async fn build_chat_completion_response(
                                     ..response_template
                                 }))
                             }
-                            hypr_llama::Response::Reasoning(_) => None,
-                            hypr_llama::Response::ToolCall { name, arguments } => {
+                            echonote_llama::Response::Reasoning(_) => None,
+                            echonote_llama::Response::ToolCall { name, arguments } => {
                                 Some(Ok(CreateChatCompletionStreamResponse {
                                     choices: vec![ChatChoiceStream {
                                         index: 0,

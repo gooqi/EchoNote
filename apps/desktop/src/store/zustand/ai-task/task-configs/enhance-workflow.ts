@@ -10,8 +10,8 @@ import {
   type EnhanceTemplate,
   commands as templateCommands,
   type TemplateSection,
-} from "@hypr/plugin-template";
-import { templateSectionSchema } from "@hypr/store";
+} from "@echonote/plugin-template";
+import { templateSectionSchema } from "@echonote/store";
 
 import type { TaskArgsMapTransformed, TaskConfig } from ".";
 import type { Store } from "../../../tinybase/store/main";

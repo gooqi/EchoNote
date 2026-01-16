@@ -7,20 +7,20 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import type { SlashCommandConfig, TiptapEditor } from "@hypr/tiptap/chat";
-import ChatEditor from "@hypr/tiptap/chat";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import type { SlashCommandConfig, TiptapEditor } from "@echonote/tiptap/chat";
+import ChatEditor from "@echonote/tiptap/chat";
 import {
   EMPTY_TIPTAP_DOC,
   type PlaceholderFunction,
-} from "@hypr/tiptap/shared";
-import { Button } from "@hypr/ui/components/ui/button";
+} from "@echonote/tiptap/shared";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import { useShell } from "../../contexts/shell";
 import * as main from "../../store/tinybase/store/main";

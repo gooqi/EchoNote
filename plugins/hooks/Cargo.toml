@@ -14,7 +14,7 @@ tauri-plugin = { workspace = true, features = ["build"] }
 specta-typescript = { workspace = true }
 tokio = { workspace = true, features = ["macros", "rt"] }
 
-hypr-docs = { workspace = true }
+echonote-docs = { workspace = true }
 
 [dependencies]
 tauri-plugin-path2 = { workspace = true }

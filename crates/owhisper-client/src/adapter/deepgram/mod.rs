@@ -59,7 +59,7 @@ impl DeepgramModel {
         }
     }
 
-    pub fn best_for_languages(languages: &[hypr_language::Language]) -> Option<Self> {
+    pub fn best_for_languages(languages: &[echonote_language::Language]) -> Option<Self> {
         let primary_lang = languages.first().map(|l| l.iso639().code()).unwrap_or("en");
         [Self::Nova3General, Self::Nova2General]
             .into_iter()
@@ -72,21 +72,21 @@ pub struct DeepgramAdapter;
 
 impl DeepgramAdapter {
     pub fn is_supported_languages_live(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         Self::is_supported_languages_impl(languages, model)
     }
 
     pub fn is_supported_languages_batch(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         Self::is_supported_languages_impl(languages, model)
     }
 
     fn is_supported_languages_impl(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         if languages.len() >= 2 {

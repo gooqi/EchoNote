@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { useCallback, useMemo } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { type SearchResult } from "../../../../contexts/search/ui";
 import * as main from "../../../../store/tinybase/store/main";

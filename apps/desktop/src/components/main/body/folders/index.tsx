@@ -1,7 +1,7 @@
 import { FolderIcon, FoldersIcon, StickyNoteIcon } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useSession } from "../../../../hooks/tinybase";
 import { sessionOps } from "../../../../store/tinybase/persister/session/ops";

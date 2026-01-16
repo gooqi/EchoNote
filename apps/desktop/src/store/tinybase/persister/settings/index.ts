@@ -1,6 +1,6 @@
 import * as _UI from "tinybase/ui-react/with-schemas";
 
-import { getCurrentWebviewWindowLabel } from "@hypr/plugin-windows";
+import { getCurrentWebviewWindowLabel } from "@echonote/plugin-windows";
 
 import type { Schemas, Store } from "../../store/settings";
 import { createSettingsPersister } from "./persister";

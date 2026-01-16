@@ -244,7 +244,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_mic_stream_with_resampling() {
-        use hypr_audio_utils::{ResampleExtDynamicNew, chunk_size_for_stt};
+        use echonote_audio_utils::{ResampleExtDynamicNew, chunk_size_for_stt};
 
         let mic = MicInput::new(None).unwrap();
         println!("mic device: {}", mic.device_name());

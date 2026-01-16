@@ -171,7 +171,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Permissions<'a, R, M> {
         #[cfg(not(target_os = "macos"))]
         {
             use futures_util::StreamExt;
-            let mut mic_sample_stream = hypr_audio::AudioInput::from_mic(None)?.stream();
+            let mut mic_sample_stream = echonote_audio::AudioInput::from_mic(None)?.stream();
             let sample = mic_sample_stream.next().await;
             Ok(if sample.is_some() {
                 PermissionStatus::Authorized
@@ -183,12 +183,12 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Permissions<'a, R, M> {
 
     async fn check_system_audio(&self) -> Result<PermissionStatus, crate::Error> {
         #[cfg(target_os = "macos")]
-        return check!("system_audio", hypr_tcc::audio_capture_permission_status());
+        return check!("system_audio", echonote_tcc::audio_capture_permission_status());
 
         #[cfg(not(target_os = "macos"))]
         {
             use futures_util::StreamExt;
-            let mut speaker_sample_stream = hypr_audio::AudioInput::from_speaker().stream();
+            let mut speaker_sample_stream = echonote_audio::AudioInput::from_speaker().stream();
             let sample = speaker_sample_stream.next().await;
             Ok(if sample.is_some() {
                 PermissionStatus::Authorized
@@ -269,7 +269,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Permissions<'a, R, M> {
         #[cfg(not(target_os = "macos"))]
         {
             use futures_util::StreamExt;
-            let mut mic_sample_stream = hypr_audio::AudioInput::from_mic(None)?.stream();
+            let mut mic_sample_stream = echonote_audio::AudioInput::from_mic(None)?.stream();
             mic_sample_stream.next().await;
         }
 
@@ -277,10 +277,10 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Permissions<'a, R, M> {
     }
 
     async fn request_system_audio(&self) -> Result<(), crate::Error> {
-        let stop = hypr_audio::AudioOutput::silence();
+        let stop = echonote_audio::AudioOutput::silence();
 
         use futures_util::StreamExt;
-        let mut speaker_sample_stream = hypr_audio::AudioInput::from_speaker().stream();
+        let mut speaker_sample_stream = echonote_audio::AudioInput::from_speaker().stream();
         speaker_sample_stream.next().await;
 
         let _ = stop.send(());
@@ -336,7 +336,7 @@ impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Permissions<'a, R, M> {
         use tauri_plugin_shell::ShellExt;
 
         let bundle_id = if cfg!(debug_assertions) {
-            match hypr_bundle::get_ancestor_bundle_id() {
+            match echonote_bundle::get_ancestor_bundle_id() {
                 Some(id) => {
                     tracing::info!(service, bundle_id = %id, "resolving_ancestor_bundle_id");
                     id

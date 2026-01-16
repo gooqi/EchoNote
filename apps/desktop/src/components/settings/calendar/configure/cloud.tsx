@@ -1,8 +1,8 @@
 import {
   AccordionItem,
   AccordionTrigger,
-} from "@hypr/ui/components/ui/accordion";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/accordion";
+import { cn } from "@echonote/utils";
 
 import { PROVIDERS } from "../shared";
 

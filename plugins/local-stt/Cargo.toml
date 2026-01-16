@@ -9,23 +9,23 @@ description = ""
 
 [features]
 default = []
-coreml = ["hypr-transcribe-whisper-local/coreml", "hypr-transcribe-moonshine/coreml"]
-directml = ["hypr-transcribe-whisper-local/directml", "hypr-transcribe-moonshine/directml"]
-cuda = ["hypr-transcribe-whisper-local/cuda", "hypr-transcribe-moonshine/cuda"]
-hipblas = ["hypr-transcribe-whisper-local/hipblas"]
-openblas = ["hypr-transcribe-whisper-local/openblas"]
-metal = ["hypr-transcribe-whisper-local/metal"]
-vulkan = ["hypr-transcribe-whisper-local/vulkan"]
-openmp = ["hypr-transcribe-whisper-local/openmp"]
-load-dynamic = ["hypr-transcribe-whisper-local/load-dynamic"]
+coreml = ["echonote-transcribe-whisper-local/coreml", "echonote-transcribe-moonshine/coreml"]
+directml = ["echonote-transcribe-whisper-local/directml", "echonote-transcribe-moonshine/directml"]
+cuda = ["echonote-transcribe-whisper-local/cuda", "echonote-transcribe-moonshine/cuda"]
+hipblas = ["echonote-transcribe-whisper-local/hipblas"]
+openblas = ["echonote-transcribe-whisper-local/openblas"]
+metal = ["echonote-transcribe-whisper-local/metal"]
+vulkan = ["echonote-transcribe-whisper-local/vulkan"]
+openmp = ["echonote-transcribe-whisper-local/openmp"]
+load-dynamic = ["echonote-transcribe-whisper-local/load-dynamic"]
 
 [build-dependencies]
 tauri-plugin = { workspace = true, features = ["build"] }
 
 [dev-dependencies]
-hypr-audio-utils = { workspace = true }
-hypr-data = { workspace = true }
-hypr-language = { workspace = true, features = ["whisper"] }
+echonote-audio-utils = { workspace = true }
+echonote-data = { workspace = true }
+echonote-language = { workspace = true, features = ["whisper"] }
 
 dirs = { workspace = true }
 reqwest = { workspace = true }
@@ -36,16 +36,16 @@ tokio-tungstenite = { workspace = true }
 tower = { workspace = true }
 
 [dependencies]
-hypr-am = { workspace = true }
-hypr-audio-utils = { workspace = true }
-hypr-download-interface = { workspace = true }
-hypr-file = { workspace = true }
-hypr-host = { workspace = true }
-hypr-language = { workspace = true, features = ["whisper"] }
-hypr-transcribe-moonshine = { workspace = true }
-hypr-transcribe-whisper-local = { workspace = true }
-hypr-whisper-local = { workspace = true }
-hypr-whisper-local-model = { workspace = true }
+echonote-am = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-download-interface = { workspace = true }
+echonote-file = { workspace = true }
+echonote-host = { workspace = true }
+echonote-language = { workspace = true, features = ["whisper"] }
+echonote-transcribe-moonshine = { workspace = true }
+echonote-transcribe-whisper-local = { workspace = true }
+echonote-whisper-local = { workspace = true }
+echonote-whisper-local-model = { workspace = true }
 
 owhisper-client = { workspace = true }
 owhisper-interface = { workspace = true }

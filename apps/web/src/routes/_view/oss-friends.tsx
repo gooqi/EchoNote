@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { allOssFriends } from "content-collections";
 import { useMemo, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { Image } from "@/components/image";
 import { SlashSeparator } from "@/components/slash-separator";

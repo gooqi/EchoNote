@@ -1,4 +1,4 @@
-import type { MappingSessionParticipant, MappingTagSession } from "@hypr/store";
+import type { MappingSessionParticipant, MappingTagSession } from "@echonote/store";
 
 import { DEFAULT_USER_ID, id } from "../../../../utils";
 

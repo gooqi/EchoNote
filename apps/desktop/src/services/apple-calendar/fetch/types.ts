@@ -1,4 +1,4 @@
-import { EventStorage } from "@hypr/store";
+import { EventStorage } from "@echonote/store";
 
 export type EventParticipant = {
   name?: string;

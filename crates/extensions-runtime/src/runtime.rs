@@ -11,8 +11,8 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use tokio::sync::{mpsc, oneshot};
 
 deno_core::extension!(
-    hypr_extension,
-    ops = [op_hypr_log, op_hypr_log_error, op_hypr_log_warn],
+    echonote_extension,
+    ops = [op_echonote_log, op_echonote_log_error, op_echonote_log_warn],
 );
 
 pub enum RuntimeRequest {
@@ -171,7 +171,7 @@ struct ExtensionState {
 
 async fn runtime_loop(mut rx: mpsc::Receiver<RuntimeRequest>) {
     let mut js_runtime = JsRuntime::new(RuntimeOptions {
-        extensions: vec![hypr_extension::init_ops()],
+        extensions: vec![echonote_extension::init_ops()],
         ..Default::default()
     });
 
@@ -181,9 +181,9 @@ async fn runtime_loop(mut rx: mpsc::Receiver<RuntimeRequest>) {
             r#"
             globalThis.hypr = {
                 log: {
-                    info: (msg) => Deno.core.ops.op_hypr_log(String(msg)),
-                    error: (msg) => Deno.core.ops.op_hypr_log_error(String(msg)),
-                    warn: (msg) => Deno.core.ops.op_hypr_log_warn(String(msg)),
+                    info: (msg) => Deno.core.ops.op_echonote_log(String(msg)),
+                    error: (msg) => Deno.core.ops.op_echonote_log_error(String(msg)),
+                    warn: (msg) => Deno.core.ops.op_echonote_log_warn(String(msg)),
                 },
                 _internal: {
                     extensionId: null,
@@ -193,7 +193,7 @@ async fn runtime_loop(mut rx: mpsc::Receiver<RuntimeRequest>) {
             hypr.log.toString = () => "[object Function]";
             const originalLog = hypr.log;
             globalThis.hypr.log = Object.assign(
-                (msg) => Deno.core.ops.op_hypr_log(String(msg)),
+                (msg) => Deno.core.ops.op_echonote_log(String(msg)),
                 originalLog
             );
             "#,
@@ -265,14 +265,14 @@ fn load_extension_impl(
     let wrapper = format!(
         r#"
         (function() {{
-            const __hypr_extension = {{}};
-            const __hypr_context = {context};
-            hypr._internal.extensionId = __hypr_context.extensionId;
+            const __echonote_extension = {{}};
+            const __echonote_context = {context};
+            hypr._internal.extensionId = __echonote_context.extensionId;
             {code}
-            if (typeof __hypr_extension.activate === 'function') {{
-                __hypr_extension.activate(__hypr_context);
+            if (typeof __echonote_extension.activate === 'function') {{
+                __echonote_extension.activate(__echonote_context);
             }}
-            return __hypr_extension;
+            return __echonote_extension;
         }})()
         "#,
         context = context_json,

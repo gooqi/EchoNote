@@ -17,8 +17,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@hypr/ui/components/ui/command";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/command";
+import { cn } from "@echonote/utils";
 
 function SearchKbd({ children }: { children: React.ReactNode }) {
   return (

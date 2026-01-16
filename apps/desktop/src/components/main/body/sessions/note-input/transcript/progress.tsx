@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { Spinner } from "@hypr/ui/components/ui/spinner";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
 
 import { useListener } from "../../../../../../contexts/listener";
 

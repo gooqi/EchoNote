@@ -8,13 +8,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@hypr/ui/components/ui/command";
+} from "@echonote/ui/components/ui/command";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuSubContent,
   DropdownMenuTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
+} from "@echonote/ui/components/ui/dropdown-menu";
 
 import { sessionOps } from "../../../../../../store/tinybase/persister/session/ops";
 import * as main from "../../../../../../store/tinybase/store/main";

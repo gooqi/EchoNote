@@ -1,8 +1,8 @@
 use futures_util::StreamExt;
 
-use hypr_gbnf::Grammar;
-use hypr_llm_interface::ModelManager;
-use hypr_template_app_legacy::{Template, render};
+use echonote_gbnf::Grammar;
+use echonote_llm_interface::ModelManager;
+use echonote_template_app_legacy::{Template, render};
 
 pub async fn generate_title(
     provider: &ModelManager,
@@ -10,13 +10,13 @@ pub async fn generate_title(
 ) -> Result<String, crate::Error> {
     let model = provider.get_model().await?;
 
-    let stream = model.generate_stream(hypr_llama::LlamaRequest {
+    let stream = model.generate_stream(echonote_llama::LlamaRequest {
         messages: vec![
-            hypr_llama::LlamaMessage {
+            echonote_llama::LlamaMessage {
                 role: "system".into(),
                 content: render(Template::TitleSystem, &ctx).unwrap(),
             },
-            hypr_llama::LlamaMessage {
+            echonote_llama::LlamaMessage {
                 role: "user".into(),
                 content: render(Template::TitleUser, &ctx).unwrap(),
             },
@@ -31,7 +31,7 @@ pub async fn generate_title(
         .await
         .into_iter()
         .filter_map(|r| match r {
-            hypr_llama::Response::TextDelta(content) => Some(content.clone()),
+            echonote_llama::Response::TextDelta(content) => Some(content.clone()),
             _ => None,
         })
         .collect::<Vec<_>>();

@@ -48,7 +48,7 @@ pub async fn is_supported_languages_batch<R: tauri::Runtime>(
 
     let languages_parsed = languages
         .iter()
-        .map(|s| hypr_language::Language::from_str(s))
+        .map(|s| echonote_language::Language::from_str(s))
         .collect::<Result<Vec<_>, _>>()
         .map_err(|e| format!("unknown_language: {}", e))?;
     let adapter_kind =
@@ -65,7 +65,7 @@ pub async fn suggest_providers_for_languages_batch<R: tauri::Runtime>(
 ) -> Result<Vec<String>, String> {
     let languages_parsed = languages
         .iter()
-        .map(|s| hypr_language::Language::from_str(s))
+        .map(|s| echonote_language::Language::from_str(s))
         .collect::<Result<Vec<_>, _>>()
         .map_err(|e| format!("unknown_language: {}", e))?;
 

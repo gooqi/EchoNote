@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { create } from "zustand";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 type TrialBeginModalStore = {
   isOpen: boolean;

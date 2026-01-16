@@ -3,19 +3,19 @@ import { type AnyFieldApi, useForm } from "@tanstack/react-form";
 import type { ReactNode } from "react";
 import { Streamdown } from "streamdown";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import type { AIProvider } from "@hypr/store";
-import { aiProviderSchema } from "@hypr/store";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import type { AIProvider } from "@echonote/store";
+import { aiProviderSchema } from "@echonote/store";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@hypr/ui/components/ui/accordion";
+} from "@echonote/ui/components/ui/accordion";
 import {
   InputGroup,
   InputGroupInput,
-} from "@hypr/ui/components/ui/input-group";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/input-group";
+import { cn } from "@echonote/utils";
 
 import { useBillingAccess } from "../../../../billing";
 import * as settings from "../../../../store/tinybase/store/settings";

@@ -2,7 +2,7 @@ use futures_util::{Stream, pin_mut};
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-use hypr_audio_interface::AsyncSource;
+use echonote_audio_interface::AsyncSource;
 use rubato::{FastFixedIn, PolynomialDegree};
 
 use super::driver::RubatoChunkResampler;

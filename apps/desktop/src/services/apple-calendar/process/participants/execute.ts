@@ -1,7 +1,7 @@
 import type {
   HumanStorage,
   MappingSessionParticipantStorage,
-} from "@hypr/store";
+} from "@echonote/store";
 
 import { id } from "../../../../utils";
 import type { Ctx } from "../../ctx";

@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/api",
+  "name": "@echonote/api",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.7.6",
-    "@hypr/api-client": "workspace:*",
-    "@hypr/supabase": "workspace:*",
+    "@echonote/api-client": "workspace:*",
+    "@echonote/supabase": "workspace:*",
     "@posthog/ai": "^7.4.2",
     "@restatedev/restate-sdk-clients": "^1.10.2",
     "@scalar/hono-api-reference": "^0.5.184",

@@ -1,12 +1,12 @@
 import { AudioLinesIcon, SparklesIcon } from "lucide-react";
 import { useCallback, useRef } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { cn } from "@echonote/utils";
 
 import { type Tab, useTabs } from "../../../store/zustand/tabs";
 import { LLM } from "../../settings/ai/llm";

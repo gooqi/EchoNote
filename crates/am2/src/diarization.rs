@@ -69,7 +69,7 @@ mod tests {
         crate::init();
         init();
 
-        let audio_bytes = hypr_data::english_1::AUDIO;
+        let audio_bytes = echonote_data::english_1::AUDIO;
         let samples = bytes_to_f32_samples(audio_bytes);
 
         let segments = process(&samples, None);
@@ -90,7 +90,7 @@ mod tests {
         crate::init();
         init();
 
-        let audio_bytes = hypr_data::english_1::AUDIO;
+        let audio_bytes = echonote_data::english_1::AUDIO;
         let samples = bytes_to_f32_samples(audio_bytes);
 
         let segments = process(&samples, Some(2));

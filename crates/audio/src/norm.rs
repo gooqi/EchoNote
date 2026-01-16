@@ -10,7 +10,7 @@ const TRUE_PEAK_LIMIT: f64 = -1.0;
 const LIMITER_LOOKAHEAD_MS: usize = 10;
 const ANALYZE_CHUNK_SIZE: usize = 512;
 
-pub struct NormalizedSource<S: hypr_audio_interface::AsyncSource> {
+pub struct NormalizedSource<S: echonote_audio_interface::AsyncSource> {
     source: S,
     gain_linear: f32,
     ebur128: EbuR128,
@@ -57,11 +57,11 @@ impl TruePeakLimiter {
     }
 }
 
-pub trait NormalizeExt<S: hypr_audio_interface::AsyncSource> {
+pub trait NormalizeExt<S: echonote_audio_interface::AsyncSource> {
     fn normalize(self) -> NormalizedSource<S>;
 }
 
-impl<S: hypr_audio_interface::AsyncSource> NormalizeExt<S> for S {
+impl<S: echonote_audio_interface::AsyncSource> NormalizeExt<S> for S {
     fn normalize(self) -> NormalizedSource<S> {
         let sample_rate = self.sample_rate();
         let ebur128 = EbuR128::new(CHANNELS, sample_rate, Mode::I | Mode::TRUE_PEAK)
@@ -80,7 +80,7 @@ impl<S: hypr_audio_interface::AsyncSource> NormalizeExt<S> for S {
     }
 }
 
-impl<S: hypr_audio_interface::AsyncSource + Unpin> Stream for NormalizedSource<S> {
+impl<S: echonote_audio_interface::AsyncSource + Unpin> Stream for NormalizedSource<S> {
     type Item = f32;
 
     fn poll_next(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Option<Self::Item>> {
@@ -115,7 +115,7 @@ impl<S: hypr_audio_interface::AsyncSource + Unpin> Stream for NormalizedSource<S
     }
 }
 
-impl<S: hypr_audio_interface::AsyncSource + Unpin> hypr_audio_interface::AsyncSource
+impl<S: echonote_audio_interface::AsyncSource + Unpin> echonote_audio_interface::AsyncSource
     for NormalizedSource<S>
 {
     fn sample_rate(&self) -> u32 {
@@ -130,13 +130,13 @@ impl<S: hypr_audio_interface::AsyncSource + Unpin> hypr_audio_interface::AsyncSo
 #[cfg(test)]
 mod tests {
     use super::*;
+    use echonote_audio_interface::AsyncSource;
     use futures_util::StreamExt;
-    use hypr_audio_interface::AsyncSource;
 
     #[tokio::test]
     async fn test_normalize() {
         let audio = rodio::Decoder::new(std::io::BufReader::new(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         ))
         .unwrap();
 

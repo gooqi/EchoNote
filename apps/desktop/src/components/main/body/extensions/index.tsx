@@ -11,12 +11,12 @@ import {
 import type { MergeableStore } from "tinybase";
 import { useStores } from "tinybase/ui-react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
+} from "@echonote/ui/components/ui/resizable";
 
 import { createIframeSynchronizer } from "../../../../store/tinybase/store/iframe-sync";
 import { type Store, STORE_ID } from "../../../../store/tinybase/store/main";

@@ -9,7 +9,7 @@ import {
   type ValuesSchema,
 } from "tinybase/with-schemas";
 
-import { getCurrentWebviewWindowLabel } from "@hypr/plugin-windows";
+import { getCurrentWebviewWindowLabel } from "@echonote/plugin-windows";
 
 import { useSettingsPersister } from "../persister/settings";
 import { registerSaveHandler } from "./save";

@@ -28,7 +28,7 @@ use aws_sdk_transcribestreaming::types::{
     AudioEvent, AudioStream, LanguageCode, MediaEncoding, TranscriptResultStream,
 };
 use aws_sdk_transcribestreaming::{Client, config::Region};
-use hypr_audio_utils::mix_audio_pcm16le;
+use echonote_audio_utils::mix_audio_pcm16le;
 
 use owhisper_interface::{ListenInputChunk, ListenOutputChunk, ListenParams, Word2};
 

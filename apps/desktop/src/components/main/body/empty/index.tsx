@@ -1,8 +1,8 @@
 import { AppWindowIcon } from "lucide-react";
 import { useCallback } from "react";
 
-import { Kbd } from "@hypr/ui/components/ui/kbd";
-import { cn } from "@hypr/utils";
+import { Kbd } from "@echonote/ui/components/ui/kbd";
+import { cn } from "@echonote/utils";
 
 import { type Tab, useTabs } from "../../../../store/zustand/tabs";
 import { useNewNote } from "../../shared";

@@ -9,5 +9,5 @@ path = "src/main.rs"
 
 [dependencies]
 clap = { workspace = true, features = ["derive"] }
-hypr-granola = { workspace = true }
+echonote-granola = { workspace = true }
 tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }

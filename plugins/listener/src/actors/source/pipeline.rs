@@ -11,9 +11,9 @@ use crate::{
     SessionDataEvent,
     actors::{AudioChunk, ChannelMode, ListenerActor, ListenerMsg, RecMsg, RecorderActor},
 };
-use hypr_aec::AEC;
-use hypr_agc::VadAgc;
-use hypr_audio_utils::f32_to_i16_bytes;
+use echonote_aec::AEC;
+use echonote_agc::VadAgc;
+use echonote_audio_utils::f32_to_i16_bytes;
 
 const AUDIO_AMPLITUDE_THROTTLE: Duration = Duration::from_millis(100);
 const MAX_BUFFER_CHUNKS: usize = 150;

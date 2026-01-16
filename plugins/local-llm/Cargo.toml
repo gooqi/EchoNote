@@ -9,10 +9,10 @@ description = ""
 
 [features]
 default = []
-metal = ["hypr-llama/metal"]
-cuda = ["hypr-llama/cuda"]
-vulkan = ["hypr-llama/vulkan"]
-native = ["hypr-llama/native"]
+metal = ["echonote-llama/metal"]
+cuda = ["echonote-llama/cuda"]
+vulkan = ["echonote-llama/vulkan"]
+native = ["echonote-llama/native"]
 
 [build-dependencies]
 tauri-plugin = { workspace = true, features = ["build"] }
@@ -24,13 +24,13 @@ specta-typescript = { workspace = true }
 tauri-plugin-store = { workspace = true }
 
 [dependencies]
-hypr-download-interface = { workspace = true }
-hypr-file = { workspace = true }
-hypr-gbnf = { workspace = true }
-hypr-gguf = { workspace = true }
-hypr-llama = { workspace = true }
-hypr-llm = { workspace = true }
-hypr-llm-interface = { workspace = true }
+echonote-download-interface = { workspace = true }
+echonote-file = { workspace = true }
+echonote-gbnf = { workspace = true }
+echonote-gguf = { workspace = true }
+echonote-llama = { workspace = true }
+echonote-llm = { workspace = true }
+echonote-llm-interface = { workspace = true }
 
 tauri = { workspace = true, features = ["test"] }
 tauri-specta = { workspace = true, features = ["derive", "typescript"] }

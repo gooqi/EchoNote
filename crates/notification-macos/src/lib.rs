@@ -4,7 +4,7 @@ use std::sync::Mutex;
 
 use swift_rs::{Bool, SRString, swift};
 
-pub use hypr_notification_interface::*;
+pub use echonote_notification_interface::*;
 
 swift!(fn _show_notification(json_payload: &SRString) -> Bool);
 
@@ -69,7 +69,7 @@ struct NotificationPayload<'a> {
     action_label: Option<&'a str>,
 }
 
-pub fn show(notification: &hypr_notification_interface::Notification) {
+pub fn show(notification: &echonote_notification_interface::Notification) {
     let key = notification
         .key
         .as_deref()

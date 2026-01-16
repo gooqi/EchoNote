@@ -4,8 +4,8 @@ use tauri::{Manager, Runtime, ipc::Channel};
 use tauri_plugin_store2::Store2PluginExt;
 use tauri_specta::Event;
 
-use hypr_download_interface::DownloadProgress;
-use hypr_file::download_file_parallel;
+use echonote_download_interface::DownloadProgress;
+use echonote_file::download_file_parallel;
 
 pub trait LocalLlmPluginExt<R: Runtime> {
     fn local_llm_store(&self) -> tauri_plugin_store2::ScopedStore<R, crate::StoreKey>;
@@ -83,7 +83,7 @@ impl<R: Runtime, T: Manager<R>> LocalLlmPluginExt<R> for T {
             return Ok(false);
         }
 
-        let actual = hypr_file::file_size(path)?;
+        let actual = echonote_file::file_size(path)?;
         if actual != model.model_size() {
             return Ok(false);
         }
@@ -290,7 +290,7 @@ impl<R: Runtime, T: Manager<R>> LocalLlmPluginExt<R> for T {
                 let path = std::path::Path::new(&path_str);
                 if path.exists() {
                     let name = {
-                        use hypr_gguf::GgufExt;
+                        use echonote_gguf::GgufExt;
                         path.model_name()
                     };
 

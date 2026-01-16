@@ -4,18 +4,18 @@ import { arch } from "@tauri-apps/plugin-os";
 import { Check, Loader2 } from "lucide-react";
 import { useEffect } from "react";
 
-import { commands as listenerCommands } from "@hypr/plugin-listener";
-import type { SupportedSttModel } from "@hypr/plugin-local-stt";
-import type { AIProviderStorage } from "@hypr/store";
-import { Input } from "@hypr/ui/components/ui/input";
+import { commands as listenerCommands } from "@echonote/plugin-listener";
+import type { SupportedSttModel } from "@echonote/plugin-local-stt";
+import type { AIProviderStorage } from "@echonote/store";
+import { Input } from "@echonote/ui/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@hypr/ui/components/ui/select";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/select";
+import { cn } from "@echonote/utils";
 
 import { useBillingAccess } from "../../../../billing";
 import { useConfigValues } from "../../../../config/use-config";
@@ -289,7 +289,7 @@ export function SelectProviderAndModel() {
           <div className="flex items-center gap-2 pt-2 border-t border-red-200">
             <span className="text-sm text-red-600">
               <strong className="font-medium">Transcription model</strong> is
-              needed to make Hyprnote listen to your conversations.
+              needed to make EchoNote listen to your conversations.
             </span>
           </div>
         )}
@@ -361,7 +361,7 @@ function useConfiguredMapping(): Record<
         return [provider.id, { configured: false, models: [] }];
       }
 
-      if (provider.id === "hyprnote") {
+      if (provider.id === "echonote") {
         const models = [
           { id: "cloud", isDownloaded: billing.isPro },
           {

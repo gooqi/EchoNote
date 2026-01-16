@@ -21,4 +21,4 @@ tracing = { workspace = true }
 google-cloud-speech-v2 = "0.4.2"
 
 [dev-dependencies]
-hypr-data = { workspace = true }
+echonote-data = { workspace = true }

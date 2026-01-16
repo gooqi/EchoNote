@@ -4,7 +4,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { Image } from "@/components/image";
 import { doAuth, doMagicLinkAuth, fetchUser } from "@/functions/auth";

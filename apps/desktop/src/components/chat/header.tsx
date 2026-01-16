@@ -8,13 +8,13 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
-import { cn, formatDistanceToNow } from "@hypr/utils";
+} from "@echonote/ui/components/ui/dropdown-menu";
+import { cn, formatDistanceToNow } from "@echonote/utils";
 
 import { useShell } from "../../contexts/shell";
 import * as main from "../../store/tinybase/store/main";
@@ -123,7 +123,7 @@ function ChatGroups({
         >
           <MessageCircle className="w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-600 transition-colors" />
           <h3 className="font-medium text-neutral-700 text-xs truncate">
-            {currentChatTitle || "Ask Hyprnote anything"}
+            {currentChatTitle || "Ask EchoNote anything"}
           </h3>
           <ChevronDown
             className={cn([

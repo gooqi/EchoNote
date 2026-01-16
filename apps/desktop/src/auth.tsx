@@ -21,10 +21,10 @@ import {
   useState,
 } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands } from "@hypr/plugin-auth";
-import { commands as miscCommands } from "@hypr/plugin-misc";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands } from "@echonote/plugin-auth";
+import { commands as miscCommands } from "@echonote/plugin-misc";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
 
 import { env } from "./env";
 import { getScheme } from "./utils";

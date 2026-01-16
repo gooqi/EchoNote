@@ -8,10 +8,10 @@ default = ["128"]
 128 = []
 256 = []
 512 = []
-load-dynamic = ["hypr-onnx/load-dynamic"]
+load-dynamic = ["echonote-onnx/load-dynamic"]
 
 [dependencies]
-hypr-onnx = { workspace = true }
+echonote-onnx = { workspace = true }
 
 realfft = { workspace = true }
 

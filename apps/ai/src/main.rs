@@ -16,15 +16,17 @@ use env::env;
 pub use auth::DEVICE_FINGERPRINT_HEADER;
 
 fn app() -> Router {
-    let llm_config = hypr_llm_proxy::LlmProxyConfig::new(&env().openrouter_api_key);
-    let stt_config = hypr_transcribe_proxy::SttProxyConfig::new(env().api_keys());
+    let llm_config = echonote_llm_proxy::LlmProxyConfig::new(&env().openrouter_api_key);
+    let stt_config = echonote_transcribe_proxy::SttProxyConfig::new(env().api_keys());
     let auth_state = AuthState::new(&env().supabase_url);
 
     let protected_routes = Router::new()
-        .merge(hypr_transcribe_proxy::listen_router(stt_config.clone()))
-        .merge(hypr_llm_proxy::chat_completions_router(llm_config.clone()))
-        .nest("/stt", hypr_transcribe_proxy::router(stt_config))
-        .nest("/llm", hypr_llm_proxy::router(llm_config))
+        .merge(echonote_transcribe_proxy::listen_router(stt_config.clone()))
+        .merge(echonote_llm_proxy::chat_completions_router(
+            llm_config.clone(),
+        ))
+        .nest("/stt", echonote_transcribe_proxy::router(stt_config))
+        .nest("/llm", echonote_llm_proxy::router(llm_config))
         .route_layer(middleware::from_fn_with_state(
             auth_state,
             auth::require_pro,

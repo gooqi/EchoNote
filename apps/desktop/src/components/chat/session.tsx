@@ -5,8 +5,8 @@ import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import {
   commands as templateCommands,
   type Transcript,
-} from "@hypr/plugin-template";
-import type { ChatMessage, ChatMessageStorage } from "@hypr/store";
+} from "@echonote/plugin-template";
+import type { ChatMessage, ChatMessageStorage } from "@echonote/store";
 
 import { CustomChatTransport } from "../../chat/transport";
 import type { HyprUIMessage } from "../../chat/types";

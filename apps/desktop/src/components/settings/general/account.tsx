@@ -2,12 +2,12 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { ExternalLinkIcon } from "lucide-react";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
 
-import { getRpcCanStartTrial, postBillingStartTrial } from "@hypr/api-client";
-import { createClient } from "@hypr/api-client/client";
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Button } from "@hypr/ui/components/ui/button";
-import { Input } from "@hypr/ui/components/ui/input";
+import { getRpcCanStartTrial, postBillingStartTrial } from "@echonote/api-client";
+import { createClient } from "@echonote/api-client/client";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Input } from "@echonote/ui/components/ui/input";
 
 import { useAuth } from "../../../auth";
 import { useBillingAccess } from "../../../billing";
@@ -61,11 +61,11 @@ export function AccountSettings() {
       const currentSttModel = store.getValue("current_stt_model");
       const currentLlmProvider = store.getValue("current_llm_provider");
 
-      if (currentSttProvider === "hyprnote" && currentSttModel === "cloud") {
+      if (currentSttProvider === "echonote" && currentSttModel === "cloud") {
         store.setValue("current_stt_model", "");
       }
 
-      if (currentLlmProvider === "hyprnote") {
+      if (currentLlmProvider === "echonote") {
         store.setValue("current_llm_provider", "");
         store.setValue("current_llm_model", "");
       }
@@ -87,7 +87,7 @@ export function AccountSettings() {
           <Input
             type="text"
             className="text-xs font-mono"
-            placeholder="hyprnote://deeplink/auth?access_token=...&refresh_token=..."
+            placeholder="echonote://deeplink/auth?access_token=...&refresh_token=..."
             value={callbackUrl}
             onChange={(e) => setCallbackUrl(e.target.value)}
           />
@@ -133,8 +133,8 @@ export function AccountSettings() {
 
     return (
       <Container
-        title="Sign in to Hyprnote"
-        description="Hyprnote account is required to access pro plan."
+        title="Sign in to EchoNote"
+        description="EchoNote account is required to access pro plan."
         action={
           <button
             onClick={handleSignIn}

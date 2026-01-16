@@ -1,4 +1,4 @@
-use hypr_ws_client::client::Message;
+use echonote_ws_client::client::Message;
 use owhisper_interface::ListenParams;
 use owhisper_interface::stream::{Alternatives, Channel, Metadata, StreamResponse};
 use serde::{Deserialize, Serialize};
@@ -14,7 +14,7 @@ impl RealtimeSttAdapter for ElevenLabsAdapter {
 
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         ElevenLabsAdapter::is_supported_languages_live(languages)
@@ -231,7 +231,7 @@ impl ElevenLabsAdapter {
 
 #[cfg(test)]
 mod tests {
-    use hypr_language::ISO639;
+    use echonote_language::ISO639;
 
     use super::ElevenLabsAdapter;
     use crate::ListenClient;
@@ -314,7 +314,7 @@ mod tests {
         test_build_single,
         owhisper_interface::ListenParams {
             model: Some("scribe_v2".to_string()),
-            languages: vec![hypr_language::ISO639::En.into()],
+            languages: vec![echonote_language::ISO639::En.into()],
             ..Default::default()
         }
     );
@@ -324,8 +324,8 @@ mod tests {
         owhisper_interface::ListenParams {
             model: Some("scribe_v2".to_string()),
             languages: vec![
-                hypr_language::ISO639::En.into(),
-                hypr_language::ISO639::Es.into(),
+                echonote_language::ISO639::En.into(),
+                echonote_language::ISO639::Es.into(),
             ],
             ..Default::default()
         }
@@ -336,8 +336,8 @@ mod tests {
         owhisper_interface::ListenParams {
             model: Some("scribe_v2".to_string()),
             languages: vec![
-                hypr_language::ISO639::En.into(),
-                hypr_language::ISO639::Ko.into(),
+                echonote_language::ISO639::En.into(),
+                echonote_language::ISO639::Ko.into(),
             ],
             ..Default::default()
         }
@@ -352,7 +352,7 @@ mod tests {
             .api_key(std::env::var("ELEVENLABS_API_KEY").expect("ELEVENLABS_API_KEY not set"))
             .params(owhisper_interface::ListenParams {
                 model: Some("scribe_v2".to_string()),
-                languages: vec![hypr_language::ISO639::En.into()],
+                languages: vec![echonote_language::ISO639::En.into()],
                 ..Default::default()
             })
             .build_dual()

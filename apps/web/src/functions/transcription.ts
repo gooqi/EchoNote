@@ -6,8 +6,8 @@ import {
   getFileTranscriptionResultByPipelineId,
   getFileTranscriptionStatusByPipelineId,
   postFileTranscriptionStart,
-} from "@hypr/api-client";
-import { createClient } from "@hypr/api-client/client";
+} from "@echonote/api-client";
+import { createClient } from "@echonote/api-client/client";
 
 import { env } from "@/env";
 import { getSupabaseServerClient } from "@/functions/supabase";

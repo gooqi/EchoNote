@@ -6,8 +6,8 @@ pub use service::*;
 #[cfg(test)]
 mod tests {
     use super::*;
+    use echonote_audio_utils::AudioFormatExt;
     use futures_util::StreamExt;
-    use hypr_audio_utils::AudioFormatExt;
 
     #[tokio::test]
     // cargo test -p transcribe-deepgram test_service -- --nocapture
@@ -36,7 +36,7 @@ mod tests {
             .await;
 
         let audio = rodio::Decoder::new(std::io::BufReader::new(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         ))
         .unwrap()
         .to_i16_le_chunks(16000, 512);

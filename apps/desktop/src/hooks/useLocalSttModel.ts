@@ -6,7 +6,7 @@ import {
   commands as localSttCommands,
   events as localSttEvents,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
+} from "@echonote/plugin-local-stt";
 
 export const localSttKeys = {
   all: ["local-stt"] as const,

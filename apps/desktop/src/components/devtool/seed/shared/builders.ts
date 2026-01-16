@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { AppleCalendar } from "@hypr/plugin-apple-calendar";
+import type { AppleCalendar } from "@echonote/plugin-apple-calendar";
 import type {
   Calendar,
   ChatGroup,
@@ -16,7 +16,7 @@ import type {
   Tag,
   TemplateStorage,
   TranscriptStorage,
-} from "@hypr/store";
+} from "@echonote/store";
 
 import { createCalendar, createCalendarFromFixture } from "./calendar";
 import { createChatGroup, createChatMessage } from "./chat";

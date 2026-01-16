@@ -7,7 +7,7 @@ vi.mock("@tauri-apps/api/path", () => ({
   sep: vi.fn().mockReturnValue("/"),
 }));
 
-vi.mock("@hypr/plugin-analytics", () => ({
+vi.mock("@echonote/plugin-analytics", () => ({
   commands: {
     event: vi.fn().mockResolvedValue({ status: "ok", data: null }),
     setProperties: vi.fn().mockResolvedValue({ status: "ok", data: null }),

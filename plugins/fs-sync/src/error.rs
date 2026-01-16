@@ -11,7 +11,7 @@ pub enum Error {
     #[error("Path error: {0}")]
     Path(String),
     #[error(transparent)]
-    Frontmatter(#[from] hypr_frontmatter::Error),
+    Frontmatter(#[from] echonote_frontmatter::Error),
     #[error("Markdown error: {0}")]
     Markdown(String),
 }
@@ -32,7 +32,7 @@ pub enum AudioProcessingError {
     #[error(transparent)]
     Decoder(#[from] rodio::decoder::DecoderError),
     #[error(transparent)]
-    AudioUtils(#[from] hypr_audio_utils::Error),
+    AudioUtils(#[from] echonote_audio_utils::Error),
     #[error("audio_import_unsupported_channel_count")]
     UnsupportedChannelCount { count: u16 },
     #[error("audio_import_invalid_channel_count")]

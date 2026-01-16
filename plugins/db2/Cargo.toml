@@ -19,7 +19,7 @@ tauri-specta = { workspace = true, features = ["derive", "typescript"] }
 
 tauri-plugin-settings = { workspace = true }
 
-hypr-db-core = { workspace = true, features = ["encryption"] }
+echonote-db-core = { workspace = true, features = ["encryption"] }
 tokio-postgres = { version = "0.7.14", features = ["with-serde_json-1"] }
 
 futures-util = { workspace = true }

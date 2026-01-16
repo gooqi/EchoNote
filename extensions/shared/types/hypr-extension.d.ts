@@ -5,8 +5,8 @@
  * Run: deno task generate
  */
 
-// @hypr/store - TinyBase store with app data (sessions, events, humans, etc.)
-declare module "@hypr/store" {
+// @echonote/store - TinyBase store with app data (sessions, events, humans, etc.)
+declare module "@echonote/store" {
   import type * as _UI from "tinybase/ui-react/with-schemas";
   import type { TablesSchema, ValuesSchema } from "tinybase/with-schemas";
 
@@ -57,8 +57,8 @@ declare module "@hypr/store" {
   };
 }
 
-// @hypr/tabs - Tab navigation (open sessions, events, etc.)
-declare module "@hypr/tabs" {
+// @echonote/tabs - Tab navigation (open sessions, events, etc.)
+declare module "@echonote/tabs" {
   export const useTabs: {
     <T>(
       selector: (state: {
@@ -88,13 +88,13 @@ declare module "@hypr/tabs" {
   };
 }
 
-// @hypr/ui - UI components (shadcn-style)
-declare module "@hypr/ui/components/icons/outlook" {
+// @echonote/ui - UI components (shadcn-style)
+declare module "@echonote/ui/components/icons/outlook" {
   import type * as React from "react";
   export const OutlookIcon: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/accordion" {
+declare module "@echonote/ui/components/ui/accordion" {
   import type * as React from "react";
   export const Accordion: React.ComponentType<Record<string, unknown>>;
   export const AccordionContent: React.ComponentType<Record<string, unknown>>;
@@ -102,27 +102,27 @@ declare module "@hypr/ui/components/ui/accordion" {
   export const AccordionTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/avatar" {
+declare module "@echonote/ui/components/ui/avatar" {
   import type * as React from "react";
   export const Avatar: React.ComponentType<Record<string, unknown>>;
   export const AvatarFallback: React.ComponentType<Record<string, unknown>>;
   export const AvatarImage: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/badge" {
+declare module "@echonote/ui/components/ui/badge" {
   import type * as React from "react";
   export const Badge: React.ComponentType<Record<string, unknown>>;
   export const badgeVariants: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/bottom-sheet" {
+declare module "@echonote/ui/components/ui/bottom-sheet" {
   import type * as React from "react";
   export const BottomSheet: React.ComponentType<Record<string, unknown>>;
   export const BottomSheetContent: React.ComponentType<Record<string, unknown>>;
   export const BottomSheetTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/breadcrumb" {
+declare module "@echonote/ui/components/ui/breadcrumb" {
   import type * as React from "react";
   export const Breadcrumb: React.ComponentType<Record<string, unknown>>;
   export const BreadcrumbEllipsis: React.ComponentType<Record<string, unknown>>;
@@ -135,13 +135,13 @@ declare module "@hypr/ui/components/ui/breadcrumb" {
   >;
 }
 
-declare module "@hypr/ui/components/ui/button" {
+declare module "@echonote/ui/components/ui/button" {
   import type * as React from "react";
   export const Button: React.ComponentType<Record<string, unknown>>;
   export const buttonVariants: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/button-group" {
+declare module "@echonote/ui/components/ui/button-group" {
   import type * as React from "react";
   export const ButtonGroup: React.ComponentType<Record<string, unknown>>;
   export const ButtonGroupSeparator: React.ComponentType<
@@ -153,7 +153,7 @@ declare module "@hypr/ui/components/ui/button-group" {
   >;
 }
 
-declare module "@hypr/ui/components/ui/card" {
+declare module "@echonote/ui/components/ui/card" {
   import type * as React from "react";
   export const Card: React.ComponentType<Record<string, unknown>>;
   export const CardHeader: React.ComponentType<Record<string, unknown>>;
@@ -163,7 +163,7 @@ declare module "@hypr/ui/components/ui/card" {
   export const CardFooter: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/carousel" {
+declare module "@echonote/ui/components/ui/carousel" {
   import type * as React from "react";
   export const Carousel: React.ComponentType<Record<string, unknown>>;
   export const CarouselContent: React.ComponentType<Record<string, unknown>>;
@@ -172,12 +172,12 @@ declare module "@hypr/ui/components/ui/carousel" {
   export const CarouselPrevious: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/checkbox" {
+declare module "@echonote/ui/components/ui/checkbox" {
   import type * as React from "react";
   export const Checkbox: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/command" {
+declare module "@echonote/ui/components/ui/command" {
   import type * as React from "react";
   export const Command: React.ComponentType<Record<string, unknown>>;
   export const CommandDialog: React.ComponentType<Record<string, unknown>>;
@@ -190,7 +190,7 @@ declare module "@hypr/ui/components/ui/command" {
   export const CommandShortcut: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/context-menu" {
+declare module "@echonote/ui/components/ui/context-menu" {
   import type * as React from "react";
   export const ContextMenu: React.ComponentType<Record<string, unknown>>;
   export const ContextMenuCheckboxItem: React.ComponentType<
@@ -223,12 +223,12 @@ declare module "@hypr/ui/components/ui/context-menu" {
   export const ContextMenuTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/dancing-sticks" {
+declare module "@echonote/ui/components/ui/dancing-sticks" {
   import type * as React from "react";
   export const DancingSticks: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/dialog" {
+declare module "@echonote/ui/components/ui/dialog" {
   import type * as React from "react";
   export const Dialog: React.ComponentType<Record<string, unknown>>;
   export const DialogClose: React.ComponentType<Record<string, unknown>>;
@@ -242,7 +242,7 @@ declare module "@hypr/ui/components/ui/dialog" {
   export const DialogTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/dropdown-menu" {
+declare module "@echonote/ui/components/ui/dropdown-menu" {
   import type * as React from "react";
   export const DropdownMenu: React.ComponentType<Record<string, unknown>>;
   export const DropdownMenuCheckboxItem: React.ComponentType<
@@ -279,7 +279,7 @@ declare module "@hypr/ui/components/ui/dropdown-menu" {
   >;
 }
 
-declare module "@hypr/ui/components/ui/form" {
+declare module "@echonote/ui/components/ui/form" {
   import type * as React from "react";
   export const Form: React.ComponentType<Record<string, unknown>>;
   export const FormControl: React.ComponentType<Record<string, unknown>>;
@@ -291,19 +291,19 @@ declare module "@hypr/ui/components/ui/form" {
   export const useFormField: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/hover-card" {
+declare module "@echonote/ui/components/ui/hover-card" {
   import type * as React from "react";
   export const HoverCard: React.ComponentType<Record<string, unknown>>;
   export const HoverCardContent: React.ComponentType<Record<string, unknown>>;
   export const HoverCardTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/input" {
+declare module "@echonote/ui/components/ui/input" {
   import type * as React from "react";
   export const Input: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/input-group" {
+declare module "@echonote/ui/components/ui/input-group" {
   import type * as React from "react";
   export const InputGroup: React.ComponentType<Record<string, unknown>>;
   export const InputGroupAddon: React.ComponentType<Record<string, unknown>>;
@@ -313,23 +313,23 @@ declare module "@hypr/ui/components/ui/input-group" {
   export const InputGroupTextarea: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/kbd" {
+declare module "@echonote/ui/components/ui/kbd" {
   import type * as React from "react";
   export const Kbd: React.ComponentType<Record<string, unknown>>;
   export const KbdGroup: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/label" {
+declare module "@echonote/ui/components/ui/label" {
   import type * as React from "react";
   export const Label: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/marquee" {
+declare module "@echonote/ui/components/ui/marquee" {
   import type * as React from "react";
   export const Marquee: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/modal" {
+declare module "@echonote/ui/components/ui/modal" {
   import type * as React from "react";
   export const Modal: React.ComponentType<Record<string, unknown>>;
   export const ModalHeader: React.ComponentType<Record<string, unknown>>;
@@ -339,7 +339,7 @@ declare module "@hypr/ui/components/ui/modal" {
   export const ModalDescription: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/popover" {
+declare module "@echonote/ui/components/ui/popover" {
   import type * as React from "react";
   export const Popover: React.ComponentType<Record<string, unknown>>;
   export const PopoverAnchor: React.ComponentType<Record<string, unknown>>;
@@ -347,24 +347,24 @@ declare module "@hypr/ui/components/ui/popover" {
   export const PopoverTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/progress" {
+declare module "@echonote/ui/components/ui/progress" {
   import type * as React from "react";
   export const Progress: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/progressive-blur" {
+declare module "@echonote/ui/components/ui/progressive-blur" {
   import type * as React from "react";
   export const GRADIENT_ANGLES: React.ComponentType<Record<string, unknown>>;
   export const ProgressiveBlur: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/radio-group" {
+declare module "@echonote/ui/components/ui/radio-group" {
   import type * as React from "react";
   export const RadioGroup: React.ComponentType<Record<string, unknown>>;
   export const RadioGroupItem: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/resizable" {
+declare module "@echonote/ui/components/ui/resizable" {
   import type * as React from "react";
   export const ResizableHandle: React.ComponentType<Record<string, unknown>>;
   export const ResizablePanel: React.ComponentType<Record<string, unknown>>;
@@ -373,7 +373,7 @@ declare module "@hypr/ui/components/ui/resizable" {
   >;
 }
 
-declare module "@hypr/ui/components/ui/select" {
+declare module "@echonote/ui/components/ui/select" {
   import type * as React from "react";
   export const Select: React.ComponentType<Record<string, unknown>>;
   export const SelectContent: React.ComponentType<Record<string, unknown>>;
@@ -391,34 +391,34 @@ declare module "@hypr/ui/components/ui/select" {
   export const SelectValue: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/separator" {
+declare module "@echonote/ui/components/ui/separator" {
   import type * as React from "react";
   export const Separator: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/slider" {
+declare module "@echonote/ui/components/ui/slider" {
   import type * as React from "react";
   export const Slider: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/spinner" {
+declare module "@echonote/ui/components/ui/spinner" {
   import type * as React from "react";
   export const Spinner: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/splash" {
+declare module "@echonote/ui/components/ui/splash" {
   import type * as React from "react";
   export const SplashLoader: React.ComponentType<Record<string, unknown>>;
   export const SplashScreen: React.ComponentType<Record<string, unknown>>;
   export const Splash: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/switch" {
+declare module "@echonote/ui/components/ui/switch" {
   import type * as React from "react";
   export const Switch: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/tabs" {
+declare module "@echonote/ui/components/ui/tabs" {
   import type * as React from "react";
   export const Tabs: React.ComponentType<Record<string, unknown>>;
   export const TabsContent: React.ComponentType<Record<string, unknown>>;
@@ -426,24 +426,24 @@ declare module "@hypr/ui/components/ui/tabs" {
   export const TabsTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/text-animate" {
+declare module "@echonote/ui/components/ui/text-animate" {
   import type * as React from "react";
   export const TextAnimate: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/textarea" {
+declare module "@echonote/ui/components/ui/textarea" {
   import type * as React from "react";
   export const Textarea: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/toast" {
+declare module "@echonote/ui/components/ui/toast" {
   import type * as React from "react";
   export const sonnerToast: React.ComponentType<Record<string, unknown>>;
   export const CustomToast: React.ComponentType<Record<string, unknown>>;
   export const toast: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/tooltip" {
+declare module "@echonote/ui/components/ui/tooltip" {
   import type * as React from "react";
   export const Tooltip: React.ComponentType<Record<string, unknown>>;
   export const TooltipContent: React.ComponentType<Record<string, unknown>>;
@@ -451,7 +451,7 @@ declare module "@hypr/ui/components/ui/tooltip" {
   export const TooltipTrigger: React.ComponentType<Record<string, unknown>>;
 }
 
-declare module "@hypr/ui/components/ui/typewriter" {
+declare module "@echonote/ui/components/ui/typewriter" {
   import type * as React from "react";
   export const Typewriter: React.ComponentType<Record<string, unknown>>;
 }

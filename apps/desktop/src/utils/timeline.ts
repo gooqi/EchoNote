@@ -1,4 +1,4 @@
-import type { Event, Session } from "@hypr/store";
+import type { Event, Session } from "@echonote/store";
 import {
   differenceInCalendarMonths,
   differenceInDays,
@@ -6,7 +6,7 @@ import {
   safeFormat,
   safeParseDate,
   startOfDay,
-} from "@hypr/utils";
+} from "@echonote/utils";
 
 export type TimelineEventRow = {
   started_at?: string | null;

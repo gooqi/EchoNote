@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/obsidian",
+  "name": "@echonote/obsidian",
   "main": "./index.ts",
   "exports": {
     ".": "./index.ts",

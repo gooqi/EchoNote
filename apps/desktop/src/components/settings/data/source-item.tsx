@@ -1,8 +1,8 @@
 import { CheckIcon, Loader2Icon } from "lucide-react";
 
-import { type ImportSourceInfo } from "@hypr/plugin-importer";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Button } from "@hypr/ui/components/ui/button";
+import { type ImportSourceInfo } from "@echonote/plugin-importer";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Button } from "@echonote/ui/components/ui/button";
 
 export function SourceItem({
   source,

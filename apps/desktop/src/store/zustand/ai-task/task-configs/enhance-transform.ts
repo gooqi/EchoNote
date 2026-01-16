@@ -5,7 +5,7 @@ import type {
   Session,
   TemplateSection,
   Transcript,
-} from "@hypr/plugin-template";
+} from "@echonote/plugin-template";
 
 import type { TaskArgsMap, TaskArgsMapTransformed, TaskConfig } from ".";
 import {

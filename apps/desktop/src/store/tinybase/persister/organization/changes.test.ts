@@ -53,7 +53,7 @@ describe("parseOrganizationIdFromPath", () => {
     test("parses id from absolute path", () => {
       expect(
         parseOrganizationIdFromPath(
-          "/data/hyprnote/organizations/acme-corp.md",
+          "/data/echonote/organizations/acme-corp.md",
         ),
       ).toBe("acme-corp");
     });

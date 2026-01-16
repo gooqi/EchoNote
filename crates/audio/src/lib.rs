@@ -11,8 +11,8 @@ pub use speaker::*;
 pub use cpal;
 use cpal::traits::{DeviceTrait, HostTrait};
 
+pub use echonote_audio_interface::AsyncSource;
 use futures_util::Stream;
-pub use hypr_audio_interface::AsyncSource;
 
 pub const TAP_DEVICE_NAME: &str = "hypr-audio-tap";
 

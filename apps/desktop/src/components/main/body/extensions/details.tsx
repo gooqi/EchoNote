@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ExternalLink, FolderOpen, Play } from "lucide-react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 
 import { useTabs } from "../../../../store/zustand/tabs";
 import { getExtension } from "./registry";

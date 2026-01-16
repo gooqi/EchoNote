@@ -5,8 +5,8 @@ edition = "2024"
 
 [dependencies]
 bytes = { workspace = true }
+echonote-audio-interface = { workspace = true }
 futures-util = { workspace = true }
-hypr-audio-interface = { workspace = true }
 thiserror = { workspace = true }
 
 dasp = { workspace = true }
@@ -16,5 +16,5 @@ rubato = "0.16.2"
 vorbis_rs = { workspace = true }
 
 [dev-dependencies]
-hypr-data = { workspace = true }
+echonote-data = { workspace = true }
 tokio = { workspace = true, features = ["full"] }

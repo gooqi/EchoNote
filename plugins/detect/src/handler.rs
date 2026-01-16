@@ -58,11 +58,11 @@ pub(crate) fn default_ignored_bundle_ids() -> Vec<String> {
 
 pub async fn setup<R: Runtime>(app: &AppHandle<R>) -> Result<(), Box<dyn std::error::Error>> {
     let app_handle = app.app_handle().clone();
-    let callback = hypr_detect::new_callback(move |event| {
+    let callback = echonote_detect::new_callback(move |event| {
         let state = app_handle.state::<SharedState>();
 
         match event {
-            hypr_detect::DetectEvent::MicStarted(apps) => {
+            echonote_detect::DetectEvent::MicStarted(apps) => {
                 let state_guard = state.blocking_lock();
 
                 if state_guard.respect_do_not_disturb && dnd::is_do_not_disturb() {
@@ -86,7 +86,7 @@ pub async fn setup<R: Runtime>(app: &AppHandle<R>) -> Result<(), Box<dyn std::er
                     },
                 );
             }
-            hypr_detect::DetectEvent::MicStopped(apps) => {
+            echonote_detect::DetectEvent::MicStopped(apps) => {
                 let state_guard = state.blocking_lock();
 
                 if state_guard.respect_do_not_disturb && dnd::is_do_not_disturb() {
@@ -125,9 +125,9 @@ pub async fn setup<R: Runtime>(app: &AppHandle<R>) -> Result<(), Box<dyn std::er
 }
 
 fn filter_apps(
-    apps: Vec<hypr_detect::InstalledApp>,
+    apps: Vec<echonote_detect::InstalledApp>,
     ignored_bundle_ids: &[String],
-) -> Vec<hypr_detect::InstalledApp> {
+) -> Vec<echonote_detect::InstalledApp> {
     let default_ignored = default_ignored_bundle_ids();
     apps.into_iter()
         .filter(|app| !ignored_bundle_ids.contains(&app.id))

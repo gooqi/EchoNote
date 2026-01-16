@@ -43,7 +43,7 @@ export function LlmSettingsProvider({
 
   useEffect(() => {
     if (toastActionTarget === "llm") {
-      setAccordionValue("hyprnote");
+      setAccordionValue("echonote");
       setShouldHighlight(true);
 
       const timer = setTimeout(() => {
@@ -65,7 +65,7 @@ export function LlmSettingsProvider({
   }, [hasLlmConfigured, shouldHighlight]);
 
   const openHyprAccordion = useCallback(() => {
-    setAccordionValue("hyprnote");
+    setAccordionValue("echonote");
   }, []);
 
   const startTrial = useCallback(() => {

@@ -7,7 +7,7 @@ pub enum Error {
     Request(#[from] reqwest::Error),
 
     #[error(transparent)]
-    HyprFile(#[from] hypr_file::Error),
+    HyprFile(#[from] echonote_file::Error),
 
     #[error("Could not find home directory")]
     NoHomeDir,

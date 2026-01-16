@@ -6,15 +6,15 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense, useMemo, useState } from "react";
 
-import type { JSONContent } from "@hypr/tiptap/editor";
-import { EMPTY_TIPTAP_DOC } from "@hypr/tiptap/shared";
-import "@hypr/tiptap/styles.css";
+import type { JSONContent } from "@echonote/tiptap/editor";
+import { EMPTY_TIPTAP_DOC } from "@echonote/tiptap/shared";
+import "@echonote/tiptap/styles.css";
 
 import { TranscriptDisplay } from "@/components/transcription/transcript-display";
 import { UploadArea } from "@/components/transcription/upload-area";
 import { fetchUser } from "@/functions/auth";
 
-const NoteEditor = lazy(() => import("@hypr/tiptap/editor"));
+const NoteEditor = lazy(() => import("@echonote/tiptap/editor"));
 
 export const Route = createFileRoute("/_view/file-transcription")({
   component: Component,

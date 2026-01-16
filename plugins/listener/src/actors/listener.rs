@@ -34,7 +34,7 @@ pub enum ListenerMsg {
 #[derive(Clone)]
 pub struct ListenerArgs {
     pub app: tauri::AppHandle,
-    pub languages: Vec<hypr_language::Language>,
+    pub languages: Vec<echonote_language::Language>,
     pub onboarding: bool,
     pub model: String,
     pub base_url: String,
@@ -384,7 +384,7 @@ async fn spawn_rx_task_single_with_adapter<A: RealtimeSttAdapter>(
         .api_base(args.base_url.clone())
         .api_key(args.api_key.clone())
         .params(build_listen_params(&args))
-        .extra_header(DEVICE_FINGERPRINT_HEADER, hypr_host::fingerprint())
+        .extra_header(DEVICE_FINGERPRINT_HEADER, echonote_host::fingerprint())
         .build_single()
         .await;
 
@@ -456,7 +456,7 @@ async fn spawn_rx_task_dual_with_adapter<A: RealtimeSttAdapter>(
         .api_base(args.base_url.clone())
         .api_key(args.api_key.clone())
         .params(build_listen_params(&args))
-        .extra_header(DEVICE_FINGERPRINT_HEADER, hypr_host::fingerprint())
+        .extra_header(DEVICE_FINGERPRINT_HEADER, echonote_host::fingerprint())
         .build_dual()
         .await;
 

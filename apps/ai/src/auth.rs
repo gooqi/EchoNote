@@ -4,7 +4,7 @@ use axum::{
     middleware::Next,
     response::{IntoResponse, Response},
 };
-use hypr_supabase_auth::{Error as SupabaseAuthError, SupabaseAuth};
+use echonote_supabase_auth::{Error as SupabaseAuthError, SupabaseAuth};
 
 const PRO_ENTITLEMENT: &str = "hyprnote_pro";
 pub const DEVICE_FINGERPRINT_HEADER: &str = "x-device-fingerprint";

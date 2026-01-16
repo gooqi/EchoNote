@@ -1,6 +1,6 @@
 import { platform } from "@tauri-apps/plugin-os";
 
-import { Accordion } from "@hypr/ui/components/ui/accordion";
+import { Accordion } from "@echonote/ui/components/ui/accordion";
 
 import { PROVIDERS } from "../shared";
 import { AppleCalendarProviderCard } from "./apple";

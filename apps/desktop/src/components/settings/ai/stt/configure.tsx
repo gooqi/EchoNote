@@ -14,15 +14,15 @@ import { useCallback } from "react";
 import {
   commands as localSttCommands,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
+} from "@echonote/plugin-local-stt";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@hypr/ui/components/ui/accordion";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/accordion";
+import { cn } from "@echonote/utils";
 
 import { useBillingAccess } from "../../../../billing";
 import { useListener } from "../../../../contexts/listener";
@@ -48,15 +48,15 @@ export function ConfigureProviders() {
       >
         <div ref={hyprAccordionRef}>
           <HyprProviderCard
-            providerId="hyprnote"
-            providerName="Hyprnote"
+            providerId="echonote"
+            providerName="EchoNote"
             icon={
-              <img src="/assets/icon.png" alt="Hyprnote" className="size-5" />
+              <img src="/assets/icon.png" alt="EchoNote" className="size-5" />
             }
-            badge={PROVIDERS.find((p) => p.id === "hyprnote")?.badge}
+            badge={PROVIDERS.find((p) => p.id === "echonote")?.badge}
           />
         </div>
-        {PROVIDERS.filter((provider) => provider.id !== "hyprnote").map(
+        {PROVIDERS.filter((provider) => provider.id !== "echonote").map(
           (provider) => (
             <NonHyprProviderCard
               key={provider.id}
@@ -123,7 +123,7 @@ function HyprProviderCard({
           <div className="flex items-center gap-3 py-2">
             <div className="flex-1 border-t border-dashed border-neutral-300" />
             <a
-              href="https://hyprnote.com/docs/developers/local-models"
+              href="https://echonote.com/docs/developers/local-models"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-neutral-400 hover:underline flex items-center gap-1"
@@ -227,7 +227,7 @@ function HyprProviderCloudRow() {
     if (!isPro) {
       upgradeToPro();
     } else {
-      handleSelectProvider("hyprnote");
+      handleSelectProvider("echonote");
       handleSelectModel("cloud");
     }
   }, [isPro, upgradeToPro, handleSelectProvider, handleSelectModel]);
@@ -237,9 +237,9 @@ function HyprProviderCloudRow() {
   return (
     <HyprProviderRow>
       <div className="flex-1">
-        <span className="text-sm font-medium">Hyprnote Cloud (Beta)</span>
+        <span className="text-sm font-medium">EchoNote Cloud (Beta)</span>
         <p className="text-xs text-neutral-500">
-          Use the Hyprnote Cloud API to transcribe your audio.
+          Use the EchoNote Cloud API to transcribe your audio.
         </p>
       </div>
       <button
@@ -453,8 +453,8 @@ function HyprProviderLocalRow({
 
 function ProviderContext({ providerId }: { providerId: ProviderId }) {
   const content =
-    providerId === "hyprnote"
-      ? "Hyprnote curates list of on-device models and also cloud models with high-availability and performance."
+    providerId === "echonote"
+      ? "EchoNote curates list of on-device models and also cloud models with high-availability and performance."
       : providerId === "deepgram"
         ? `Use [Deepgram](https://deepgram.com) for transcriptions. \
     If you want to use a [Dedicated](https://developers.deepgram.com/reference/custom-endpoints#deepgram-dedicated-endpoints)

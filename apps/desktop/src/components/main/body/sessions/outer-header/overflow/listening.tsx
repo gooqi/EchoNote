@@ -1,6 +1,6 @@
 import { MicIcon, MicOffIcon } from "lucide-react";
 
-import { DropdownMenuItem } from "@hypr/ui/components/ui/dropdown-menu";
+import { DropdownMenuItem } from "@echonote/ui/components/ui/dropdown-menu";
 
 import { useListener } from "../../../../../../contexts/listener";
 import { useStartListening } from "../../../../../../hooks/useStartListening";

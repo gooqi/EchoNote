@@ -4,8 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import {
   commands as localSttCommands,
   type SupportedSttModel,
-} from "@hypr/plugin-local-stt";
-import { cn } from "@hypr/utils";
+} from "@echonote/plugin-local-stt";
+import { cn } from "@echonote/utils";
 
 import { localSttQueries } from "../../hooks/useLocalSttModel";
 import { Route } from "../../routes/app/onboarding/_layout.index";
@@ -105,7 +105,7 @@ function LocalConfigureNotice({
     setIsStarting(true);
     setError(null);
 
-    handleSelectProvider("hyprnote");
+    handleSelectProvider("echonote");
     handleSelectModel(selectedModel);
 
     const result = await localSttCommands.downloadModel(selectedModel);
@@ -139,7 +139,7 @@ function LocalConfigureNotice({
 
   return (
     <OnboardingContainer
-      title="Help Hyprnote listen to your conversations"
+      title="Help EchoNote listen to your conversations"
       description="Select a speech-to-text model to download"
       onBack={onBack}
     >

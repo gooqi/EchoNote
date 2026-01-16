@@ -8,7 +8,7 @@ use super::MenuItemHandler;
 pub struct TrayQuit;
 
 impl MenuItemHandler for TrayQuit {
-    const ID: &'static str = "hypr_tray_quit";
+    const ID: &'static str = "echonote_tray_quit";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let item = MenuItem::with_id(app, Self::ID, "Quit Completely", true, Some("cmd+q"))?;
@@ -16,7 +16,7 @@ impl MenuItemHandler for TrayQuit {
     }
 
     fn handle(app: &AppHandle<tauri::Wry>) {
-        hypr_host::kill_processes_by_matcher(hypr_host::ProcessMatcher::Sidecar);
+        echonote_host::kill_processes_by_matcher(echonote_host::ProcessMatcher::Sidecar);
         app.exit(0);
     }
 }

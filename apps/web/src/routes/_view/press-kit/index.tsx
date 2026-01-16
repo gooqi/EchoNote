@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { MockWindow } from "@/components/mock-window";
 

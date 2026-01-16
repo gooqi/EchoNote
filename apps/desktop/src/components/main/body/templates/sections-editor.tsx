@@ -2,10 +2,10 @@ import { GripVertical as HandleIcon, Plus, X } from "lucide-react";
 import { Reorder, useDragControls } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 
-import type { TemplateSection } from "@hypr/store";
-import { Button } from "@hypr/ui/components/ui/button";
-import { Input } from "@hypr/ui/components/ui/input";
-import { cn } from "@hypr/utils";
+import type { TemplateSection } from "@echonote/store";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Input } from "@echonote/ui/components/ui/input";
+import { cn } from "@echonote/utils";
 
 type SectionDraft = TemplateSection & { key: string };
 

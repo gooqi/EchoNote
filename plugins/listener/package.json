@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-listener",
+  "name": "@echonote/plugin-listener",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

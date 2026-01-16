@@ -325,7 +325,7 @@ impl NotificationManager {
     }
 }
 
-pub fn show(notification: &hypr_notification_interface::Notification) {
+pub fn show(notification: &echonote_notification_interface::Notification) {
     let key = notification
         .key
         .clone()
@@ -357,7 +357,7 @@ mod tests {
 
     #[test]
     fn test_notification() {
-        let notification = hypr_notification_interface::Notification::builder()
+        let notification = echonote_notification_interface::Notification::builder()
             .title("Test Title")
             .message("Test message content")
             .timeout(std::time::Duration::from_secs(3))

@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/react";
 import { fetch as tauriFetch } from "@tauri-apps/plugin-http";
 
-import { commands as miscCommands } from "@hypr/plugin-misc";
+import { commands as miscCommands } from "@echonote/plugin-misc";
 
 import { DEVICE_FINGERPRINT_HEADER } from "../auth";
 

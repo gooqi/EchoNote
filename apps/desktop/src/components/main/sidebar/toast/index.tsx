@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useAuth } from "../../../../auth";
 import { useConfigValues } from "../../../../config/use-config";
@@ -44,8 +44,8 @@ export function ToastArea({
   const hasLLMConfigured = !!(current_llm_provider && current_llm_model);
   const hasSttConfigured = !!(current_stt_provider && current_stt_model);
   const hasProSttConfigured =
-    current_stt_provider === "hyprnote" && current_stt_model === "cloud";
-  const hasProLlmConfigured = current_llm_provider === "hyprnote";
+    current_stt_provider === "echonote" && current_stt_model === "cloud";
+  const hasProLlmConfigured = current_llm_provider === "echonote";
 
   const currentTab = useTabs((state) => state.currentTab);
   const isAiTranscriptionTabActive =

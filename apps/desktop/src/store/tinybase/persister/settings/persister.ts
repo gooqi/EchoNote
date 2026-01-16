@@ -1,8 +1,8 @@
 import { createCustomPersister } from "tinybase/persisters/with-schemas";
 import type { Content } from "tinybase/with-schemas";
 
-import { commands as detectCommands } from "@hypr/plugin-detect";
-import { commands } from "@hypr/plugin-settings";
+import { commands as detectCommands } from "@echonote/plugin-detect";
+import { commands } from "@echonote/plugin-settings";
 
 import type { Schemas, Store } from "../../store/settings";
 import { StoreOrMergeableStore } from "../../store/shared";

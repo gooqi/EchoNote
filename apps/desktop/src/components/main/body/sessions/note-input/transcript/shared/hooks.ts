@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 
-import type { SpeakerHintStorage, Word } from "@hypr/store";
+import type { SpeakerHintStorage, Word } from "@echonote/store";
 
 import * as main from "../../../../../../../store/tinybase/store/main";
 import {

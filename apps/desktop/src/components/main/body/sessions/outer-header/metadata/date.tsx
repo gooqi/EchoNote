@@ -1,4 +1,4 @@
-import { safeFormat } from "@hypr/utils";
+import { safeFormat } from "@echonote/utils";
 
 import * as main from "../../../../../../store/tinybase/store/main";
 

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker/locale/en";
 
-import type { SessionStorage, TranscriptStorage } from "@hypr/store";
+import type { SessionStorage, TranscriptStorage } from "@echonote/store";
 
 import type { WordWithId } from "../../../../store/transcript/types";
 import { DEFAULT_USER_ID, id } from "../../../../utils";

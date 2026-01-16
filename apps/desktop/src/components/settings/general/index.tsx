@@ -2,9 +2,9 @@ import { useForm } from "@tanstack/react-form";
 import { useQuery } from "@tanstack/react-query";
 import { disable, enable } from "@tauri-apps/plugin-autostart";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
-import { commands as listenerCommands } from "@hypr/plugin-listener";
-import type { General, GeneralStorage } from "@hypr/store";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
+import { commands as listenerCommands } from "@echonote/plugin-listener";
+import type { General, GeneralStorage } from "@echonote/store";
 
 import { useConfigValues } from "../../../config/use-config";
 import * as settings from "../../../store/tinybase/store/settings";
@@ -159,9 +159,9 @@ export function SettingsGeneral({
                       {(telemetryConsentField) => (
                         <AppSettingsView
                           autostart={{
-                            title: "Start Hyprnote automatically at login",
+                            title: "Start EchoNote automatically at login",
                             description:
-                              "Hyprnote will always be ready for action without you having to turn it on",
+                              "EchoNote will always be ready for action without you having to turn it on",
                             value: autostartField.state.value,
                             onChange: (val) => autostartField.handleChange(val),
                           }}
@@ -185,7 +185,7 @@ export function SettingsGeneral({
                           telemetryConsent={{
                             title: "Share usage data",
                             description:
-                              "Help us improve Hyprnote by sharing anonymous metadata like button clicks",
+                              "Help us improve EchoNote by sharing anonymous metadata like button clicks",
                             value: telemetryConsentField.state.value,
                             onChange: (val) =>
                               telemetryConsentField.handleChange(val),

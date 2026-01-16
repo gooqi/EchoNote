@@ -9,8 +9,8 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 
-import { Typewriter } from "@hypr/ui/components/ui/typewriter";
-import { cn } from "@hypr/utils";
+import { Typewriter } from "@echonote/ui/components/ui/typewriter";
+import { cn } from "@echonote/utils";
 
 import { Image } from "@/components/image";
 import { MockWindow } from "@/components/mock-window";

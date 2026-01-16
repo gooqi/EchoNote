@@ -7,8 +7,8 @@ use tokio_util::sync::CancellationToken;
 use tauri::{Manager, Runtime};
 use tauri_plugin_sidecar2::Sidecar2PluginExt;
 
-use hypr_download_interface::DownloadProgress;
-use hypr_file::download_file_parallel_cancellable;
+use echonote_download_interface::DownloadProgress;
+use echonote_file::download_file_parallel_cancellable;
 
 use crate::{
     model::SupportedSttModel,
@@ -60,7 +60,7 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
                         return Ok(false);
                     }
 
-                    let actual = hypr_file::file_size(path)?;
+                    let actual = echonote_file::file_size(path)?;
                     if actual != expected {
                         return Ok(false);
                     }
@@ -255,7 +255,7 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
                     };
 
                     if let Err(e) = result {
-                        if !matches!(e, hypr_file::Error::Cancelled) {
+                        if !matches!(e, echonote_file::Error::Cancelled) {
                             tracing::error!("model_download_error: {}", e);
                             let _ = DownloadProgressPayload {
                                 model: model_for_task.clone(),
@@ -315,7 +315,7 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
                     };
 
                     if let Err(e) = result {
-                        if !matches!(e, hypr_file::Error::Cancelled) {
+                        if !matches!(e, echonote_file::Error::Cancelled) {
                             tracing::error!("model_download_error: {}", e);
                             let _ = DownloadProgressPayload {
                                 model: model_for_task.clone(),
@@ -327,7 +327,7 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
                         return;
                     }
 
-                    let checksum = match hypr_file::calculate_file_checksum(&model_path) {
+                    let checksum = match echonote_file::calculate_file_checksum(&model_path) {
                         Ok(c) => c,
                         Err(e) => {
                             tracing::error!("model_checksum_error: {}", e);
@@ -460,7 +460,7 @@ impl<R: Runtime, T: Manager<R>> LocalSttPluginExt<R> for T {
 async fn start_internal_server(
     supervisor: &supervisor::SupervisorRef,
     cache_dir: PathBuf,
-    model: hypr_whisper_local_model::WhisperModel,
+    model: echonote_whisper_local_model::WhisperModel,
 ) -> Result<String, crate::Error> {
     supervisor::start_internal_stt(
         supervisor,
@@ -482,7 +482,7 @@ async fn start_external_server<R: Runtime, T: Manager<R>>(
     manager: &T,
     supervisor: &supervisor::SupervisorRef,
     data_dir: PathBuf,
-    model: hypr_am::AmModel,
+    model: echonote_am::AmModel,
 ) -> Result<String, crate::Error> {
     let am_key = {
         let state = manager.state::<crate::SharedState>();

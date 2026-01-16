@@ -73,7 +73,7 @@ pub enum UpdateMenuState {
 }
 
 impl MenuItemHandler for TrayCheckUpdate {
-    const ID: &'static str = "hypr_tray_check_update";
+    const ID: &'static str = "echonote_tray_check_update";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let state = Self::get_state();

@@ -6,7 +6,7 @@ import type {
   AmModel,
   SupportedSttModel,
   WhisperModel,
-} from "@hypr/plugin-local-stt";
+} from "@echonote/plugin-local-stt";
 
 import { env } from "../../../../env";
 import { localSttQueries } from "../../../../hooks/useLocalSttModel";
@@ -91,10 +91,10 @@ export const displayModelId = (model: string) => {
 const _PROVIDERS = [
   {
     disabled: false,
-    id: "hyprnote",
-    displayName: "Hyprnote",
+    id: "echonote",
+    displayName: "EchoNote",
     badge: "Recommended",
-    icon: <img src="/assets/icon.png" alt="Hyprnote" className="size-5" />,
+    icon: <img src="/assets/icon.png" alt="EchoNote" className="size-5" />,
     baseUrl: new URL("/stt", env.VITE_AI_URL).toString(),
     models: [
       "cloud",

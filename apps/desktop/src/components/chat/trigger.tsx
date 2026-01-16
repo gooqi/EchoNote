@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export function ChatTrigger({
   onClick,

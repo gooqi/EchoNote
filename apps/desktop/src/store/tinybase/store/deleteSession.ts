@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
 
 import * as main from "./main";
 

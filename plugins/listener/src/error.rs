@@ -7,9 +7,9 @@ pub enum Error {
     #[error(transparent)]
     IoError(#[from] std::io::Error),
     #[error(transparent)]
-    HyprAudioError(#[from] hypr_audio::Error),
+    HyprAudioError(#[from] echonote_audio::Error),
     #[error(transparent)]
-    CpalDevicesError(#[from] hypr_audio::cpal::DevicesError),
+    CpalDevicesError(#[from] echonote_audio::cpal::DevicesError),
     #[error(transparent)]
     LocalSttError(#[from] tauri_plugin_local_stt::Error),
     #[error("no session")]

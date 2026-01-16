@@ -1,8 +1,8 @@
 import { useForm } from "@tanstack/react-form";
 
-import type { Template, TemplateSection, TemplateStorage } from "@hypr/store";
-import { Input } from "@hypr/ui/components/ui/input";
-import { Textarea } from "@hypr/ui/components/ui/textarea";
+import type { Template, TemplateSection, TemplateStorage } from "@echonote/store";
+import { Input } from "@echonote/ui/components/ui/input";
+import { Textarea } from "@echonote/ui/components/ui/textarea";
 
 import * as main from "../../../../store/tinybase/store/main";
 import { DangerZone } from "../resource-list";

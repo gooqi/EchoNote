@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/tiptap",
+  "name": "@echonote/tiptap",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.4",
-    "@hypr/ui": "workspace:^",
+    "@echonote/ui": "workspace:^",
     "@remixicon/react": "^4.8.0",
     "@tanstack/react-query": "^5.90.17",
     "@tanstack/react-router": "^1.150.0",

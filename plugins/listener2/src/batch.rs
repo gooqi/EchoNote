@@ -353,7 +353,7 @@ async fn spawn_batch_task_with_adapter<A: RealtimeSttAdapter>(
         let chunk_result = tokio::task::spawn_blocking({
             let path = PathBuf::from(&args.file_path);
             let chunk_ms = stream_config.chunk_ms;
-            move || hypr_audio_utils::chunk_audio_file(path, chunk_ms)
+            move || echonote_audio_utils::chunk_audio_file(path, chunk_ms)
         })
         .await;
 
@@ -400,7 +400,7 @@ async fn spawn_batch_task_with_adapter<A: RealtimeSttAdapter>(
             .api_base(args.base_url)
             .api_key(args.api_key)
             .params(listen_params)
-            .extra_header(DEVICE_FINGERPRINT_HEADER, hypr_host::fingerprint())
+            .extra_header(DEVICE_FINGERPRINT_HEADER, echonote_host::fingerprint())
             .build_with_channels(channel_count)
             .await;
 

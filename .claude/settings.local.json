@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(dprint fmt:*)",
+      "Bash(npx dprint fmt CLAUDE.md)",
+      "Bash(find:*)",
+      "Bash(pnpm install:*)",
+      "Bash(cargo check:*)",
+      "Bash(npx dprint fmt:*)",
+      "Bash(npm view:*)",
+      "Bash(pnpm -F @echonote/ui build:*)",
+      "Bash(pnpm -F desktop dev:*)",
+      "Bash(pnpm -F desktop tauri:dev:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill -9)",
+      "Bash(pkill:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

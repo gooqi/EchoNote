@@ -2,18 +2,18 @@ import { Icon } from "@iconify-icon/react";
 import { useMutation } from "@tanstack/react-query";
 import { FolderIcon, Link2Icon, Loader2Icon } from "lucide-react";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
 import {
   DropdownMenuItem,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
-} from "@hypr/ui/components/ui/dropdown-menu";
+} from "@echonote/ui/components/ui/dropdown-menu";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
+} from "@echonote/ui/components/ui/tooltip";
 
 import { SearchableFolderSubmenuContent } from "../shared/folder";
 

@@ -1,6 +1,6 @@
 import { Icon } from "@iconify-icon/react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import {
   GITHUB_LAST_SEEN_FORKS,

@@ -4,13 +4,13 @@ use thiserror::Error;
 #[derive(Error, Debug)]
 pub enum Error {
     #[error("granola error: {0}")]
-    Granola(#[from] hypr_granola::error::Error),
+    Granola(#[from] echonote_granola::error::Error),
 
     #[error("io error: {0}")]
     Io(#[from] std::io::Error),
 
     #[error("database error: {0}")]
-    Database(#[from] hypr_db_core::Error),
+    Database(#[from] echonote_db_core::Error),
 
     #[error("json error: {0}")]
     Json(#[from] serde_json::Error),

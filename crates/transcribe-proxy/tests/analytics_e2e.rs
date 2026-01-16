@@ -35,7 +35,7 @@ async fn e2e_deepgram_with_mock_analytics() {
         .api_base(format!("http://{}", addr))
         .params(owhisper_interface::ListenParams {
             model: Some("nova-3".to_string()),
-            languages: vec![hypr_language::ISO639::En.into()],
+            languages: vec![echonote_language::ISO639::En.into()],
             ..Default::default()
         })
         .build_single()

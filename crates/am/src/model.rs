@@ -105,7 +105,7 @@ impl AmModel {
             return Err(crate::Error::TarFileNotFound);
         }
 
-        if hypr_file::calculate_file_checksum(&input_path)? != self.tar_checksum() {
+        if echonote_file::calculate_file_checksum(&input_path)? != self.tar_checksum() {
             let _ = std::fs::remove_file(&input_path);
             return Err(crate::Error::TarChecksumMismatch);
         }
@@ -115,12 +115,13 @@ impl AmModel {
         Ok(())
     }
 
-    pub async fn download<F: Fn(hypr_download_interface::DownloadProgress) + Send + Sync>(
+    pub async fn download<F: Fn(echonote_download_interface::DownloadProgress) + Send + Sync>(
         &self,
         output_path: impl AsRef<std::path::Path>,
         progress_callback: F,
     ) -> Result<(), crate::Error> {
-        hypr_file::download_file_parallel(self.tar_url(), output_path, progress_callback).await?;
+        echonote_file::download_file_parallel(self.tar_url(), output_path, progress_callback)
+            .await?;
         Ok(())
     }
 }

@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { ChartSkeleton, EvalChart } from "./-chart";
 import { EVAL_DATA, type TaskName } from "./-data";

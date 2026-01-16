@@ -3,9 +3,9 @@ import { Effect, Exit } from "effect";
 import { create as mutate } from "mutative";
 import type { StoreApi } from "zustand";
 
-import { commands as detectCommands } from "@hypr/plugin-detect";
-import { commands as hooksCommands } from "@hypr/plugin-hooks";
-import { commands as iconCommands } from "@hypr/plugin-icon";
+import { commands as detectCommands } from "@echonote/plugin-detect";
+import { commands as hooksCommands } from "@echonote/plugin-hooks";
+import { commands as iconCommands } from "@echonote/plugin-icon";
 import {
   commands as listenerCommands,
   events as listenerEvents,
@@ -15,13 +15,13 @@ import {
   type SessionParams,
   type SessionProgressEvent,
   type StreamResponse,
-} from "@hypr/plugin-listener";
+} from "@echonote/plugin-listener";
 import {
   type BatchParams,
   commands as listener2Commands,
   events as listener2Events,
-} from "@hypr/plugin-listener2";
-import { commands as settingsCommands } from "@hypr/plugin-settings";
+} from "@echonote/plugin-listener2";
+import { commands as settingsCommands } from "@echonote/plugin-settings";
 
 import { fromResult } from "../../../effect";
 import { buildSessionPath } from "../../tinybase/persister/shared/paths";
@@ -330,7 +330,7 @@ export const createGeneralSlice = <
               .then((r) =>
                 r.status === "ok" ? r.data.map((app) => app.id) : null,
               ),
-            getIdentifier().catch(() => "com.hyprnote.stable"),
+            getIdentifier().catch(() => "com.echonote.stable"),
           ]),
         catch: (error) => error,
       });
@@ -344,7 +344,7 @@ export const createGeneralSlice = <
             beforeListeningStarted: {
               args: {
                 resource_dir: sessionPath,
-                app_hyprnote: bundleId,
+                app_echonote: bundleId,
                 app_meeting,
               },
             },
@@ -417,7 +417,7 @@ export const createGeneralSlice = <
                 if (r.status === "error") throw new Error(r.error);
                 return r.data;
               }),
-              getIdentifier().catch(() => "com.hyprnote.stable"),
+              getIdentifier().catch(() => "com.echonote.stable"),
             ])
               .then(([dataDirPath, bundleId]) => {
                 const sessionPath = buildSessionPath(dataDirPath, sessionId);
@@ -425,7 +425,7 @@ export const createGeneralSlice = <
                   afterListeningStopped: {
                     args: {
                       resource_dir: sessionPath,
-                      app_hyprnote: bundleId,
+                      app_echonote: bundleId,
                       app_meeting: null,
                     },
                   },

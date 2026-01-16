@@ -9,7 +9,7 @@ import {
 } from "react";
 import WaveSurfer from "wavesurfer.js";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
 
 type AudioPlayerState = "playing" | "paused" | "stopped";
 

@@ -20,8 +20,8 @@ pub use adapter::{
 pub use adapter::{StreamingBatchConfig, StreamingBatchEvent, StreamingBatchStream};
 
 pub use batch::{BatchClient, BatchClientBuilder};
+pub use echonote_ws_client;
 pub use error::Error;
-pub use hypr_ws_client;
 pub use live::{DualHandle, FinalizeHandle, ListenClient, ListenClientDual};
 
 pub struct ListenClientBuilder<A: RealtimeSttAdapter = DeepgramAdapter> {
@@ -89,7 +89,7 @@ impl<A: RealtimeSttAdapter> ListenClientBuilder<A> {
         &self,
         adapter: &A,
         channels: u8,
-    ) -> hypr_ws_client::client::ClientRequestBuilder {
+    ) -> echonote_ws_client::client::ClientRequestBuilder {
         let params = self.get_params();
         let original_api_base = self.get_api_base();
         let api_base = append_provider_param(original_api_base, adapter.provider_name());
@@ -99,7 +99,7 @@ impl<A: RealtimeSttAdapter> ListenClientBuilder<A> {
             .unwrap_or_else(|| adapter.build_ws_url(&api_base, &params, channels));
         let uri = url.to_string().parse().unwrap();
 
-        let mut request = hypr_ws_client::client::ClientRequestBuilder::new(uri);
+        let mut request = echonote_ws_client::client::ClientRequestBuilder::new(uri);
 
         if is_hyprnote_proxy(original_api_base) {
             if let Some(api_key) = self.api_key.as_deref() {

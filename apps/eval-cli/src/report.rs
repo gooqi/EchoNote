@@ -1,6 +1,6 @@
 use comfy_table::{Cell, Color, ContentArrangement, Table, presets::UTF8_FULL_CONDENSED};
 
-use hypr_eval::EvalResult;
+use echonote_eval::EvalResult;
 
 pub fn render_json(results: &[EvalResult]) -> std::result::Result<(), String> {
     let json = serde_json::to_string_pretty(

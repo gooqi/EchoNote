@@ -1,9 +1,9 @@
 import { Loader2Icon, SearchIcon, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
-import { Kbd } from "@hypr/ui/components/ui/kbd";
-import { cn } from "@hypr/utils";
+import { Button } from "@echonote/ui/components/ui/button";
+import { Kbd } from "@echonote/ui/components/ui/kbd";
+import { cn } from "@echonote/utils";
 
 import { useSearch } from "../../../contexts/search/ui";
 import { useCmdKeyPressed } from "../../../hooks/useCmdKeyPressed";

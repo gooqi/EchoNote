@@ -84,13 +84,13 @@ pub fn test_audio_stream_with_rate(
 > + Send
 + Unpin
 + 'static {
-    use hypr_audio_utils::AudioFormatExt;
+    use echonote_audio_utils::AudioFormatExt;
 
     // chunk_samples should be proportional to sample_rate to maintain 100ms chunks
     let chunk_samples = (sample_rate / 10) as usize;
 
     let audio = rodio::Decoder::new(std::io::BufReader::new(
-        std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+        std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
     ))
     .unwrap()
     .to_i16_le_chunks(sample_rate, chunk_samples);

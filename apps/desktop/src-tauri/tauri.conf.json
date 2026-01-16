@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Hyprnote Dev",
-  "mainBinaryName": "hyprnote-dev",
-  "identifier": "com.hyprnote.dev",
+  "productName": "EchoNote Dev",
+  "mainBinaryName": "echonote-dev",
+  "identifier": "com.echonote.dev",
   "build": {
     "beforeDevCommand": "pnpm -F desktop dev",
     "devUrl": "http://localhost:1422",
@@ -59,7 +59,7 @@
   },
   "plugins": {
     "deep-link": {
-      "desktop": { "schemes": ["hyprnote"] }
+      "desktop": { "schemes": ["echonote"] }
     },
     "updater": {
       "active": false,

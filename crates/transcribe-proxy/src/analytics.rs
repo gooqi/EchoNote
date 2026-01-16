@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use hypr_analytics::{AnalyticsClient, AnalyticsPayload};
+use echonote_analytics::{AnalyticsClient, AnalyticsPayload};
 
 #[derive(Debug, Clone)]
 pub struct SttEvent {

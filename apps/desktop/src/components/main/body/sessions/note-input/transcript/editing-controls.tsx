@@ -1,14 +1,14 @@
 import { ChevronDownIcon, RefreshCcwIcon } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/popover";
+import { cn } from "@echonote/utils";
 
 import { useAudioPlayer } from "../../../../../../contexts/audio-player/provider";
 import { useListener } from "../../../../../../contexts/listener";

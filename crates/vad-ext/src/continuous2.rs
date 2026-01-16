@@ -89,7 +89,7 @@ mod tests {
     #[tokio::test]
     async fn test_continuous_stream_preserves_length() {
         let input_audio = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap();
 
@@ -148,7 +148,7 @@ mod tests {
     #[tokio::test]
     async fn test_different_chunk_sizes() {
         let input_audio = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap();
 
@@ -181,7 +181,7 @@ mod tests {
     #[tokio::test]
     async fn test_vad_preserves_speech() {
         let input_audio = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap();
 
@@ -215,11 +215,11 @@ mod tests {
 
     #[test]
     fn test_frame_size_selection() {
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(160), 160);
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(320), 320);
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(480), 480);
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(960), 480);
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(640), 320);
-        assert_eq!(hypr_vad3::choose_optimal_frame_size(512), 320);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(160), 160);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(320), 320);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(480), 480);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(960), 480);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(640), 320);
+        assert_eq!(echonote_vad3::choose_optimal_frame_size(512), 320);
     }
 }

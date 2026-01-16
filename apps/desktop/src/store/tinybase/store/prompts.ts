@@ -1,4 +1,4 @@
-import type { PromptStorage } from "@hypr/store";
+import type { PromptStorage } from "@echonote/store";
 
 import type { Store } from "./main";
 

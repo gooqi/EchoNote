@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export const Route = createFileRoute("/_view/product/extensions")({
   component: Component,

@@ -14,21 +14,21 @@ pub struct ArgmaxAdapter;
 
 impl ArgmaxAdapter {
     pub fn is_supported_languages_live(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         Self::is_supported_languages_impl(languages, model)
     }
 
     pub fn is_supported_languages_batch(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         Self::is_supported_languages_impl(languages, model)
     }
 
     fn is_supported_languages_impl(
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         let model = model.unwrap_or("");

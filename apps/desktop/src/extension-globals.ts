@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import * as jsxRuntime from "react/jsx-runtime";
 import * as tinybaseUiReact from "tinybase/ui-react";
 
-import * as utils from "@hypr/utils";
+import * as utils from "@echonote/utils";
 
 import { getUiComponentAlias } from "../../../extensions/shared/runtime";
 import * as main from "./store/tinybase/store/main";
@@ -37,7 +37,7 @@ const hyprUiModules = Object.entries(rawHyprUiModules).reduce<
   return acc;
 }, {});
 
-type HyprnoteRuntime = {
+type EchoNoteRuntime = {
   react: typeof React;
   reactDom: typeof ReactDOM;
   jsxRuntime: typeof jsxRuntime;
@@ -58,7 +58,7 @@ declare global {
     __hypr_store: typeof main;
     __hypr_tabs: { useTabs: typeof useTabs };
     __hypr_tinybase_ui_react: typeof tinybaseUiReact;
-    __hyprnote: HyprnoteRuntime;
+    __echonote: EchoNoteRuntime;
   }
 }
 
@@ -81,7 +81,7 @@ export function initExtensionGlobals() {
     return acc;
   }, {});
 
-  window.__hyprnote = {
+  window.__echonote = {
     react: window.__hypr_react,
     reactDom: window.__hypr_react_dom,
     jsxRuntime: window.__hypr_jsx_runtime,

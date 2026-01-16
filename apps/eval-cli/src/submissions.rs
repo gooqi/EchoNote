@@ -1,8 +1,8 @@
-use hypr_eval::{
+use echonote_eval::{
     ChatMessage, CheckResult, EvalCase, GraderSpec, RubricSpec, find_headings, find_lists, grade,
     is_non_empty,
 };
-use hypr_template_eval::{MdgenSystem, Template};
+use echonote_template_eval::{MdgenSystem, Template};
 
 pub fn all_cases() -> Vec<EvalCase> {
     vec![mdbench_case()]

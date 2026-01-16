@@ -5,29 +5,29 @@ edition = "2024"
 
 [features]
 default = []
-coreml = ["hypr-whisper-local/coreml"]
-directml = ["hypr-pyannote-local/directml"]
-cuda = ["hypr-whisper-local/cuda"]
-hipblas = ["hypr-whisper-local/hipblas"]
-openblas = ["hypr-whisper-local/openblas"]
-metal = ["hypr-whisper-local/metal"]
-vulkan = ["hypr-whisper-local/vulkan"]
-openmp = ["hypr-whisper-local/openmp"]
-load-dynamic = ["hypr-pyannote-local/load-dynamic"]
+coreml = ["echonote-whisper-local/coreml"]
+directml = ["echonote-pyannote-local/directml"]
+cuda = ["echonote-whisper-local/cuda"]
+hipblas = ["echonote-whisper-local/hipblas"]
+openblas = ["echonote-whisper-local/openblas"]
+metal = ["echonote-whisper-local/metal"]
+vulkan = ["echonote-whisper-local/vulkan"]
+openmp = ["echonote-whisper-local/openmp"]
+load-dynamic = ["echonote-pyannote-local/load-dynamic"]
 
 [dev-dependencies]
 dirs = { workspace = true }
+echonote-data = { workspace = true }
 futures-util = { workspace = true }
-hypr-data = { workspace = true }
 owhisper-client = { workspace = true }
 
 [dependencies]
-hypr-audio-utils = { workspace = true }
-hypr-pyannote-local = { workspace = true }
-hypr-vad-ext = { workspace = true }
-hypr-whisper = { workspace = true }
-hypr-whisper-local = { workspace = true }
-hypr-ws-utils = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-pyannote-local = { workspace = true }
+echonote-vad-ext = { workspace = true }
+echonote-whisper = { workspace = true }
+echonote-whisper-local = { workspace = true }
+echonote-ws-utils = { workspace = true }
 owhisper-interface = { workspace = true }
 
 serde_json = { workspace = true }

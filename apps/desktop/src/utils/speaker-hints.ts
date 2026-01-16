@@ -2,7 +2,7 @@ import {
   type ProviderSpeakerIndexHint,
   providerSpeakerIndexSchema,
   type SpeakerHintStorage,
-} from "@hypr/store";
+} from "@echonote/store";
 
 import type { RuntimeSpeakerHint } from "./segment";
 

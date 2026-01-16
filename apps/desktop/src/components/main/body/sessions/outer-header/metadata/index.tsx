@@ -1,20 +1,20 @@
 import { CalendarIcon, MapPinIcon, VideoIcon } from "lucide-react";
 import { forwardRef, useState } from "react";
 
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
+} from "@echonote/ui/components/ui/popover";
 import {
   cn,
   differenceInDays,
   safeFormat,
   safeParseDate,
   startOfDay,
-} from "@hypr/utils";
+} from "@echonote/utils";
 
 import { useEvent, useSession } from "../../../../../../hooks/tinybase";
 import * as main from "../../../../../../store/tinybase/store/main";

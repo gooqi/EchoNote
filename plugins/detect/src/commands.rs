@@ -10,8 +10,8 @@ pub(crate) async fn set_quit_handler<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
     really_quit: bool,
 ) -> Result<(), String> {
-    hypr_intercept::register_quit_handler(QUIT_HANDLER_ID, move || {
-        hypr_host::kill_processes_by_matcher(hypr_host::ProcessMatcher::Sidecar);
+    echonote_intercept::register_quit_handler(QUIT_HANDLER_ID, move || {
+        echonote_host::kill_processes_by_matcher(echonote_host::ProcessMatcher::Sidecar);
 
         for (_, window) in app.webview_windows() {
             let _ = window.close();
@@ -33,7 +33,7 @@ pub(crate) async fn set_quit_handler<R: tauri::Runtime>(
 pub(crate) async fn reset_quit_handler<R: tauri::Runtime>(
     _app: tauri::AppHandle<R>,
 ) -> Result<(), String> {
-    hypr_intercept::unregister_quit_handler(QUIT_HANDLER_ID);
+    echonote_intercept::unregister_quit_handler(QUIT_HANDLER_ID);
     Ok(())
 }
 
@@ -41,7 +41,7 @@ pub(crate) async fn reset_quit_handler<R: tauri::Runtime>(
 #[specta::specta]
 pub(crate) async fn list_installed_applications<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
-) -> Result<Vec<hypr_detect::InstalledApp>, String> {
+) -> Result<Vec<echonote_detect::InstalledApp>, String> {
     Ok(app.detect().list_installed_applications())
 }
 
@@ -49,7 +49,7 @@ pub(crate) async fn list_installed_applications<R: tauri::Runtime>(
 #[specta::specta]
 pub(crate) async fn list_mic_using_applications<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
-) -> Result<Vec<hypr_detect::InstalledApp>, String> {
+) -> Result<Vec<echonote_detect::InstalledApp>, String> {
     Ok(app.detect().list_mic_using_applications())
 }
 
@@ -87,7 +87,7 @@ pub(crate) async fn set_respect_do_not_disturb<R: tauri::Runtime>(
 pub(crate) async fn get_preferred_languages<R: tauri::Runtime>(
     _app: tauri::AppHandle<R>,
 ) -> Result<Vec<String>, String> {
-    Ok(hypr_detect::get_preferred_languages()
+    Ok(echonote_detect::get_preferred_languages()
         .into_iter()
         .map(|l| l.bcp47_code())
         .collect())
@@ -108,7 +108,7 @@ pub(crate) async fn get_preferred_languages<R: tauri::Runtime>(
 pub(crate) async fn get_current_locale_identifier<R: tauri::Runtime>(
     _app: tauri::AppHandle<R>,
 ) -> Result<String, String> {
-    Ok(hypr_detect::get_current_locale_identifier())
+    Ok(echonote_detect::get_current_locale_identifier())
 }
 
 #[cfg(not(target_os = "macos"))]

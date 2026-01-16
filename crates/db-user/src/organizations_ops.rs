@@ -1,4 +1,4 @@
-use hypr_db_core::SqlTable;
+use echonote_db_core::SqlTable;
 
 use super::{Human, ListOrganizationFilter, Organization, UserDatabase};
 

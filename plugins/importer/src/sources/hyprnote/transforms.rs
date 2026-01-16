@@ -1,5 +1,5 @@
 use crate::types::{ImportedNote, ImportedTranscript, ImportedTranscriptSegment, ImportedWord};
-use hypr_db_user::{Session, Tag};
+use echonote_db_user::{Session, Tag};
 
 pub(super) fn session_to_imported_note(session: Session, tags: Vec<Tag>) -> ImportedNote {
     let content = get_session_content(&session);

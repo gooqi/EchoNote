@@ -1,14 +1,15 @@
 use crate::types::{ImportResult, ImportedNote, ImportedTranscript, ImportedTranscriptSegment};
-use hypr_granola::api::Document;
-use hypr_granola::cache::{CacheData, CacheDocument, TranscriptSegment};
-use hypr_granola::prosemirror::convert_to_plain_text;
+use echonote_granola::api::Document;
+use echonote_granola::cache::{CacheData, CacheDocument, TranscriptSegment};
+use echonote_granola::prosemirror::convert_to_plain_text;
 use std::path::Path;
 use std::time::Duration;
 
 pub async fn import_all_from_path(path: &Path) -> Result<ImportResult, crate::Error> {
     let supabase_content = std::fs::read(path)?;
 
-    let client = hypr_granola::api::GranolaClient::new(&supabase_content, Duration::from_secs(30))?;
+    let client =
+        echonote_granola::api::GranolaClient::new(&supabase_content, Duration::from_secs(30))?;
     let documents = client.get_documents().await?;
 
     let notes = documents
@@ -19,9 +20,9 @@ pub async fn import_all_from_path(path: &Path) -> Result<ImportResult, crate::Er
     let cache_path = path
         .parent()
         .map(|p| p.join("cache"))
-        .unwrap_or_else(|| hypr_granola::cache::default_cache_path());
+        .unwrap_or_else(|| echonote_granola::cache::default_cache_path());
     let transcripts = if cache_path.exists() {
-        let cache_data = hypr_granola::cache::read_cache(&cache_path)?;
+        let cache_data = echonote_granola::cache::read_cache(&cache_path)?;
         cache_data_to_imported_transcripts(&cache_data)
     } else {
         vec![]

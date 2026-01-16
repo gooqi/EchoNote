@@ -5,8 +5,8 @@ use std::{
     time::Duration,
 };
 
+use echonote_audio_interface::AsyncSource;
 use futures_util::{Stream, StreamExt, future};
-use hypr_audio_interface::AsyncSource;
 use silero_rs::{VadConfig, VadSession, VadTransition};
 
 #[derive(Debug, Clone)]

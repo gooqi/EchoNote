@@ -10,8 +10,8 @@ default = []
 name = "test_notification"
 
 [dependencies]
+echonote-notification-interface = { workspace = true }
 gpui = { version = "0.2", features = ["runtime_shaders"] }
 gpui_squircle = "1"
-hypr-notification-interface = { workspace = true }
 
 [dev-dependencies]

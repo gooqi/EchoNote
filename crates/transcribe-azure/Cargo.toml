@@ -21,4 +21,4 @@ tracing = { workspace = true }
 azure-speech = "0.10.0"
 
 [dev-dependencies]
-hypr-data = { workspace = true }
+echonote-data = { workspace = true }

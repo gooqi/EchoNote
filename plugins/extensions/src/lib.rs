@@ -33,7 +33,7 @@ pub struct PanelInfo {
 }
 
 pub struct State {
-    pub runtime: hypr_extensions_runtime::ExtensionsRuntime,
+    pub runtime: echonote_extensions_runtime::ExtensionsRuntime,
 }
 
 pub type ManagedState = Arc<Mutex<State>>;
@@ -59,7 +59,7 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
         .invoke_handler(specta_builder.invoke_handler())
         .setup(|app, _api| {
             let state = State {
-                runtime: hypr_extensions_runtime::ExtensionsRuntime::new(),
+                runtime: echonote_extensions_runtime::ExtensionsRuntime::new(),
             };
             app.manage(Arc::new(Mutex::new(state)));
             Ok(())

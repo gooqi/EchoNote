@@ -1,4 +1,4 @@
-use hypr_ws_client::client::Message;
+use echonote_ws_client::client::Message;
 use owhisper_interface::ListenParams;
 use owhisper_interface::stream::{Alternatives, Channel, Metadata, StreamResponse};
 use serde::{Deserialize, Serialize};
@@ -19,7 +19,7 @@ impl RealtimeSttAdapter for OpenAIAdapter {
 
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         OpenAIAdapter::is_supported_languages_live(languages)
@@ -376,7 +376,7 @@ impl OpenAIAdapter {
 
 #[cfg(test)]
 mod tests {
-    use hypr_language::ISO639;
+    use echonote_language::ISO639;
 
     use super::OpenAIAdapter;
     use crate::ListenClient;
@@ -411,7 +411,7 @@ mod tests {
             .api_key(std::env::var("OPENAI_API_KEY").expect("OPENAI_API_KEY not set"))
             .params(owhisper_interface::ListenParams {
                 model: Some("gpt-4o-transcribe".to_string()),
-                languages: vec![hypr_language::ISO639::En.into()],
+                languages: vec![echonote_language::ISO639::En.into()],
                 sample_rate: OPENAI_SAMPLE_RATE,
                 ..Default::default()
             })
@@ -430,7 +430,7 @@ mod tests {
             .api_key(std::env::var("OPENAI_API_KEY").expect("OPENAI_API_KEY not set"))
             .params(owhisper_interface::ListenParams {
                 model: Some("gpt-4o-transcribe".to_string()),
-                languages: vec![hypr_language::ISO639::En.into()],
+                languages: vec![echonote_language::ISO639::En.into()],
                 sample_rate: OPENAI_SAMPLE_RATE,
                 ..Default::default()
             })

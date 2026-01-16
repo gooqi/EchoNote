@@ -14,7 +14,7 @@
 //! ## Quick Start
 //!
 //! ```rust,ignore
-//! use hypr_eval::*;
+//! use echonote_eval::*;
 //! use std::sync::Arc;
 //!
 //! let case = EvalCase {

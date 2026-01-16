@@ -9,8 +9,8 @@ pub use service::*;
 mod tests {
     use super::*;
     use axum::{error_handling::HandleError, http::StatusCode};
+    use echonote_audio_utils::AudioFormatExt;
     use futures_util::StreamExt;
-    use hypr_audio_utils::AudioFormatExt;
 
     #[tokio::test]
     async fn test_service() -> Result<(), Box<dyn std::error::Error>> {
@@ -42,7 +42,7 @@ mod tests {
             .await;
 
         let audio = rodio::Decoder::try_from(
-            std::fs::File::open(hypr_data::english_1::AUDIO_PATH).unwrap(),
+            std::fs::File::open(echonote_data::english_1::AUDIO_PATH).unwrap(),
         )
         .unwrap()
         .to_i16_le_chunks(16000, 512);

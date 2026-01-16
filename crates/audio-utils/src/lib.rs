@@ -1,8 +1,8 @@
 use std::convert::TryFrom;
 
 use bytes::{BufMut, Bytes, BytesMut};
+use echonote_audio_interface::AsyncSource;
 use futures_util::{Stream, StreamExt};
-use hypr_audio_interface::AsyncSource;
 
 mod error;
 mod pcm;
@@ -298,13 +298,13 @@ mod tests {
     }
 
     test_audio_file_metadata! {
-        test_audio_file_metadata_wav: hypr_data::english_1::AUDIO_PATH,
-        test_audio_file_metadata_mp3: hypr_data::english_1::AUDIO_MP3_PATH,
-        test_audio_file_metadata_mp4: hypr_data::english_1::AUDIO_MP4_PATH,
-        test_audio_file_metadata_m4a: hypr_data::english_1::AUDIO_M4A_PATH,
-        test_audio_file_metadata_ogg: hypr_data::english_1::AUDIO_OGG_PATH,
-        test_audio_file_metadata_flac: hypr_data::english_1::AUDIO_FLAC_PATH,
-        test_audio_file_metadata_aac: hypr_data::english_1::AUDIO_AAC_PATH,
-        test_audio_file_metadata_aiff: hypr_data::english_1::AUDIO_AIFF_PATH,
+        test_audio_file_metadata_wav: echonote_data::english_1::AUDIO_PATH,
+        test_audio_file_metadata_mp3: echonote_data::english_1::AUDIO_MP3_PATH,
+        test_audio_file_metadata_mp4: echonote_data::english_1::AUDIO_MP4_PATH,
+        test_audio_file_metadata_m4a: echonote_data::english_1::AUDIO_M4A_PATH,
+        test_audio_file_metadata_ogg: echonote_data::english_1::AUDIO_OGG_PATH,
+        test_audio_file_metadata_flac: echonote_data::english_1::AUDIO_FLAC_PATH,
+        test_audio_file_metadata_aac: echonote_data::english_1::AUDIO_AAC_PATH,
+        test_audio_file_metadata_aiff: echonote_data::english_1::AUDIO_AIFF_PATH,
     }
 }

@@ -1,14 +1,14 @@
 import { memo, useCallback, useMemo } from "react";
 
-import { commands as fsSyncCommands } from "@hypr/plugin-fs-sync";
-import { commands as openerCommands } from "@hypr/plugin-opener2";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
+import { commands as fsSyncCommands } from "@echonote/plugin-fs-sync";
+import { commands as openerCommands } from "@echonote/plugin-opener2";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn, safeParseDate } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn, safeParseDate } from "@echonote/utils";
 
 import { useListener } from "../../../../contexts/listener";
 import { useIsSessionEnhancing } from "../../../../hooks/useEnhancedNotes";

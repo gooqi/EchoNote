@@ -2,8 +2,8 @@ import { Icon } from "@iconify-icon/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 
-import { Dialog, DialogContent } from "@hypr/ui/components/ui/dialog";
-import { cn } from "@hypr/utils";
+import { Dialog, DialogContent } from "@echonote/ui/components/ui/dialog";
+import { cn } from "@echonote/utils";
 
 interface MediaItem {
   name: string;

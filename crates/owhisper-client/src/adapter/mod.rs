@@ -28,7 +28,7 @@ use std::future::Future;
 use std::path::Path;
 use std::pin::Pin;
 
-use hypr_ws_client::client::Message;
+use echonote_ws_client::client::Message;
 use owhisper_interface::ListenParams;
 use owhisper_interface::batch::Response as BatchResponse;
 use owhisper_interface::stream::StreamResponse;
@@ -74,7 +74,7 @@ pub trait RealtimeSttAdapter: Clone + Default + Send + Sync + 'static {
 
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool;
 
@@ -118,7 +118,7 @@ pub trait RealtimeSttAdapter: Clone + Default + Send + Sync + 'static {
 pub trait BatchSttAdapter: Clone + Default + Send + Sync + 'static {
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool;
 
@@ -186,7 +186,9 @@ pub fn is_hyprnote_proxy(base_url: &str) -> bool {
     is_hyprnote_cloud(base_url) || is_hyprnote_local_proxy(base_url)
 }
 
-pub fn normalize_languages(languages: &[hypr_language::Language]) -> Vec<hypr_language::Language> {
+pub fn normalize_languages(
+    languages: &[echonote_language::Language],
+) -> Vec<echonote_language::Language> {
     let mut seen = HashSet::new();
     let mut result = Vec::with_capacity(languages.len());
 
@@ -261,7 +263,7 @@ pub enum AdapterKind {
 impl AdapterKind {
     pub fn from_url_and_languages(
         base_url: &str,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> Self {
         use owhisper_providers::Provider;
@@ -285,7 +287,7 @@ impl AdapterKind {
 
     pub fn is_supported_languages_live(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         match self {
@@ -302,7 +304,7 @@ impl AdapterKind {
 
     pub fn is_supported_languages_batch(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         model: Option<&str>,
     ) -> bool {
         match self {
@@ -339,7 +341,7 @@ mod tests {
 
     #[test]
     fn test_normalize_languages_deduplicates_same_base() {
-        use hypr_language::{ISO639, Language};
+        use echonote_language::{ISO639, Language};
 
         let en: Language = ISO639::En.into();
         let en_gb = Language::with_region(ISO639::En, "GB");
@@ -354,7 +356,7 @@ mod tests {
 
     #[test]
     fn test_normalize_languages_prefers_base_over_regional() {
-        use hypr_language::{ISO639, Language};
+        use echonote_language::{ISO639, Language};
 
         let en_gb = Language::with_region(ISO639::En, "GB");
         let en: Language = ISO639::En.into();
@@ -367,7 +369,7 @@ mod tests {
 
     #[test]
     fn test_normalize_languages_keeps_regional_if_no_base() {
-        use hypr_language::{ISO639, Language};
+        use echonote_language::{ISO639, Language};
 
         let en_gb = Language::with_region(ISO639::En, "GB");
         let es: Language = ISO639::Es.into();
@@ -381,7 +383,7 @@ mod tests {
 
     #[test]
     fn test_normalize_languages_multiple_variants() {
-        use hypr_language::{ISO639, Language};
+        use echonote_language::{ISO639, Language};
 
         let en_us = Language::with_region(ISO639::En, "US");
         let en_gb = Language::with_region(ISO639::En, "GB");
@@ -416,9 +418,14 @@ mod tests {
 
     #[test]
     fn test_adapter_kind_from_url_and_languages() {
-        use hypr_language::ISO639::*;
+        use echonote_language::ISO639::*;
 
-        let cases: &[(&str, &[hypr_language::ISO639], Option<&str>, AdapterKind)] = &[
+        let cases: &[(
+            &str,
+            &[echonote_language::ISO639],
+            Option<&str>,
+            AdapterKind,
+        )] = &[
             // HyprnoteCloud - single language (model is ignored for adapter selection)
             (
                 "https://api.hyprnote.com/stt",
@@ -504,7 +511,8 @@ mod tests {
         ];
 
         for (url, langs, model, expected) in cases {
-            let langs: Vec<hypr_language::Language> = langs.iter().map(|l| (*l).into()).collect();
+            let langs: Vec<echonote_language::Language> =
+                langs.iter().map(|l| (*l).into()).collect();
             assert_eq!(
                 AdapterKind::from_url_and_languages(url, &langs, *model),
                 *expected,

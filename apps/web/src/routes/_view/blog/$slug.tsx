@@ -4,7 +4,7 @@ import { allArticles } from "content-collections";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { DownloadButton } from "@/components/download-button";
 import { Image } from "@/components/image";

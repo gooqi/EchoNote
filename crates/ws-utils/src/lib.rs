@@ -8,7 +8,7 @@ use axum::extract::ws::{Message, WebSocket};
 use futures_util::{Stream, StreamExt, stream::SplitStream};
 use tokio::sync::mpsc::{UnboundedReceiver, unbounded_channel};
 
-use hypr_audio_utils::{bytes_to_f32_samples, mix_audio_f32};
+use echonote_audio_utils::{bytes_to_f32_samples, mix_audio_f32};
 use owhisper_interface::ListenInputChunk;
 
 enum AudioProcessResult {
@@ -134,7 +134,7 @@ impl Stream for WebSocketAudioSource {
     }
 }
 
-impl hypr_audio_interface::AsyncSource for WebSocketAudioSource {
+impl echonote_audio_interface::AsyncSource for WebSocketAudioSource {
     fn as_stream(&mut self) -> impl Stream<Item = f32> + '_ {
         self
     }
@@ -195,7 +195,7 @@ impl Stream for ChannelAudioSource {
     }
 }
 
-impl hypr_audio_interface::AsyncSource for ChannelAudioSource {
+impl echonote_audio_interface::AsyncSource for ChannelAudioSource {
     fn as_stream(&mut self) -> impl Stream<Item = f32> + '_ {
         self
     }

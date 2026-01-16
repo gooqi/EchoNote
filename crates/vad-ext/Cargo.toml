@@ -7,18 +7,18 @@ edition = "2024"
 swift-rs = { workspace = true, features = ["build"] }
 
 [dev-dependencies]
+echonote-data = { workspace = true }
 hound = { workspace = true }
-hypr-data = { workspace = true }
 rodio = { workspace = true }
 
 [dependencies]
 serde = { workspace = true }
 thiserror = { workspace = true }
 
-hypr-audio-interface = { workspace = true }
-hypr-audio-utils = { workspace = true }
-hypr-vad3 = { workspace = true }
-hypr-vvad = { workspace = true }
+echonote-audio-interface = { workspace = true }
+echonote-audio-utils = { workspace = true }
+echonote-vad3 = { workspace = true }
+echonote-vvad = { workspace = true }
 silero-rs = { workspace = true }
 
 futures-util = { workspace = true }

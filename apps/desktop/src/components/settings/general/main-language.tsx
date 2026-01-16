@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@hypr/ui/components/ui/select";
+} from "@echonote/ui/components/ui/select";
 
 import {
   getBaseLanguageDisplayName,

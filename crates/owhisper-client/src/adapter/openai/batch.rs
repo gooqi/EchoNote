@@ -24,7 +24,7 @@ fn supports_word_timestamps(model: &str) -> bool {
 impl BatchSttAdapter for OpenAIAdapter {
     fn is_supported_languages(
         &self,
-        languages: &[hypr_language::Language],
+        languages: &[echonote_language::Language],
         _model: Option<&str>,
     ) -> bool {
         OpenAIAdapter::is_supported_languages_batch(languages)

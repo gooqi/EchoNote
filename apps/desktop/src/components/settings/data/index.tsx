@@ -2,13 +2,13 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { XCircleIcon } from "lucide-react";
 import { useState } from "react";
 
-import { commands as analyticsCommands } from "@hypr/plugin-analytics";
+import { commands as analyticsCommands } from "@echonote/plugin-analytics";
 import {
   commands,
   type ImportSourceInfo,
   type ImportSourceKind,
   type ImportStats,
-} from "@hypr/plugin-importer";
+} from "@echonote/plugin-importer";
 
 import { importFromJson } from "../../../store/tinybase/store/importer";
 import * as main from "../../../store/tinybase/store/main";
@@ -97,7 +97,7 @@ export function Data() {
     <div>
       <StyledStreamdown className="text-neutral-500">
         {
-          "Import data from other apps. Read more about [import](https://hyprnote.com/docs/data#import) and [export](https://hyprnote.com/docs/data#export)."
+          "Import data from other apps. Read more about [import](https://echonote.com/docs/data#import) and [export](https://echonote.com/docs/data#export)."
         }
       </StyledStreamdown>
 

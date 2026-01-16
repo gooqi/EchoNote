@@ -1,7 +1,7 @@
 import { create as mutate } from "mutative";
 import type { StoreApi } from "zustand";
 
-import type { StreamResponse } from "@hypr/plugin-listener";
+import type { StreamResponse } from "@echonote/plugin-listener";
 
 import type { RuntimeSpeakerHint, WordLike } from "../../../utils/segment";
 import { transformWordEntries } from "./utils";

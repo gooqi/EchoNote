@@ -7,7 +7,7 @@ import { createMultiTableDirPersister } from "./multi-table-dir";
 const settingsMocks = vi.hoisted(() => ({
   base: vi
     .fn()
-    .mockResolvedValue({ status: "ok", data: "/mock/data/dir/hyprnote" }),
+    .mockResolvedValue({ status: "ok", data: "/mock/data/dir/echonote" }),
 }));
 
 const fsSyncMocks = vi.hoisted(() => ({
@@ -23,9 +23,9 @@ const fs2Mocks = vi.hoisted(() => ({
   remove: vi.fn(),
 }));
 
-vi.mock("@hypr/plugin-settings", () => ({ commands: settingsMocks }));
-vi.mock("@hypr/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
-vi.mock("@hypr/plugin-fs2", () => ({ commands: fs2Mocks }));
+vi.mock("@echonote/plugin-settings", () => ({ commands: settingsMocks }));
+vi.mock("@echonote/plugin-fs-sync", () => ({ commands: fsSyncMocks }));
+vi.mock("@echonote/plugin-fs2", () => ({ commands: fs2Mocks }));
 
 describe("createMultiTableDirPersister", () => {
   let store: ReturnType<typeof createTestMainStore>;

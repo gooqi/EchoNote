@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { FolderIcon } from "lucide-react";
 
-import { commands as settingsCommands } from "@hypr/plugin-settings";
-import { commands as windowsCommands } from "@hypr/plugin-windows";
-import { Button } from "@hypr/ui/components/ui/button";
+import { commands as settingsCommands } from "@echonote/plugin-settings";
+import { commands as windowsCommands } from "@echonote/plugin-windows";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
+} from "@echonote/ui/components/ui/tooltip";
 
 export function SettingsLab() {
   const { data: basePath } = useQuery({
@@ -32,7 +32,7 @@ export function SettingsLab() {
         <div className="flex-1">
           <h3 className="text-sm font-medium mb-1">Content Folder</h3>
           <p className="text-xs text-neutral-600">
-            Where Hyprnote stores your data locally.
+            Where EchoNote stores your data locally.
           </p>
         </div>
         <Tooltip>

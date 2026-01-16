@@ -1,7 +1,7 @@
 import { Columns, Info } from "lucide-react";
 import type { ComponentType } from "react";
 
-import { Accordion, Card, Note, Step, Steps, Tip } from "@hypr/ui/docs";
+import { Accordion, Card, Note, Step, Steps, Tip } from "@echonote/ui/docs";
 
 import { CtaCard } from "@/components/cta-card";
 import { Image } from "@/components/image";

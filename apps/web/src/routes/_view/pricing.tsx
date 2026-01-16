@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, MinusCircle, XCircle } from "lucide-react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { Image } from "@/components/image";
 import { SlashSeparator } from "@/components/slash-separator";

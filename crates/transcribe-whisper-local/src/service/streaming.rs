@@ -17,8 +17,8 @@ use axum::{
 use futures_util::{SinkExt, StreamExt};
 use tower::Service;
 
-use hypr_vad_ext::VadExt;
-use hypr_ws_utils::{ConnectionGuard, ConnectionManager};
+use echonote_vad_ext::VadExt;
+use echonote_ws_utils::{ConnectionGuard, ConnectionManager};
 use owhisper_interface::ListenParams;
 use owhisper_interface::stream::{Alternatives, Channel, Metadata, StreamResponse, Word};
 
@@ -91,14 +91,14 @@ where
                 }
             };
 
-            let model = match hypr_whisper_local::Whisper::builder()
+            let model = match echonote_whisper_local::Whisper::builder()
                 .model_path(model_path.to_str().unwrap())
                 .languages(
                     params
                         .languages
                         .iter()
                         .filter_map(|lang| lang.clone().try_into().ok())
-                        .collect::<Vec<hypr_whisper::Language>>(),
+                        .collect::<Vec<echonote_whisper::Language>>(),
                 )
                 .build()
             {
@@ -127,7 +127,7 @@ where
 async fn handle_websocket_connection(
     socket: WebSocket,
     params: ListenParams,
-    model: hypr_whisper_local::Whisper,
+    model: echonote_whisper_local::Whisper,
     guard: ConnectionGuard,
 ) {
     let (ws_sender, ws_receiver) = socket.split();
@@ -171,55 +171,56 @@ async fn handle_websocket_connection(
 async fn handle_single_channel(
     ws_sender: futures_util::stream::SplitSink<WebSocket, Message>,
     ws_receiver: futures_util::stream::SplitStream<WebSocket>,
-    model: hypr_whisper_local::Whisper,
+    model: echonote_whisper_local::Whisper,
     guard: ConnectionGuard,
     redemption_time: Duration,
     global_timer: GlobalTimer,
 ) {
-    let audio_source = hypr_ws_utils::WebSocketAudioSource::new(ws_receiver, 16 * 1000);
+    let audio_source = echonote_ws_utils::WebSocketAudioSource::new(ws_receiver, 16 * 1000);
     let vad_chunks = audio_source.speech_chunks(redemption_time);
 
-    let chunked = hypr_whisper_local::AudioChunkStream(process_vad_stream(vad_chunks, "mixed"));
+    let chunked = echonote_whisper_local::AudioChunkStream(process_vad_stream(vad_chunks, "mixed"));
 
-    let stream = hypr_whisper_local::TranscribeMetadataAudioStreamExt::transcribe(chunked, model);
+    let stream =
+        echonote_whisper_local::TranscribeMetadataAudioStreamExt::transcribe(chunked, model);
     process_transcription_stream(ws_sender, stream, guard, 1, global_timer).await;
 }
 
 async fn handle_dual_channel(
     ws_sender: futures_util::stream::SplitSink<WebSocket, Message>,
     ws_receiver: futures_util::stream::SplitStream<WebSocket>,
-    model: hypr_whisper_local::Whisper,
+    model: echonote_whisper_local::Whisper,
     guard: ConnectionGuard,
     redemption_time: Duration,
     global_timer: GlobalTimer,
 ) {
     let (mic_source, speaker_source) =
-        hypr_ws_utils::split_dual_audio_sources(ws_receiver, 16 * 1000);
+        echonote_ws_utils::split_dual_audio_sources(ws_receiver, 16 * 1000);
 
     let mic_chunked = {
         let mic_vad_chunks = mic_source.speech_chunks(redemption_time);
-        hypr_whisper_local::AudioChunkStream(process_vad_stream(mic_vad_chunks, "mic"))
+        echonote_whisper_local::AudioChunkStream(process_vad_stream(mic_vad_chunks, "mic"))
     };
 
     let speaker_chunked = {
         let speaker_vad_chunks = speaker_source.speech_chunks(redemption_time);
-        hypr_whisper_local::AudioChunkStream(process_vad_stream(speaker_vad_chunks, "speaker"))
+        echonote_whisper_local::AudioChunkStream(process_vad_stream(speaker_vad_chunks, "speaker"))
     };
 
-    let merged_stream = hypr_whisper_local::AudioChunkStream(futures_util::stream::select(
+    let merged_stream = echonote_whisper_local::AudioChunkStream(futures_util::stream::select(
         mic_chunked.0,
         speaker_chunked.0,
     ));
 
     let stream =
-        hypr_whisper_local::TranscribeMetadataAudioStreamExt::transcribe(merged_stream, model);
+        echonote_whisper_local::TranscribeMetadataAudioStreamExt::transcribe(merged_stream, model);
 
     process_transcription_stream(ws_sender, stream, guard, 2, global_timer).await;
 }
 
 async fn process_transcription_stream(
     mut ws_sender: futures_util::stream::SplitSink<WebSocket, Message>,
-    mut stream: impl futures_util::Stream<Item = hypr_whisper_local::Segment> + Unpin,
+    mut stream: impl futures_util::Stream<Item = echonote_whisper_local::Segment> + Unpin,
     guard: ConnectionGuard,
     channels: i32,
     global_timer: GlobalTimer,
@@ -304,9 +305,9 @@ async fn process_transcription_stream(
 fn process_vad_stream<S, E>(
     stream: S,
     source_name: &str,
-) -> impl futures_util::Stream<Item = hypr_whisper_local::SimpleAudioChunk>
+) -> impl futures_util::Stream<Item = echonote_whisper_local::SimpleAudioChunk>
 where
-    S: futures_util::Stream<Item = Result<hypr_vad_ext::AudioChunk, E>>,
+    S: futures_util::Stream<Item = Result<echonote_vad_ext::AudioChunk, E>>,
     E: std::fmt::Display,
 {
     let source_name = source_name.to_string();
@@ -324,7 +325,7 @@ where
         .filter_map(move |chunk_result| {
             futures_util::future::ready(match chunk_result {
                 Err(_) => None,
-                Ok(chunk) => Some(hypr_whisper_local::SimpleAudioChunk {
+                Ok(chunk) => Some(echonote_whisper_local::SimpleAudioChunk {
                     samples: chunk.samples,
                     meta: Some(serde_json::json!({ "source": source_name })),
                 }),

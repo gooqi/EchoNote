@@ -1,4 +1,4 @@
-import type { ServerStatus } from "@hypr/plugin-local-stt";
+import type { ServerStatus } from "@echonote/plugin-local-stt";
 
 import type { DownloadProgress, ToastCondition, ToastType } from "./types";
 
@@ -105,7 +105,7 @@ export function createToastRegistry({
         description: (
           <>
             <strong className="font-mono">Transcription model</strong> is needed
-            to make Hyprnote listen to your conversations.
+            to make EchoNote listen to your conversations.
           </>
         ),
         primaryAction: {
@@ -122,7 +122,7 @@ export function createToastRegistry({
         description: (
           <>
             <strong className="font-mono">Language model</strong> is needed to
-            make Hyprnote summarize and chat about your conversations.
+            make EchoNote summarize and chat about your conversations.
           </>
         ),
         primaryAction: {
@@ -139,14 +139,14 @@ export function createToastRegistry({
         id: "pro-requires-login",
         icon: (
           <img
-            src="/assets/hyprnote-pro.png"
-            alt="Hyprnote Pro"
+            src="/assets/echonote-pro.png"
+            alt="EchoNote Pro"
             className="size-5"
           />
         ),
         title: "Sign in required",
         description:
-          "You have Hyprnote Pro models configured. Please sign in to use them.",
+          "You have EchoNote Pro models configured. Please sign in to use them.",
         primaryAction: {
           label: "Sign in",
           onClick: onSignIn,
@@ -161,8 +161,8 @@ export function createToastRegistry({
         id: "upgrade-to-pro",
         icon: (
           <img
-            src="/assets/hyprnote-pro.png"
-            alt="Hyprnote Pro"
+            src="/assets/echonote-pro.png"
+            alt="EchoNote Pro"
             className="size-5"
           />
         ),

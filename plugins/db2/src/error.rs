@@ -5,7 +5,7 @@ pub enum Error {
     #[error(transparent)]
     PostgresError(#[from] tokio_postgres::Error),
     #[error(transparent)]
-    HyprDbError(#[from] hypr_db_core::Error),
+    HyprDbError(#[from] echonote_db_core::Error),
     #[error(transparent)]
     TauriError(#[from] tauri::Error),
     #[error(transparent)]

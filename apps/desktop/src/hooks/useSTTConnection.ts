@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
-import { commands as localSttCommands } from "@hypr/plugin-local-stt";
-import type { AIProviderStorage } from "@hypr/store";
+import { commands as localSttCommands } from "@echonote/plugin-local-stt";
+import type { AIProviderStorage } from "@echonote/store";
 
 import { useAuth } from "../auth";
 import { useBillingAccess } from "../billing";
@@ -27,16 +27,16 @@ export const useSTTConnection = () => {
   ) as AIProviderStorage | undefined;
 
   const isLocalModel =
-    current_stt_provider === "hyprnote" &&
+    current_stt_provider === "echonote" &&
     !!current_stt_model &&
     (current_stt_model.startsWith("am-") ||
       current_stt_model.startsWith("Quantized"));
 
   const isCloudModel =
-    current_stt_provider === "hyprnote" && current_stt_model === "cloud";
+    current_stt_provider === "echonote" && current_stt_model === "cloud";
 
   const local = useQuery({
-    enabled: current_stt_provider === "hyprnote",
+    enabled: current_stt_provider === "echonote",
     queryKey: ["stt-connection", isLocalModel, current_stt_model],
     refetchInterval: 1000,
     queryFn: async () => {

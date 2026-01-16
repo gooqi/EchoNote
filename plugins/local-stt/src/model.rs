@@ -1,5 +1,5 @@
-use hypr_am::AmModel;
-use hypr_whisper_local_model::WhisperModel;
+use echonote_am::AmModel;
+use echonote_whisper_local_model::WhisperModel;
 
 pub static SUPPORTED_MODELS: [SupportedSttModel; 10] = [
     SupportedSttModel::Whisper(WhisperModel::QuantizedTiny),
@@ -38,10 +38,10 @@ impl std::fmt::Display for SupportedSttModel {
 }
 
 impl SupportedSttModel {
-    pub fn supported_languages(&self) -> Vec<hypr_language::Language> {
-        use hypr_language::ISO639;
+    pub fn supported_languages(&self) -> Vec<echonote_language::Language> {
+        use echonote_language::ISO639;
 
-        let whisper_multi_languages: Vec<hypr_language::Language> = vec![
+        let whisper_multi_languages: Vec<echonote_language::Language> = vec![
             ISO639::Af.into(),
             ISO639::Am.into(),
             ISO639::Ar.into(),
@@ -142,7 +142,7 @@ impl SupportedSttModel {
         ];
 
         // https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
-        let parakeet_v3_languages: Vec<hypr_language::Language> = vec![
+        let parakeet_v3_languages: Vec<echonote_language::Language> = vec![
             ISO639::Bg.into(),
             ISO639::Hr.into(),
             ISO639::Cs.into(),
@@ -172,22 +172,22 @@ impl SupportedSttModel {
 
         match self {
             SupportedSttModel::Whisper(model) => match model {
-                hypr_whisper_local_model::WhisperModel::QuantizedTinyEn
-                | hypr_whisper_local_model::WhisperModel::QuantizedBaseEn
-                | hypr_whisper_local_model::WhisperModel::QuantizedSmallEn => {
+                echonote_whisper_local_model::WhisperModel::QuantizedTinyEn
+                | echonote_whisper_local_model::WhisperModel::QuantizedBaseEn
+                | echonote_whisper_local_model::WhisperModel::QuantizedSmallEn => {
                     vec![ISO639::En.into()]
                 }
-                hypr_whisper_local_model::WhisperModel::QuantizedTiny
-                | hypr_whisper_local_model::WhisperModel::QuantizedBase
-                | hypr_whisper_local_model::WhisperModel::QuantizedSmall
-                | hypr_whisper_local_model::WhisperModel::QuantizedLargeTurbo => {
+                echonote_whisper_local_model::WhisperModel::QuantizedTiny
+                | echonote_whisper_local_model::WhisperModel::QuantizedBase
+                | echonote_whisper_local_model::WhisperModel::QuantizedSmall
+                | echonote_whisper_local_model::WhisperModel::QuantizedLargeTurbo => {
                     whisper_multi_languages
                 }
             },
             SupportedSttModel::Am(model) => match model {
-                hypr_am::AmModel::ParakeetV2 => vec![ISO639::En.into()],
-                hypr_am::AmModel::ParakeetV3 => parakeet_v3_languages,
-                hypr_am::AmModel::WhisperLargeV3 => whisper_multi_languages,
+                echonote_am::AmModel::ParakeetV2 => vec![ISO639::En.into()],
+                echonote_am::AmModel::ParakeetV3 => parakeet_v3_languages,
+                echonote_am::AmModel::WhisperLargeV3 => whisper_multi_languages,
             },
         }
     }

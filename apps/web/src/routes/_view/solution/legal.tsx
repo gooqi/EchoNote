@@ -1,7 +1,7 @@
 import { Icon } from "@iconify-icon/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 export const Route = createFileRoute("/_view/solution/legal")({
   component: Component,

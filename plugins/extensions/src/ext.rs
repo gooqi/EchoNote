@@ -9,7 +9,7 @@ pub struct Extensions<'a, R: tauri::Runtime, M: tauri::Manager<R>> {
 
 impl<'a, R: tauri::Runtime, M: tauri::Manager<R>> Extensions<'a, R, M> {
     pub async fn load_extension(&self, path: PathBuf) -> Result<(), crate::Error> {
-        let extension = hypr_extensions_runtime::Extension::load(path)?;
+        let extension = echonote_extensions_runtime::Extension::load(path)?;
 
         let runtime = {
             let state = self.manager.state::<ManagedState>();

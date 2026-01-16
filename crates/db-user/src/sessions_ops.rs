@@ -33,7 +33,7 @@ impl UserDatabase {
         &self,
     ) -> Result<Vec<owhisper_interface::Word2>, crate::Error> {
         let words: Vec<owhisper_interface::Word2> =
-            serde_json::from_str(hypr_data::english_7::WORDS_JSON).unwrap();
+            serde_json::from_str(echonote_data::english_7::WORDS_JSON).unwrap();
         Ok(words)
     }
 

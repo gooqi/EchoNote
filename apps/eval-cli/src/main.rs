@@ -7,7 +7,7 @@ use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 mod report;
 mod submissions;
 
-use hypr_eval::{
+use echonote_eval::{
     DEFAULT_MODELS, EvalResult, Executor, ExecutorProgress, OpenRouterClient, parse_config,
 };
 use report::{render_json, render_results};
@@ -154,7 +154,7 @@ fn run_evals(
 }
 
 fn resolve_usage(client: &OpenRouterClient, results: &mut [EvalResult]) {
-    use hypr_eval::UsageResolver;
+    use echonote_eval::UsageResolver;
 
     for result in results.iter_mut() {
         if result.generation_id.is_empty() || result.error.is_some() {

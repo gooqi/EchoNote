@@ -51,7 +51,7 @@ pub async fn main() {
 
             sentry::configure_scope(|scope| {
                 scope.set_user(Some(sentry::User {
-                    id: Some(hypr_host::fingerprint()),
+                    id: Some(echonote_host::fingerprint()),
                     ..Default::default()
                 }));
             });
@@ -279,7 +279,7 @@ pub async fn main() {
                 ctx.mark_exiting();
                 ctx.stop();
             }
-            hypr_host::kill_processes_by_matcher(hypr_host::ProcessMatcher::Sidecar);
+            echonote_host::kill_processes_by_matcher(echonote_host::ProcessMatcher::Sidecar);
         }
         _ => {}
     });

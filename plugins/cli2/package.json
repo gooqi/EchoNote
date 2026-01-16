@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/plugin-cli2",
+  "name": "@echonote/plugin-cli2",
   "private": true,
   "main": "./js/index.ts",
   "scripts": {

@@ -11,7 +11,7 @@ use crate::TrayPluginExt;
 pub struct AppCliInstall;
 
 impl MenuItemHandler for AppCliInstall {
-    const ID: &'static str = "hypr_app_cli_install";
+    const ID: &'static str = "echonote_app_cli_install";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let item = IconMenuItem::with_id_and_native_icon(
@@ -70,7 +70,7 @@ impl MenuItemHandler for AppCliInstall {
 pub struct AppCliUninstall;
 
 impl MenuItemHandler for AppCliUninstall {
-    const ID: &'static str = "hypr_app_cli_uninstall";
+    const ID: &'static str = "echonote_app_cli_uninstall";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let item = IconMenuItem::with_id_and_native_icon(

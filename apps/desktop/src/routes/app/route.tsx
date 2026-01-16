@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 
-import { TooltipProvider } from "@hypr/ui/components/ui/tooltip";
+import { TooltipProvider } from "@echonote/ui/components/ui/tooltip";
 
 import { useConfigSideEffects } from "../../config/use-config";
 import { ListenerProvider } from "../../contexts/listener";

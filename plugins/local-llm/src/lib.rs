@@ -4,7 +4,7 @@ use std::sync::Arc;
 use tauri::Wry;
 use tokio::sync::Mutex;
 
-use hypr_llm::ModelManager;
+use echonote_llm::ModelManager;
 
 mod commands;
 mod error;
@@ -174,7 +174,7 @@ mod test {
                     .into(),
             )],
             metadata: Some(
-                serde_json::json!({ "grammar": hypr_gbnf::Grammar::Enhance { sections: None } }),
+                serde_json::json!({ "grammar": echonote_gbnf::Grammar::Enhance { sections: None } }),
             ),
             ..Default::default()
         }
@@ -198,7 +198,7 @@ mod test {
                         .into(),
                 ),
             ],
-            metadata: Some(serde_json::json!({ "grammar": hypr_gbnf::Grammar::Title })),
+            metadata: Some(serde_json::json!({ "grammar": echonote_gbnf::Grammar::Title })),
             ..Default::default()
         }
     }

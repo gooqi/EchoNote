@@ -1,5 +1,5 @@
-import { DancingSticks } from "@hypr/ui/components/ui/dancing-sticks";
-import { cn } from "@hypr/utils";
+import { DancingSticks } from "@echonote/ui/components/ui/dancing-sticks";
+import { cn } from "@echonote/utils";
 
 export function MockWindow({
   showAudioIndicator,

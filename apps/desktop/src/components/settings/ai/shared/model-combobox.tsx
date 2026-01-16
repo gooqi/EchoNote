@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 
-import { Button } from "@hypr/ui/components/ui/button";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -16,18 +16,18 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@hypr/ui/components/ui/command";
+} from "@echonote/ui/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@hypr/ui/components/ui/popover";
+} from "@echonote/ui/components/ui/popover";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/tooltip";
+import { cn } from "@echonote/utils";
 
 import { useModelMetadata } from "../../../../hooks/useModelMetadata";
 import type { ListModelsResult, ModelIgnoreReason } from "./list-common";
@@ -59,7 +59,7 @@ const formatIgnoreReason = (reason: ModelIgnoreReason): string => {
 };
 
 const getDisplayName = (providerId: string, model: string): string => {
-  if (providerId === "hyprnote" && model === "Auto") {
+  if (providerId === "echonote" && model === "Auto") {
     return "Pro";
   }
   return model;

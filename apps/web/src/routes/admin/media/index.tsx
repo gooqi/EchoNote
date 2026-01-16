@@ -25,13 +25,13 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
+} from "@echonote/ui/components/ui/resizable";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
+import { cn } from "@echonote/utils";
 
 interface MediaItem {
   name: string;

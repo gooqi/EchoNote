@@ -7,7 +7,7 @@ edition = "2024"
 deepgram = { workspace = true, default-features = false, features = ["listen"] }
 
 [dependencies]
-hypr-language = { workspace = true }
+echonote-language = { workspace = true }
 
 serde = { workspace = true, features = ["derive"] }
 serde_bytes = { workspace = true }

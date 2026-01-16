@@ -8,14 +8,14 @@ import {
   UsersIcon,
 } from "lucide-react";
 
-import { type ImportStats } from "@hypr/plugin-importer";
-import { Button } from "@hypr/ui/components/ui/button";
+import { type ImportStats } from "@echonote/plugin-importer";
+import { Button } from "@echonote/ui/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@hypr/ui/components/ui/tooltip";
+} from "@echonote/ui/components/ui/tooltip";
 
 export function ImportPreview({
   stats,

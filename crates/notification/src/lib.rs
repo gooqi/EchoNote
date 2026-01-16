@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::sync::{Mutex, OnceLock};
 use std::time::{Duration, Instant};
 
-pub use hypr_notification_interface::*;
+pub use echonote_notification_interface::*;
 
 static RECENT_NOTIFICATIONS: OnceLock<Mutex<HashMap<String, Instant>>> = OnceLock::new();
 static NOTIFICATION_CONTEXT: OnceLock<Mutex<HashMap<String, (Option<String>, Instant)>>> =
@@ -40,18 +40,18 @@ fn get_context(key: &str) -> NotificationContext {
     }
 }
 
-fn show_inner(notification: &hypr_notification_interface::Notification) {
+fn show_inner(notification: &echonote_notification_interface::Notification) {
     #[cfg(feature = "new")]
-    hypr_notification_gpui::show(notification);
+    echonote_notification_gpui::show(notification);
 
     #[cfg(all(feature = "legacy", target_os = "macos"))]
-    hypr_notification_macos::show(notification);
+    echonote_notification_macos::show(notification);
 
     #[cfg(all(feature = "legacy", target_os = "linux"))]
-    hypr_notification_linux::show(notification);
+    echonote_notification_linux::show(notification);
 }
 
-pub fn show(notification: &hypr_notification_interface::Notification) {
+pub fn show(notification: &echonote_notification_interface::Notification) {
     let Some(key) = &notification.key else {
         show_inner(notification);
         return;
@@ -84,13 +84,13 @@ pub fn show(notification: &hypr_notification_interface::Notification) {
 
 pub fn clear() {
     #[cfg(feature = "new")]
-    hypr_notification_gpui::dismiss_all();
+    echonote_notification_gpui::dismiss_all();
 
     #[cfg(all(feature = "legacy", target_os = "macos"))]
-    hypr_notification_macos::dismiss_all();
+    echonote_notification_macos::dismiss_all();
 
     #[cfg(all(feature = "legacy", target_os = "linux"))]
-    hypr_notification_linux::dismiss_all();
+    echonote_notification_linux::dismiss_all();
 }
 
 pub fn setup_dismiss_handler<F>(f: F)
@@ -102,7 +102,7 @@ where
     #[cfg(feature = "new")]
     {
         let f = f.clone();
-        hypr_notification_gpui::setup_notification_dismiss_handler(move |key| {
+        echonote_notification_gpui::setup_notification_dismiss_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -110,7 +110,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "macos"))]
     {
         let f = f.clone();
-        hypr_notification_macos::setup_dismiss_handler(move |key| {
+        echonote_notification_macos::setup_dismiss_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -118,7 +118,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "linux"))]
     {
         let f = f.clone();
-        hypr_notification_linux::setup_notification_dismiss_handler(move |key| {
+        echonote_notification_linux::setup_notification_dismiss_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -135,7 +135,7 @@ where
     #[cfg(feature = "new")]
     {
         let f = f.clone();
-        hypr_notification_gpui::setup_notification_confirm_handler(move |key| {
+        echonote_notification_gpui::setup_notification_confirm_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -143,7 +143,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "macos"))]
     {
         let f = f.clone();
-        hypr_notification_macos::setup_collapsed_confirm_handler(move |key| {
+        echonote_notification_macos::setup_collapsed_confirm_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -151,7 +151,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "linux"))]
     {
         let f = f.clone();
-        hypr_notification_linux::setup_notification_confirm_handler(move |key| {
+        echonote_notification_linux::setup_notification_confirm_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -168,7 +168,7 @@ where
     #[cfg(feature = "new")]
     {
         let f = f.clone();
-        hypr_notification_gpui::setup_notification_accept_handler(move |key| {
+        echonote_notification_gpui::setup_notification_accept_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -176,7 +176,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "macos"))]
     {
         let f = f.clone();
-        hypr_notification_macos::setup_expanded_accept_handler(move |key| {
+        echonote_notification_macos::setup_expanded_accept_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -184,7 +184,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "linux"))]
     {
         let f = f.clone();
-        hypr_notification_linux::setup_notification_accept_handler(move |key| {
+        echonote_notification_linux::setup_notification_accept_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -201,7 +201,7 @@ where
     #[cfg(feature = "new")]
     {
         let f = f.clone();
-        hypr_notification_gpui::setup_notification_timeout_handler(move |key| {
+        echonote_notification_gpui::setup_notification_timeout_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -209,7 +209,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "macos"))]
     {
         let f = f.clone();
-        hypr_notification_macos::setup_collapsed_timeout_handler(move |key| {
+        echonote_notification_macos::setup_collapsed_timeout_handler(move |key| {
             f(get_context(&key));
         });
     }
@@ -217,7 +217,7 @@ where
     #[cfg(all(feature = "legacy", target_os = "linux"))]
     {
         let f = f.clone();
-        hypr_notification_linux::setup_notification_timeout_handler(move |key| {
+        echonote_notification_linux::setup_notification_timeout_handler(move |key| {
             f(get_context(&key));
         });
     }

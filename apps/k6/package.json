@@ -1,5 +1,5 @@
 {
-  "name": "@hypr/k6",
+  "name": "@echonote/k6",
   "private": true,
   "scripts": {
     "test:local": "k6 run scripts/websocket/listen.js --env API_URL=ws://localhost:4000",

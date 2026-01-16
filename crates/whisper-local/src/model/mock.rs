@@ -1,5 +1,5 @@
 use crate::Segment;
-use hypr_whisper::Language;
+use echonote_whisper::Language;
 
 #[derive(Default)]
 pub struct WhisperBuilder {}

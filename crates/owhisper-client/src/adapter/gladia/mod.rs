@@ -18,15 +18,15 @@ const SUPPORTED_LANGUAGES: &[&str] = &[
 pub struct GladiaAdapter;
 
 impl GladiaAdapter {
-    pub fn is_supported_languages_live(languages: &[hypr_language::Language]) -> bool {
+    pub fn is_supported_languages_live(languages: &[echonote_language::Language]) -> bool {
         Self::is_supported_languages_impl(languages)
     }
 
-    pub fn is_supported_languages_batch(languages: &[hypr_language::Language]) -> bool {
+    pub fn is_supported_languages_batch(languages: &[echonote_language::Language]) -> bool {
         Self::is_supported_languages_impl(languages)
     }
 
-    fn is_supported_languages_impl(languages: &[hypr_language::Language]) -> bool {
+    fn is_supported_languages_impl(languages: &[echonote_language::Language]) -> bool {
         let primary_lang = languages.first().map(|l| l.iso639().code()).unwrap_or("en");
         SUPPORTED_LANGUAGES.contains(&primary_lang)
     }

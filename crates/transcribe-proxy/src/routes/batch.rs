@@ -81,15 +81,15 @@ pub async fn handler(
 fn build_listen_params(params: &QueryParams) -> ListenParams {
     let model = params.get_first("model").map(|s| s.to_string());
 
-    let languages: Vec<hypr_language::Language> = params
+    let languages: Vec<echonote_language::Language> = params
         .get("language")
         .map(|v| {
             v.iter()
                 .flat_map(|s| s.split(','))
                 .filter_map(|lang| {
-                    hypr_language::ISO639::from_str(lang.trim())
+                    echonote_language::ISO639::from_str(lang.trim())
                         .ok()
-                        .map(hypr_language::Language::from)
+                        .map(echonote_language::Language::from)
                 })
                 .collect()
         })

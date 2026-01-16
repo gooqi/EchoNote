@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 import { useAudioPlayer } from "../../../../../../../contexts/audio-player/provider";
 import { Segment, SegmentWord } from "../../../../../../../utils/segment";

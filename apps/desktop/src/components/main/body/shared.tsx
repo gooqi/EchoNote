@@ -1,9 +1,9 @@
 import { Pin, X } from "lucide-react";
 import { useState } from "react";
 
-import { Kbd } from "@hypr/ui/components/ui/kbd";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
-import { cn } from "@hypr/utils";
+import { Kbd } from "@echonote/ui/components/ui/kbd";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
+import { cn } from "@echonote/utils";
 
 import { useCmdKeyPressed } from "../../../hooks/useCmdKeyPressed";
 import { type Tab } from "../../../store/zustand/tabs";

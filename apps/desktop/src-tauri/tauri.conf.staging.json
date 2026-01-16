@@ -1,11 +1,11 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Hyprnote Staging",
-  "mainBinaryName": "hyprnote-staging",
-  "identifier": "com.hyprnote.staging",
+  "productName": "EchoNote Staging",
+  "mainBinaryName": "echonote-staging",
+  "identifier": "com.echonote.staging",
   "plugins": {
     "deep-link": {
-      "desktop": { "schemes": ["hyprnote-staging"] }
+      "desktop": { "schemes": ["echonote-staging"] }
     },
     "updater": {
       "active": false

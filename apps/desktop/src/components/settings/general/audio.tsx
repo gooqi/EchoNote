@@ -6,8 +6,8 @@ import { useEffect, useMemo, useState } from "react";
 import {
   type AudioDevice,
   commands as audioPriorityCommands,
-} from "@hypr/plugin-audio-priority";
-import { cn } from "@hypr/utils";
+} from "@echonote/plugin-audio-priority";
+import { cn } from "@echonote/utils";
 
 export function Audio() {
   return (

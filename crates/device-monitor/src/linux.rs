@@ -12,7 +12,7 @@ use std::rc::Rc;
 use std::sync::mpsc;
 
 fn is_headphone_from_default_output_device() -> Option<bool> {
-    hypr_audio_device::linux::is_headphone_from_default_output_device()
+    echonote_audio_device::linux::is_headphone_from_default_output_device()
 }
 
 fn setup_pulseaudio(

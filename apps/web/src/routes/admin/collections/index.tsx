@@ -39,25 +39,25 @@ import React, {
   useState,
 } from "react";
 
-import BlogEditor from "@hypr/tiptap/blog-editor";
-import "@hypr/tiptap/styles.css";
+import BlogEditor from "@echonote/tiptap/blog-editor";
+import "@echonote/tiptap/styles.css";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@hypr/ui/components/ui/dialog";
+} from "@echonote/ui/components/ui/dialog";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@hypr/ui/components/ui/resizable";
+} from "@echonote/ui/components/ui/resizable";
 import {
   ScrollFadeOverlay,
   useScrollFade,
-} from "@hypr/ui/components/ui/scroll-fade";
-import { Spinner } from "@hypr/ui/components/ui/spinner";
-import { cn } from "@hypr/utils";
+} from "@echonote/ui/components/ui/scroll-fade";
+import { Spinner } from "@echonote/ui/components/ui/spinner";
+import { cn } from "@echonote/utils";
 
 import { defaultMDXComponents } from "@/components/mdx";
 

@@ -19,7 +19,7 @@ impl TrayVersion {
 }
 
 impl MenuItemHandler for TrayVersion {
-    const ID: &'static str = "hypr_tray_version";
+    const ID: &'static str = "echonote_tray_version";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
         let app_name = &app.package_info().name;

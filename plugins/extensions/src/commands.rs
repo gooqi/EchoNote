@@ -47,7 +47,7 @@ pub async fn list_extensions<R: tauri::Runtime>(
         .map_err(|e| Error::Io(e.to_string()))?
         .join("extensions");
 
-    let extensions = hypr_extensions_runtime::discover_extensions(&extensions_dir);
+    let extensions = echonote_extensions_runtime::discover_extensions(&extensions_dir);
 
     Ok(extensions
         .into_iter()
@@ -110,7 +110,7 @@ pub async fn get_extension<R: tauri::Runtime>(
         .map_err(|e| Error::Io(e.to_string()))?
         .join("extensions");
 
-    let extensions = hypr_extensions_runtime::discover_extensions(&extensions_dir);
+    let extensions = echonote_extensions_runtime::discover_extensions(&extensions_dir);
 
     extensions
         .into_iter()

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { createStore } from "zustand";
 
-import type { StreamResponse, StreamWord } from "@hypr/plugin-listener";
+import type { StreamResponse, StreamWord } from "@echonote/plugin-listener";
 
 import type { RuntimeSpeakerHint, WordLike } from "../../../utils/segment";
 import {

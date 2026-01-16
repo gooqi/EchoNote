@@ -4,9 +4,9 @@ import { useStores } from "tinybase/ui-react";
 import {
   type AppleCalendar,
   commands as appleCalendarCommands,
-} from "@hypr/plugin-apple-calendar";
-import { commands as windowsCommands } from "@hypr/plugin-windows";
-import { cn } from "@hypr/utils";
+} from "@echonote/plugin-apple-calendar";
+import { commands as windowsCommands } from "@echonote/plugin-windows";
+import { cn } from "@echonote/utils";
 
 import {
   type Store as MainStore,

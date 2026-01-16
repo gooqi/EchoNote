@@ -1,5 +1,5 @@
-import type { JsonValue } from "@hypr/plugin-fs-sync";
-import type { OrganizationStorage } from "@hypr/store";
+import type { JsonValue } from "@echonote/plugin-fs-sync";
+import type { OrganizationStorage } from "@echonote/store";
 
 export function frontmatterToOrganization(
   frontmatter: Record<string, unknown>,

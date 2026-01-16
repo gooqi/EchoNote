@@ -1,6 +1,6 @@
 import { Icon } from "@iconify-icon/react";
 
-import { cn } from "@hypr/utils";
+import { cn } from "@echonote/utils";
 
 const CALLOUT_STYLES = {
   note: {

@@ -51,7 +51,7 @@ impl ModelManagerBuilder {
 #[derive(Clone)]
 pub struct ModelManager {
     model_path: PathBuf,
-    model: Arc<Mutex<Option<Arc<hypr_llama::Llama>>>>,
+    model: Arc<Mutex<Option<Arc<echonote_llama::Llama>>>>,
     last_activity: Arc<Mutex<Option<tokio::time::Instant>>>,
     activity_check_interval: Duration,
     inactivity_threshold: Duration,
@@ -73,7 +73,7 @@ impl ModelManager {
         ModelManagerBuilder::default()
     }
 
-    pub async fn get_model(&self) -> Result<Arc<hypr_llama::Llama>, crate::Error> {
+    pub async fn get_model(&self) -> Result<Arc<echonote_llama::Llama>, crate::Error> {
         self.update_activity().await;
 
         let mut guard = self.model.lock().await;
@@ -85,7 +85,7 @@ impl ModelManager {
                     return Err(crate::Error::ModelNotDownloaded);
                 }
 
-                let model = Arc::new(hypr_llama::Llama::new(&self.model_path)?);
+                let model = Arc::new(echonote_llama::Llama::new(&self.model_path)?);
                 *guard = Some(model.clone());
                 Ok(model)
             }

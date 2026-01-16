@@ -108,6 +108,6 @@ pub async fn get_servers<R: tauri::Runtime>(
 
 #[tauri::command]
 #[specta::specta]
-pub fn list_supported_languages(model: SupportedSttModel) -> Vec<hypr_language::Language> {
+pub fn list_supported_languages(model: SupportedSttModel) -> Vec<echonote_language::Language> {
     model.supported_languages()
 }

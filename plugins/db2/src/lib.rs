@@ -14,7 +14,7 @@ pub type ManagedState = Mutex<State>;
 
 #[derive(Default)]
 pub struct State {
-    pub local_db: Option<hypr_db_core::Database>,
+    pub local_db: Option<echonote_db_core::Database>,
     pub cloud_db: Option<tokio_postgres::Client>,
 }
 

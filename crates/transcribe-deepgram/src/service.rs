@@ -8,7 +8,7 @@ use axum::{
     http::{Response, StatusCode},
     response::IntoResponse,
 };
-use hypr_audio_utils::mix_audio_pcm16le;
+use echonote_audio_utils::mix_audio_pcm16le;
 use std::{
     future::Future,
     pin::Pin,

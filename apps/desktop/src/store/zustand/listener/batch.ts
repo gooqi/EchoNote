@@ -1,6 +1,6 @@
 import type { StoreApi } from "zustand";
 
-import type { BatchResponse, StreamResponse } from "@hypr/plugin-listener2";
+import type { BatchResponse, StreamResponse } from "@echonote/plugin-listener2";
 
 import {
   ChannelProfile,
