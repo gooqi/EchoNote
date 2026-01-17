@@ -99,7 +99,7 @@ def crop_to_content(img: Image.Image) -> Image.Image:
         img: Source image with potential whitespace around content
 
     Returns:
-        Cropped image containing only the content, made square
+        Cropped image containing only the content, made square, with white corners transparent
     """
     img = img.convert("RGBA")
     pixels = img.load()
@@ -120,6 +120,14 @@ def crop_to_content(img: Image.Image) -> Image.Image:
 
     # Crop to content
     content = img.crop((min_x, min_y, max_x + 1, max_y + 1))
+
+    # Convert white/near-white pixels to transparent (for rounded corners)
+    content_pixels = content.load()
+    for y in range(content.height):
+        for x in range(content.width):
+            r, g, b, a = content_pixels[x, y]
+            if r > 250 and g > 250 and b > 250:
+                content_pixels[x, y] = (r, g, b, 0)
 
     # Make it square
     content_width, content_height = content.size
