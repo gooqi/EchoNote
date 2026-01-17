@@ -92,6 +92,36 @@ def crop_menu_bar_icon():
     return final_icon
 
 
+def add_padding_to_icon(img: Image.Image, padding_percent: float = 0.1) -> Image.Image:
+    """Add padding around the icon content for macOS style icons.
+
+    Args:
+        img: Source image
+        padding_percent: Padding as percentage of canvas size (0.1 = 10% on each side)
+
+    Returns:
+        New image with padding added
+    """
+    width, height = img.size
+
+    # Calculate new content size (content will be smaller to add padding)
+    content_size = int(width * (1 - 2 * padding_percent))
+
+    # Resize content to fit within padded area
+    content = img.resize((content_size, content_size), Image.Resampling.LANCZOS)
+
+    # Create new canvas with transparent background
+    new_img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+
+    # Calculate position to center the content
+    offset = (width - content_size) // 2
+
+    # Paste content centered
+    new_img.paste(content, (offset, offset), content if content.mode == 'RGBA' else None)
+
+    return new_img
+
+
 def generate_desktop_icons(variant: str = "stable"):
     """Generate all desktop icons for a given variant"""
     print(f"\nGenerating desktop icons for {variant}...")
@@ -100,8 +130,13 @@ def generate_desktop_icons(variant: str = "stable"):
     variant_dir.mkdir(parents=True, exist_ok=True)
 
     # Load source image
-    src_img = Image.open(MAIN_ICON_SRC)
+    src_img = Image.open(MAIN_ICON_SRC).convert("RGBA")
     print(f"  Source size: {src_img.size}")
+
+    # Add padding to source image for macOS-style icons
+    # macOS icons typically have ~10% padding on each side
+    src_img_padded = add_padding_to_icon(src_img, padding_percent=0.10)
+    print(f"  Added 10% padding for macOS-style icons")
 
     # Standard sizes for desktop
     standard_sizes = {
@@ -113,7 +148,7 @@ def generate_desktop_icons(variant: str = "stable"):
         "128x128@2x.png": 256,
     }
 
-    # Windows Square logos
+    # Windows Square logos (Windows icons don't need padding)
     square_sizes = {
         "Square30x30Logo.png": 30,
         "Square44x44Logo.png": 44,
@@ -127,9 +162,15 @@ def generate_desktop_icons(variant: str = "stable"):
         "StoreLogo.png": 50,
     }
 
-    all_sizes = {**standard_sizes, **square_sizes}
+    # Generate standard icons with padding
+    for filename, size in standard_sizes.items():
+        resized = src_img_padded.resize((size, size), Image.Resampling.LANCZOS)
+        output_path = variant_dir / filename
+        resized.save(output_path, "PNG")
+        print(f"  Generated: {filename} ({size}x{size})")
 
-    for filename, size in all_sizes.items():
+    # Generate Windows icons without padding
+    for filename, size in square_sizes.items():
         resized = src_img.resize((size, size), Image.Resampling.LANCZOS)
         output_path = variant_dir / filename
         resized.save(output_path, "PNG")
@@ -148,8 +189,9 @@ def generate_icns(variant_dir: Path):
         shutil.rmtree(iconset_dir)
     iconset_dir.mkdir()
 
-    # Load source
-    src_img = Image.open(MAIN_ICON_SRC)
+    # Load source and add padding for macOS
+    src_img = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img_padded = add_padding_to_icon(src_img, padding_percent=0.10)
 
     # Required sizes for iconset
     iconset_sizes = [
@@ -166,7 +208,7 @@ def generate_icns(variant_dir: Path):
     ]
 
     for filename, size in iconset_sizes:
-        resized = src_img.resize((size, size), Image.Resampling.LANCZOS)
+        resized = src_img_padded.resize((size, size), Image.Resampling.LANCZOS)
         resized.save(iconset_dir / filename, "PNG")
 
     # Convert to icns using iconutil
