@@ -37,7 +37,7 @@ pub async fn main() {
 
         if let Some(dsn) = dsn {
             let release =
-                option_env!("APP_VERSION").map(|v| format!("hyprnote-desktop@{}", v).into());
+                option_env!("APP_VERSION").map(|v| format!("echonote-desktop@{}", v).into());
 
             let client = sentry::init((
                 dsn,

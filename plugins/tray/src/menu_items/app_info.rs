@@ -14,7 +14,7 @@ impl MenuItemHandler for AppInfo {
     const ID: &'static str = "echonote_app_info";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
-        let item = MenuItem::with_id(app, Self::ID, "About Hyprnote", true, None::<&str>)?;
+        let item = MenuItem::with_id(app, Self::ID, "About EchoNote", true, None::<&str>)?;
         Ok(MenuItemKind::MenuItem(item))
     }
 
@@ -32,7 +32,7 @@ impl MenuItemHandler for AppInfo {
 
         app.dialog()
             .message(&message)
-            .title("About Hyprnote")
+            .title("About EchoNote")
             .buttons(MessageDialogButtons::OkCancelCustom(
                 "Copy".to_string(),
                 "Cancel".to_string(),

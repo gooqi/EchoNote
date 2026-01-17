@@ -11,7 +11,7 @@ impl MenuItemHandler for TrayOpen {
     const ID: &'static str = "echonote_tray_open";
 
     fn build(app: &AppHandle<tauri::Wry>) -> Result<MenuItemKind<tauri::Wry>> {
-        let item = MenuItem::with_id(app, Self::ID, "Open Hyprnote", true, None::<&str>)?;
+        let item = MenuItem::with_id(app, Self::ID, "Open EchoNote", true, None::<&str>)?;
         Ok(MenuItemKind::MenuItem(item))
     }
 

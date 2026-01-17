@@ -92,11 +92,51 @@ def crop_menu_bar_icon():
     return final_icon
 
 
+def crop_to_content(img: Image.Image) -> Image.Image:
+    """Crop image to its actual content, removing surrounding whitespace/transparency.
+
+    Args:
+        img: Source image with potential whitespace around content
+
+    Returns:
+        Cropped image containing only the content, made square
+    """
+    img = img.convert("RGBA")
+    pixels = img.load()
+    width, height = img.size
+
+    # Find bounding box of non-white/non-transparent content
+    min_x, min_y, max_x, max_y = width, height, 0, 0
+
+    for y in range(height):
+        for x in range(width):
+            r, g, b, a = pixels[x, y]
+            # If not white/transparent (has actual content)
+            if a > 10 and not (r > 250 and g > 250 and b > 250):
+                min_x = min(min_x, x)
+                min_y = min(min_y, y)
+                max_x = max(max_x, x)
+                max_y = max(max_y, y)
+
+    # Crop to content
+    content = img.crop((min_x, min_y, max_x + 1, max_y + 1))
+
+    # Make it square
+    content_width, content_height = content.size
+    size = max(content_width, content_height)
+    square = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    paste_x = (size - content_width) // 2
+    paste_y = (size - content_height) // 2
+    square.paste(content, (paste_x, paste_y), content)
+
+    return square
+
+
 def add_padding_to_icon(img: Image.Image, padding_percent: float = 0.1) -> Image.Image:
     """Add padding around the icon content for macOS style icons.
 
     Args:
-        img: Source image
+        img: Source image (should be cropped to content first)
         padding_percent: Padding as percentage of canvas size (0.1 = 10% on each side)
 
     Returns:
@@ -129,9 +169,13 @@ def generate_desktop_icons(variant: str = "stable"):
     variant_dir = ICONS_DIR / variant
     variant_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load source image
-    src_img = Image.open(MAIN_ICON_SRC).convert("RGBA")
-    print(f"  Source size: {src_img.size}")
+    # Load source image and crop to actual content
+    src_img_raw = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    print(f"  Raw source size: {src_img_raw.size}")
+
+    # First crop to remove whitespace around the icon
+    src_img = crop_to_content(src_img_raw)
+    print(f"  Cropped to content: {src_img.size}")
 
     # Add padding to source image for macOS-style icons
     # macOS icons typically have ~10% padding on each side
@@ -189,8 +233,9 @@ def generate_icns(variant_dir: Path):
         shutil.rmtree(iconset_dir)
     iconset_dir.mkdir()
 
-    # Load source and add padding for macOS
-    src_img = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    # Load source, crop to content, and add padding for macOS
+    src_img_raw = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img = crop_to_content(src_img_raw)
     src_img_padded = add_padding_to_icon(src_img, padding_percent=0.10)
 
     # Required sizes for iconset
@@ -233,7 +278,8 @@ def generate_ico(variant_dir: Path):
     """Generate Windows .ico file"""
     print("\nGenerating Windows .ico file...")
 
-    src_img = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img_raw = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img = crop_to_content(src_img_raw)
     ico_path = variant_dir / "icon.ico"
 
     # ICO file with multiple sizes (256 is the max for ICO format)
@@ -257,7 +303,8 @@ def generate_android_icons(variant_dir: Path):
     """Generate Android icons"""
     print("\nGenerating Android icons...")
 
-    src_img = Image.open(MAIN_ICON_SRC)
+    src_img_raw = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img = crop_to_content(src_img_raw)
     android_dir = variant_dir / "android"
 
     # Remove existing android directory and recreate
@@ -301,7 +348,8 @@ def generate_ios_icons(variant_dir: Path):
     """Generate iOS icons"""
     print("\nGenerating iOS icons...")
 
-    src_img = Image.open(MAIN_ICON_SRC)
+    src_img_raw = Image.open(MAIN_ICON_SRC).convert("RGBA")
+    src_img = crop_to_content(src_img_raw)
     ios_dir = variant_dir / "ios"
 
     # Remove existing ios directory and recreate
