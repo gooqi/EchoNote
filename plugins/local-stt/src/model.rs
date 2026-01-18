@@ -1,7 +1,8 @@
 use echonote_am::AmModel;
+use echonote_vosk_model::VoskModel;
 use echonote_whisper_local_model::WhisperModel;
 
-pub static SUPPORTED_MODELS: [SupportedSttModel; 10] = [
+pub static SUPPORTED_MODELS: [SupportedSttModel; 14] = [
     SupportedSttModel::Whisper(WhisperModel::QuantizedTiny),
     SupportedSttModel::Whisper(WhisperModel::QuantizedTinyEn),
     SupportedSttModel::Whisper(WhisperModel::QuantizedBase),
@@ -12,6 +13,10 @@ pub static SUPPORTED_MODELS: [SupportedSttModel; 10] = [
     SupportedSttModel::Am(AmModel::ParakeetV2),
     SupportedSttModel::Am(AmModel::ParakeetV3),
     SupportedSttModel::Am(AmModel::WhisperLargeV3),
+    SupportedSttModel::Vosk(VoskModel::SmallCn),
+    SupportedSttModel::Vosk(VoskModel::LargeCn),
+    SupportedSttModel::Vosk(VoskModel::SmallEn),
+    SupportedSttModel::Vosk(VoskModel::LargeEn),
 ];
 
 #[derive(serde::Serialize, serde::Deserialize, specta::Type)]
@@ -26,6 +31,7 @@ pub struct SttModelInfo {
 pub enum SupportedSttModel {
     Whisper(WhisperModel),
     Am(AmModel),
+    Vosk(VoskModel),
 }
 
 impl std::fmt::Display for SupportedSttModel {
@@ -33,6 +39,7 @@ impl std::fmt::Display for SupportedSttModel {
         match self {
             SupportedSttModel::Whisper(model) => write!(f, "whisper-{}", model),
             SupportedSttModel::Am(model) => write!(f, "am-{}", model),
+            SupportedSttModel::Vosk(model) => write!(f, "vosk-{}", model),
         }
     }
 }
@@ -189,6 +196,12 @@ impl SupportedSttModel {
                 echonote_am::AmModel::ParakeetV3 => parakeet_v3_languages,
                 echonote_am::AmModel::WhisperLargeV3 => whisper_multi_languages,
             },
+            SupportedSttModel::Vosk(model) => match model {
+                echonote_vosk_model::VoskModel::SmallCn
+                | echonote_vosk_model::VoskModel::LargeCn => vec![ISO639::Zh.into()],
+                echonote_vosk_model::VoskModel::SmallEn
+                | echonote_vosk_model::VoskModel::LargeEn => vec![ISO639::En.into()],
+            },
         }
     }
 
@@ -200,6 +213,11 @@ impl SupportedSttModel {
                 size_bytes: model.model_size_bytes(),
             },
             SupportedSttModel::Am(model) => SttModelInfo {
+                key: self.clone(),
+                display_name: model.display_name().to_string(),
+                size_bytes: model.model_size_bytes(),
+            },
+            SupportedSttModel::Vosk(model) => SttModelInfo {
                 key: self.clone(),
                 display_name: model.display_name().to_string(),
                 size_bytes: model.model_size_bytes(),

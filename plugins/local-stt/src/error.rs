@@ -7,6 +7,8 @@ pub enum Error {
     #[error(transparent)]
     AmError(#[from] echonote_am::Error),
     #[error(transparent)]
+    VoskError(#[from] echonote_vosk_model::Error),
+    #[error(transparent)]
     HyprFileError(#[from] echonote_file::Error),
     #[error(transparent)]
     ShellError(#[from] tauri_plugin_shell::Error),

@@ -68,6 +68,7 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
 
                 Ok(true)
             }
+            SupportedSttModel::Vosk(model) => Ok(model.is_downloaded(self.models_dir())?),
         }
     }
 
@@ -76,6 +77,9 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
         let server_type = match &model {
             SupportedSttModel::Am(_) => ServerType::External,
             SupportedSttModel::Whisper(_) => ServerType::Internal,
+            SupportedSttModel::Vosk(_) => {
+                return Err(crate::Error::UnsupportedModelType);
+            }
         };
 
         let current_info = match server_type {
@@ -290,6 +294,67 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
 
                 Ok(())
             }
+            SupportedSttModel::Vosk(m) => {
+                let zip_path = self.models_dir().join(format!("{}.zip", m.file_name()));
+                let final_path = self.models_dir();
+                let cancellation_token = CancellationToken::new();
+                let token_clone = cancellation_token.clone();
+                let model_for_task = model.clone();
+                let state_clone = state_for_cleanup.clone();
+                let model_for_cleanup = model.clone();
+
+                let task = tokio::spawn(async move {
+                    let callback = create_progress_callback(model_for_task.clone());
+
+                    let result = download_file_parallel_cancellable(
+                        m.model_url(),
+                        &zip_path,
+                        callback,
+                        Some(token_clone),
+                    )
+                    .await;
+
+                    let cleanup = || async {
+                        let mut s = state_clone.lock().await;
+                        s.download_task.remove(&model_for_cleanup);
+                    };
+
+                    if let Err(e) = result {
+                        if !matches!(e, echonote_file::Error::Cancelled) {
+                            tracing::error!("model_download_error: {}", e);
+                            let _ = DownloadProgressPayload {
+                                model: model_for_task.clone(),
+                                progress: -1,
+                            }
+                            .emit(&app_handle_for_error);
+                        }
+                        cleanup().await;
+                        return;
+                    }
+
+                    if let Err(e) = m.zip_verify_and_unpack(&zip_path, &final_path) {
+                        tracing::error!("model_unpack_error: {}", e);
+                        let _ = DownloadProgressPayload {
+                            model: model_for_task.clone(),
+                            progress: -1,
+                        }
+                        .emit(&app_handle_for_error);
+                        cleanup().await;
+                        return;
+                    }
+
+                    cleanup().await;
+                });
+
+                {
+                    let state = self.manager.state::<crate::SharedState>();
+                    let mut s = state.lock().await;
+                    s.download_task
+                        .insert(model.clone(), (task, cancellation_token));
+                }
+
+                Ok(())
+            }
             SupportedSttModel::Whisper(m) => {
                 let model_path = self.models_dir().join(m.file_name());
                 let cancellation_token = CancellationToken::new();
@@ -385,6 +450,10 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
                     let tar_path = self.models_dir().join(format!("{}.tar", m.model_dir()));
                     let _ = std::fs::remove_file(&tar_path);
                 }
+                SupportedSttModel::Vosk(m) => {
+                    let zip_path = self.models_dir().join(format!("{}.zip", m.file_name()));
+                    let _ = std::fs::remove_file(&zip_path);
+                }
                 SupportedSttModel::Whisper(m) => {
                     let model_path = self.models_dir().join(m.file_name());
                     let _ = std::fs::remove_file(&model_path);
@@ -421,6 +490,13 @@ impl<'a, R: Runtime, M: Manager<R>> LocalStt<'a, R, M> {
         match model {
             SupportedSttModel::Am(m) => {
                 let model_dir = self.models_dir().join(m.model_dir());
+                if model_dir.exists() {
+                    std::fs::remove_dir_all(&model_dir)
+                        .map_err(|e| crate::Error::ModelDeleteFailed(e.to_string()))?;
+                }
+            }
+            SupportedSttModel::Vosk(m) => {
+                let model_dir = self.models_dir().join(m.file_name());
                 if model_dir.exists() {
                     std::fs::remove_dir_all(&model_dir)
                         .map_err(|e| crate::Error::ModelDeleteFailed(e.to_string()))?;

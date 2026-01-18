@@ -46,6 +46,7 @@ echonote-transcribe-moonshine = { workspace = true }
 echonote-transcribe-whisper-local = { workspace = true }
 echonote-whisper-local = { workspace = true }
 echonote-whisper-local-model = { workspace = true }
+echonote-vosk-model = { workspace = true }
 
 owhisper-client = { workspace = true }
 owhisper-interface = { workspace = true }

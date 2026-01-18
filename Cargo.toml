@@ -105,6 +105,7 @@ echonote-vvad = { path = "crates/vvad", package = "vvad" }
 echonote-whisper = { path = "crates/whisper", package = "whisper" }
 echonote-whisper-local = { path = "crates/whisper-local", package = "whisper-local" }
 echonote-whisper-local-model = { path = "crates/whisper-local-model", package = "whisper-local-model" }
+echonote-vosk-model = { path = "crates/vosk-model", package = "vosk-model" }
 echonote-ws-client = { path = "crates/ws-client", package = "ws-client" }
 echonote-ws-utils = { path = "crates/ws-utils", package = "ws-utils" }
 
@@ -224,6 +225,7 @@ statig = "0.4"
 strum = "0.26"
 tempfile = "3"
 thiserror = "2"
+zip = "2.2"
 url = "2"
 uuid = "1"
 
